@@ -1,6 +1,5 @@
 import React from 'react'
-import './Footer.css';
-import { Link } from 'react-router-dom';
+import './Footer.css'; 
 function Footer() {
   return (
     <>
@@ -11,24 +10,24 @@ function Footer() {
           </div>
           <div>
           <div className='footerDetails'>
-            <div><Link to="/">REGISTER</Link></div>
-            <div><Link to="/">CONTACT</Link></div>
-            <div><Link to="/">OUR TEAM</Link></div>
+            <div><a href="/">REGISTER</a></div>
+            <div><a href="/">CONTACT</a></div>
+            <div><a href="/">OUR TEAM</a></div>
           </div>
           </div>
           <div className='footerSocial'>
             <p>SOCIALIZE WITH US</p>
             <div className='sociaMedia'>
-              <div><Link to="/"><i className="fa-brands fa-instagram"></i></Link></div>
-              <div><Link to="/"><i className="fa-brands fa-twitter "></i></Link></div>
-              <div><Link to="/"><i className="fa-brands fa-facebook-f"></i></Link></div>
-              <div><Link to-="/"><i className="fa-brands fa-linkedin-in"></i></Link></div>
+              <div><a href="/"><i className="fa-brands fa-instagram"></i></a></div>
+              <div><a href="/"><i className="fa-brands fa-twitter "></i></a></div>
+              <div><a href="/"><i className="fa-brands fa-facebook-f"></i></a></div>
+              <div><a href="/"><i className="fa-brands fa-linkedin-in"></i></a></div>
             </div>
           </div>
         </div>
         <div className="dev">
-            <div><Link to="/"></Link></div>
-            <div><Link to="/"><i className="fa-brands fa-twitter "></i></Link></div>
+            <div><a href="/"></a></div>
+            <div><a href="/"><i className="fa-brands fa-twitter "></i></a></div>
 
         </div>
         <div className="copyR">
