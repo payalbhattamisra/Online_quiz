@@ -15,6 +15,8 @@ function Footer() {
             <div><a href="/">OUR TEAM</a></div>
           </div>
           </div>
+
+          
           <div className='footerSocial'>
             <p>SOCIALIZE WITH US</p>
             <div className='sociaMedia'>
@@ -25,11 +27,15 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="dev">
-            <div><a href="/"></a></div>
-            <div><a href="/"><i className="fa-brands fa-twitter "></i></a></div>
 
+
+        <div className="dev">
+        <div><a href="/"><i className="fa-brands fa-facebook-f"></i></a></div>
+        <div><a href="/"><i className="fa-brands fa-linkedin-in"></i></a></div>
         </div>
+
+
+
         <div className="copyR">
           Copyright @2024 Gyankosh, All Rights Reserved 
         </div>
