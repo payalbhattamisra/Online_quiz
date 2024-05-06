@@ -12,6 +12,7 @@ function Footer() {
           <div>
             <h1>ज्ञानकोश</h1>
           </div>
+          <div className='vertical'></div>
 
 
           <div>
@@ -21,10 +22,11 @@ function Footer() {
             <div><a href="/">HELP CENTER</a></div>
           </div>
           </div>
+          <div className='vertical'></div>
 
 
           <div className='footerSocial'>
-            <div>SOCIALIZE WITH US</div>
+            <p>SOCIALIZE WITH US</p>
             <div className='sociaMedia'>
               <div><a href="/"><i className="fa-brands fa-instagram"></i></a></div>
               <div><a href="/"><i className="fa-brands fa-twitter "></i></a></div>
@@ -35,11 +37,15 @@ function Footer() {
 
         </div>
 
-      {/* 
+        <div className="horizontal"></div>
+
+      
         <div className="dev">
-        <div><a href="/"></a></div>
-        <div><a href="/"></a></div>
-        </div> */}
+          <div>Devloper:</div>
+        <div><a href="/"><p>Govinda Mahanti</p></a></div>
+        <div>, </div>
+        <div><a href="/"><p>Payal Bhattamisra</p></a></div>
+        </div>
 
 
 
