@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.nav{
+    height:15vh;
+    background-color: aliceblue;
+    display: flex;
+}
+h1{
+    color:rgb(30, 6, 53);
+    padding:10px 20px 10px 20px;
+}
+.space{
+    width:33vw;
+    /* background-color: aquamarine; */
+}
+.btn{
+    display: flex;
+}
+         
+.btn-grad,button {
+    background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
+    margin: 10px;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
