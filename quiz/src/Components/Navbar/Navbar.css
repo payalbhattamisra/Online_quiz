@@ -10,20 +10,25 @@
 }
 h1{
     color:rgb(30, 6, 53);
-    padding:10px 20px 10px 20px;
+    padding:10px 20px 10px 25px;
 }
 .space{
-    width:33vw;
+    width:42vw;
     /* background-color: aquamarine; */
+    padding:23px;
 }
+ a{
+    text-decoration: none;
+    padding-right: 25px;
+ }
 .btn{
     display: flex;
 }
          
 .btn-grad,button {
     background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
-    margin: 10px;
-    padding: 10px 25px;
+    margin:14px;
+    padding: 3px 10px;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -32,6 +37,7 @@ h1{
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     display: block;
+    font-size: 12px;
   }
 
   .btn-grad:hover {
