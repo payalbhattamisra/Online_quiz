@@ -1,7 +1,12 @@
 *{
   margin:0;
-  padding: 0;
+  padding:0;
   box-sizing: border-box;
   overflow-x: hidden;
+<<<<<<< HEAD
   
 }
+=======
+  scroll-behavior: smooth;
+}
+>>>>>>> 1d8f9bb88a30302ce6fdc42c9bc2900189c58515
