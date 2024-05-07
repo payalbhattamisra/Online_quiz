@@ -6,7 +6,9 @@ function Banner() {
       <div className='page1'>
         <div className="part1"> 
         <h1>Free Online <span>quiz maker</span></h1>
-        <div className='page2'></div>
+        <div className='page2'>
+          <div></div>
+        </div>
         </div>
       </div>
     </>
