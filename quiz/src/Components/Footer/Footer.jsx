@@ -47,8 +47,6 @@ function Footer() {
         <div><a href="/"><p>Payal Bhattamisra</p></a></div>
         </div>
 
-
-
         <div className="copyR">
           Copyright @2024 Gyankosh, All Rights Reserved 
         </div>
