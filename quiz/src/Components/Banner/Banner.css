@@ -1,9 +1,14 @@
 .page1{
-    width:100px;
-    height:450px;
+    width:1100px;
+    height:430px;
+    background-color: blue;
     }
-.part1{
-    height:300px;
-    width:600px;
+ .part1{
+    width:100%;
+    height:40%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     background-color: aqua;
-}
+    font-size: 33px;
+ }
