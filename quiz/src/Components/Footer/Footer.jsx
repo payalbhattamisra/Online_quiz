@@ -37,19 +37,18 @@ function Footer() {
 
         <div className="horizontal"></div>
 
-      
-        {/* <div className="dev">
-          <div>Devloper:</div>
-        <div><a className='devName' href="/"><p>Govinda Mahanti</p></a></div>
-        <div>, </div>
-        <div><a className='devName' href="/"><p>Payal Bhattamisra</p></a></div>
-        </div> */}
-
-
-
         <div className="copyR">
           Copyright @2024 Gyankosh, All Rights Reserved 
         </div>
+      
+        <div className="dev">
+          <div><a className='devName' href="/"><p>Govinda Mahanti</p></a></div>
+          <div>, </div>
+          <div><a className='devName' href="/"><p>Payal Bhattamisra</p></a></div>
+        </div>
+
+
+
       </div>
     </>
   )

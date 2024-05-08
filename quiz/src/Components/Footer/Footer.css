@@ -1,6 +1,6 @@
 .footer{
     background-color: #b8ffcb;
-    height: 300px;
+    height: 320px;
 }
 .info{
     height: 220px;
@@ -106,15 +106,6 @@
     background-image: linear-gradient(to right, #3a3647,#A69CD0,#3a3647);
     margin: auto;
 }
-.dev{
-    width: fit-content;
-    display: flex;
-    /* align-items: center; */
-    margin: auto;
-}
-/* .devName{
-    text-decoration: none;
-} */
 .copyR{
     width: fit-content;
     display: flex;
@@ -123,3 +114,17 @@
     margin-top: 20px;
     font-weight: 700;
 }
+    .dev{
+        width: fit-content;
+        display: flex;
+        margin-top: 20px;
+        float: right;
+        font-style: italic;
+        position: sticky;
+        bottom: 0px;
+        right: 0px;
+        
+    }
+    .devName{
+        text-decoration: none;
+    }
