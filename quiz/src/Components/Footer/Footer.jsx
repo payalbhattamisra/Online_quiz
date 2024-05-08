@@ -9,18 +9,16 @@ function Footer() {
         <div className='info'>
 
 
-          <div>
+          <div className='nameGyan'>
             <h1>ज्ञानकोश</h1>
           </div>
           <div className='vertical'></div>
 
 
-          <div>
           <div className='footerDetails'>
             <div><a href="/">CONTACT US</a></div>
             <div><a href="/">ABOUT US</a></div>
             <div><a href="/">HELP CENTER</a></div>
-          </div>
           </div>
           <div className='vertical'></div>
 
