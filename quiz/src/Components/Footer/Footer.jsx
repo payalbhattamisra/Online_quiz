@@ -26,10 +26,10 @@ function Footer() {
           <div className='footerSocial'>
             <p>SOCIALIZE WITH US</p>
             <div className='sociaMedia'>
-              <div><a href="/"><i className="fa-brands fa-instagram"></i></a></div>
-              <div><a href="/"><i className="fa-brands fa-twitter "></i></a></div>
-              <div><a href="/"><i className="fa-brands fa-facebook-f"></i></a></div>
-              <div><a href="/"><i className="fa-brands fa-linkedin-in"></i></a></div>
+              <div><a className='socialMediaSite' href="/"><i className="fa-brands fa-instagram"></i></a></div>
+              <div><a className='socialMediaSite' href="/"><i className="fa-brands fa-twitter "></i></a></div>
+              <div><a className='socialMediaSite' href="/"><i className="fa-brands fa-facebook-f"></i></a></div>
+              <div><a className='socialMediaSite' href="/"><i className="fa-brands fa-linkedin-in"></i></a></div>
             </div>
           </div>
 
@@ -38,12 +38,12 @@ function Footer() {
         <div className="horizontal"></div>
 
       
-        <div className="dev">
+        {/* <div className="dev">
           <div>Devloper:</div>
-        <div><a href="/"><p>Govinda Mahanti</p></a></div>
+        <div><a className='devName' href="/"><p>Govinda Mahanti</p></a></div>
         <div>, </div>
-        <div><a href="/"><p>Payal Bhattamisra</p></a></div>
-        </div>
+        <div><a className='devName' href="/"><p>Payal Bhattamisra</p></a></div>
+        </div> */}
 
 
 
