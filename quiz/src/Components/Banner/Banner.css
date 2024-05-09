@@ -24,7 +24,12 @@
     text-align: center;
     padding-top: 0px;
  }
- .createquiz>button {
+
+ .createquiz{
+height: 90px;
+
+}
+.createquiz>button {
     font-family: inherit;
     font-size: 20px;
     background: royalblue;
@@ -39,6 +44,7 @@
     overflow: hidden;
     transition: all 0.2s;
     cursor: pointer;
+    margin: auto;
   }
   
   button span {

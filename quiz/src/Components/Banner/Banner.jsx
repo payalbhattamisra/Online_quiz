@@ -10,12 +10,13 @@ function Banner() {
         <div className='page2'>
           <p>Make a quiz with different question types to engage students in a classroom,
           <br/><p>  train employees at work, or play trivia with friends.</p></p>  
+          </div>
           <div> 
          
         <div className='createquiz'>
         <button>
-  <div class="svg-wrapper-1">
-    <div class="svg-wrapper">
+          <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -33,7 +34,6 @@ function Banner() {
   <span>Create a quiz</span>
 </button>
 
-        </div>
         </div>
         </div>
       </div>
