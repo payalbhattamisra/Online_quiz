@@ -3,7 +3,7 @@
     background-color: aliceblue;
     display: flex;
 }
-h1{
+.nav>h1{
     color:rgb(30, 6, 53);
     padding:10px 20px 10px 20px;
 }
@@ -37,7 +37,7 @@ h1{
 
 }
          
-.btn-grad,button {
+.btn>.btn-grad,button {
     background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
     margin:14px;
     padding: 3px 10px;
@@ -62,7 +62,7 @@ h1{
     display: flex;
 }
          
-.btn-grad,button {
+.btn1>.btn-grad,button {
     background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
     margin:14px;
     padding: 3px 10px;

@@ -13,10 +13,10 @@ function Navbar() {
        <a className='options' id="faqs" href="/">Rule</a>
       </div>
       <div className="btn">
-        <button>Contact us</button>
-        <button>Enter Code</button>
-        <button>Login</button>
-        <button>Sign up</button>
+        <button className='btn1'>Contact us</button>
+        <button className='btn1'>Enter Code</button>
+        <button className='btn1'>Login</button>
+        <button className='btn1'>Sign up</button>
       </div>
     </div>
     
