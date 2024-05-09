@@ -5,7 +5,7 @@
 }
 h1{
     color:rgb(30, 6, 53);
-    padding:10px 20px 10px 25px;
+    padding:10px 20px 10px 20px;
 }
 .nav{
     height:70px;
@@ -13,7 +13,7 @@ h1{
     display: flex;
 }
 .logo{
-    width: 12%;
+    width: 15%;
     color:rgb(30, 6, 53);
     display: flex;
     align-items: center;
