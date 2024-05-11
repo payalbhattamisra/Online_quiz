@@ -25,7 +25,9 @@ function Description() {
               and their relationships.
             </p>
           </div>
-          <img src="/" alt="" />
+          <div className="aboutImage">
+          <img src="./Images/quiz1.png" alt="" />
+          </div>
         </div>
         <div className="descPara3">
           <img src="/" alt="" />
