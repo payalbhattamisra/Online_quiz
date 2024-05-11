@@ -3,14 +3,9 @@
     background-color: aliceblue;
     display: flex;
 }
-.nav>h1{
+.navbarName{
     color:rgb(30, 6, 53);
     padding:10px 20px 10px 20px;
-}
-.nav{
-    height:70px;
-    background-color: aliceblue;
-    display: flex;
 }
 .logo{
     width: 15%;
@@ -27,6 +22,8 @@
     gap: 32px;
 }
 .options{
+    color:rgb(30, 6, 53);
+
     text-decoration: none;
  }
 .btn{

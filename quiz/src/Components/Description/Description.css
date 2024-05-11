@@ -1,11 +1,3 @@
-.aboutImage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 10px;
-}
-.aboutImage>img{
-    width: 190px;
-
+.desc>div{
+    color: white;
 }

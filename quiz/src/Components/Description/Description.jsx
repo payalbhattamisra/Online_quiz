@@ -3,7 +3,7 @@ import React from "react";
 function Description() {
   return (
     <>
-      <div className="desc">
+      <div className='desc'>
         <div className="headline">
           <h1>Make your own quiz with our online quiz maker</h1>
         </div>
@@ -30,7 +30,7 @@ function Description() {
           </div>
         </div>
         <div className="descPara3">
-          <img src="/" alt="" />
+          <img src="./Images/quiz2.webp" alt="" />
           <div className="about1">
             <h1>Quizizz for Work</h1>
             <p>
