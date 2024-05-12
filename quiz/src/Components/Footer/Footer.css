@@ -1,6 +1,7 @@
 .footer{
     background-color: #b8ffcb;
     height: 320px;
+    color: #0B0715;
 }
 .info{
     height: 220px;
@@ -60,6 +61,7 @@
     line-height: normal;
 }
 .footerSocial>p{
+    color: #0B0715;
     font-size: 17px;
     font-weight: 600;
 }
