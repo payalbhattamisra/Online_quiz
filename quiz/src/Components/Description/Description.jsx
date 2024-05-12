@@ -1,11 +1,12 @@
 import React from "react";
+import './Description.css'
 
 function Description() {
   return (
     <>
       <div className='desc'>
         <div className="headline">
-          <h1>Make your own quiz with our online quiz maker</h1>
+          <h2>Make your own quiz with our online quiz maker</h2>
         </div>
         <div className="descPara1">
           <p>
@@ -18,7 +19,7 @@ function Description() {
         </div>
         <div className="descPara2">
           <div className="about1">
-            <h1>Quizizz for Schools</h1>
+            <h3>Quizizz for College</h3>
             <p>
               Craft questions that enable students to identify multiple relevant
               areas, challenging them to think deeply about the image's elements
@@ -30,9 +31,11 @@ function Description() {
           </div>
         </div>
         <div className="descPara3">
-          <img src="./Images/quiz2.webp" alt="" />
+          <div className="aboutImage">
+          <img src="./Images/quiz1.png" alt="" />
+          </div>
           <div className="about1">
-            <h1>Quizizz for Work</h1>
+            <h3>Quizizz for Work</h3>
             <p>
               Make employee training and education fun with Quizizz for Work.
               Our online quiz maker enables you to facilitate live engagement
