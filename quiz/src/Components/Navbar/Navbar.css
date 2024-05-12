@@ -22,9 +22,25 @@
     gap: 32px;
 }
 .options{
-    color:rgb(30, 6, 53);
-
+    display: block;
+    position: relative;
+    color:rgb(77, 7, 142);
+    font-weight: 600;
     text-decoration: none;
+ }
+ 
+ .options:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #614385;
+    transition: width 1s;
+ }
+ .options:hover:before{
+    width: 100%;
  }
 .btn{
     width: 50%;
@@ -34,7 +50,7 @@
 
 }
          
-.btn>.btn-grad,button {
+.btn>button {
     background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
     margin:14px;
     padding: 3px 10px;
@@ -49,7 +65,7 @@
     font-size: 12px;
   }
 
-  .btn-grad:hover {
+  .btn>button:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;

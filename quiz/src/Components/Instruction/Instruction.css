@@ -5,16 +5,22 @@
 }
 .instHeading{
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .instPara{
     max-width: 900px;
     margin: auto;
+    margin-bottom: 25px;
 }
 .instLines{
     display: flex;
+    align-items: flex-start;
 }
 .instLogo{
+    color: rgb(231, 186, 255);
     width: 30px;
+    margin-right: 1px;
 }
 .instLogo>i{
     background-color: #604586;
@@ -30,6 +36,10 @@
     justify-content: center;
 }
 .lineSubHeading{
-    color: #526294;
+    color: #001145;
     font-weight: 600;
+}
+.instLine {
+    margin-bottom: 10px;
+    flex: 1; /* Allow line to expand to fill available space */
 }

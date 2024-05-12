@@ -3,10 +3,10 @@
     background-color: rgb(203, 190, 213);
     font-size: 20px;
 }
-.headline>h2{
+.headline>h1{
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 30px;
+    margin-bottom: 25px;
+    /* font-size: 30px; */
     margin-top: 15px;
 }
 .descPara1{
