@@ -6,7 +6,7 @@ function Description() {
     <>
       <div className='desc'>
         <div className="headline">
-          <h2>Make your own quiz with our online quiz maker</h2>
+          <h1>Make your own quiz with our online quiz maker</h1>
         </div>
         <div className="descPara1">
           <p>

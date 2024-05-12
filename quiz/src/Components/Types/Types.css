@@ -5,20 +5,23 @@
 }
 .Types>h1{ 
 color:rgb(30, 6, 53);
-padding:10px 20px 10px 20px;
+margin: auto;
 text-align: center;
 font-size: 35px;
+margin-top: 15px;
+margin-bottom: 20px;
 }
-.btns,.btnsss{
-  width: 80%;
+.btns{
+  width: 100%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: center;
   padding-right: 20px;
   text-align: center;
 
 }
        
-.btns>.btns-grad,button {
+.btns>button {
   background-image: linear-gradient(to left, #614385 0%, #516395  51%, #614385  100%);
   margin:14px;
   padding: 13px 13px;
@@ -37,4 +40,12 @@ font-size: 35px;
   background-position: center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+#imageContainer{
+  width: min-content;
+  margin: auto;
+  margin-top: 25px;
+}
+#imageContainer>img{
+  width: 600px;
 }

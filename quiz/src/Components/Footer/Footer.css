@@ -1,5 +1,5 @@
 .footer{
-    background-color: #b8ffcb;
+    background-color: #ffffff;
     height: 320px;
     color: #0B0715;
 }
@@ -83,7 +83,7 @@
 .socialMediaSite{
     width: 35px;
     height: 35px;
-    background-color: #0fff23;
+    background-color: #d99ffb;
     border-radius: 90px;
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@
     transition: all .2s ease-in-out 0s;
 }
 .sociaMedia>div>a>i{
-    background-color: #0fff23;
+    /* background-color: #0fff23; */
     color: #0B0715;
 }
 .sociaMedia>div>a:hover{
