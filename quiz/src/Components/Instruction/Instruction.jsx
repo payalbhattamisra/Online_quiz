@@ -33,6 +33,7 @@ function Instruction() {
             <span className='lineSubHeading'>Search: </span>Import existing questions from over 30M quizzes and lessons created by the Quizizz community, or</div>
       </div>
 
+
       <div className="instLines">
           <div className="instLogo">
             <i class="fa-solid fa-check"></i>
