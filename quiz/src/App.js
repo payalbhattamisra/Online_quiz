@@ -13,8 +13,8 @@ function App() {
     <Banner/>
     <Description/>
     <Types/>
-    <Footer/>
     <Instruction/>
+    <Footer/>
      </>
   );
 }
