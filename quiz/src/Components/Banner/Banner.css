@@ -47,33 +47,34 @@ overflow: hidden;
     border: none;
     border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 0 20px #eee;
     transition: all 0.2s;
     cursor: pointer;
     margin: auto;
   }
   
-  button span {
+  .createquiz>button>span {
     display: block;
     margin-left: 0.3em;
     transition: all 0.3s ease-in-out;
   }
   
-  button svg {
+  .createquiz>button>svg {
     display: block;
     transform-origin: center center;
     transition: transform 0.3s ease-in-out;
   }
    
   
-  button:hover svg {
+  .createquiz>button:hover>svg {
     transform: translateX(1.2em) rotate(45deg) scale(1.1);
   }
   
-  button:hover span {
+  .createquiz>button:hover>span {
     transform: translateX(5em);
   }
   
-  button:active {
+  .createquiz>button:active {
     transform: scale(0.95);
   }
   .createquiz>p{
