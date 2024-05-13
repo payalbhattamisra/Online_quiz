@@ -6,6 +6,7 @@ import Banner from './Components/Banner/Banner';
 import Description from './Components/Description/Description';
 import Instruction from './Components/Instruction/Instruction';
 import Types from './Components/Types/Types';
+import FAQs from './Components/FAQs/FAQs';
 function App() {
   return (
     <> 
@@ -14,6 +15,7 @@ function App() {
     <Description/>
     <Types/>
     <Instruction/>
+    <FAQs/>
     <Footer/>
      </>
   );
