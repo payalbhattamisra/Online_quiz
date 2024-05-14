@@ -32,7 +32,7 @@ function Description() {
         </div>
         <div className="descPara3">
           <div className="aboutImage">
-          <img src="./Images/quiz1.png" alt="" />
+          <img src="./Images/quiz2.png" alt="" />
           </div>
           <div className="about1">
             <h3>Quizizz for Work</h3>
