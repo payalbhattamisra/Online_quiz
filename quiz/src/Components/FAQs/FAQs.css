@@ -16,6 +16,7 @@
     margin-top: 30px;
   }
   
+  
   .faqs > .faq {
     width: 75%;
     margin: auto;
@@ -51,7 +52,7 @@
   .panel {
     padding: 0 2rem 1.5rem 2rem;
     overflow: hidden;
-    background-color:rgb(218, 174, 240);
+    background-color: rgb(201, 179, 218);
 
     display: none;
   }
