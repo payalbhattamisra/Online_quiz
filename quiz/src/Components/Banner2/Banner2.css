@@ -1,0 +1,81 @@
+.bann{
+    background-color: #3D1464;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.bannL{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    padding-left: 100px;
+}
+.bannL>h2{
+    max-width: 560px;
+    font-size: 35px;
+    font-weight: 500;
+}
+.bannL>p{
+    max-width: 600px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.bannL>button {
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    padding: 0.6em 0.8em;
+    /* padding-left: 0.9em; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #a93cf1;
+    transition: all 0.2s;
+    cursor: pointer;
+    /* margin: auto; */
+  }
+  
+  .bannL>button>span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bannL>button>svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+   
+  
+  .bannL>button:hover>svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  .bannL>button:hover>span {
+    transform: translateX(5em);
+  }
+  
+  .bannL>button:active {
+    transform: scale(0.95);
+  }
+.bannR{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bannR>img{
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
