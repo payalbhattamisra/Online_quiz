@@ -1,24 +1,27 @@
-.faqs{
-   height:700px;
-   width:100%;
-   background-color:  rgb(203, 190, 213);
-   margin:auto;
-}
-.headings>h1{
+.faqs {
+    height: 700px;
+    width: 100%;
+    background-color: rgb(203, 190, 213);
+    margin: auto;
+  }
+  
+  .headings > h1 {
     text-align: center;
     width: 75%;
-    margin:auto ;
+    margin: auto;
     letter-spacing: 3px;
-}
-.faqs>.faq{
+  }
+  
+  .faqs > .faq {
     width: 75%;
-    margin: auto; 
-}
-.faq>.accordion{
+    margin: auto;
+  }
+  
+  .faq > .accordion {
     background-color: white;
-    color: rgba(0,0,0,0.8);
+    color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
-    font-size:1.2rem;
+    font-size: 1.2rem;
     width: 100%;
     padding: 2rem 2.5rem;
     border: none;
@@ -28,29 +31,40 @@
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-}
-.accordion i{
+  }
+  
+  .accordion i {
     font-size: 1.5rem;
-}
-.active,
-.accordion:hover{
+  }
+  
+  .active,
+  .accordion:hover {
     background-color: #f1f7f5;
-}
-.pannel{
+  }
+  
+  .panel {
     padding: 0 2rem 2.5rem 2rem;
     overflow: hidden;
     background-color: #f1f7f5;
     display: none;
-}
-.pannel p{
-    color: rgba(0,0,0,0.7);
+  }
+  
+  .panel.active {
+    display: block;
+  }
+  
+  .panel p {
+    color: rgba(0, 0, 0, 0.7);
     font-size: 1.2rem;
     line-height: 1.4;
-}
-.faq{
-    border: 1px solid rgba(0,0,0,0.2);
+  }
+  
+  .faq {
+    border: 1px solid rgba(0, 0, 0, 0.2);
     margin: 10px 0;
-}
-.faq.active{
+  }
+  
+  .faq.active {
     border: none;
-}
+  }
+  
