@@ -30,13 +30,12 @@ margin-bottom: 20px;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;            
-  box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
   font-size: 12px;
 }
 
-.btns-grad:hover {
+.btns>button:hover {
   background-position: center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
