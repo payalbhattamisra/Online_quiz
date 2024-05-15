@@ -11,7 +11,6 @@ function Navbar() {
       </div>
       <div className="space">
        <Link className='options' to="home" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Home</Link>
-       <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Topicwise quiz</Link>
        <Link className='options' to="type" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Question pattern</Link>
        <Link className='options' to="rule" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Rule</Link>
        <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>FAQs</Link>
