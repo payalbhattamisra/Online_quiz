@@ -11,7 +11,7 @@ function FAQs() {
   };
 
   return (
-    <div className="faqs">
+    <div className="faqs" id="hero">
       <div className="headings">
         <h1>FAQs</h1>
       </div>

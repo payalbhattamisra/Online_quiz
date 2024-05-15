@@ -7,7 +7,7 @@ function Instruction() {
         rel="stylesheet"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       />
-      <div className="inst">
+      <div className="inst" id="rule">
         <div className="instHeading">
           <h1>How to Make a Quiz</h1>
         </div>

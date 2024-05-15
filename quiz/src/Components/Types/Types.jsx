@@ -10,7 +10,7 @@ function Types() {
   };
 
   return (
-    <div className='Types'>
+    <div className='Types' id='type'>
       <h1>So Many Question Types to Choose From</h1>
       <div className="btns">
         <button className="button1" onClick={() => showImage('./pics/s1.png')}>Fill in the blank</button>

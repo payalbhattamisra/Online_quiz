@@ -3,7 +3,7 @@ import "./Banner.css";
 function Banner() {
   return (
     <>
-      <div className='page1'>
+      <div className='page1' id='home'>
         <div className="part1"> 
         <h1>Free Online  quiz maker</h1>
         </div>

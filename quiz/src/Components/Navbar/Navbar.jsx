@@ -1,16 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react';
+import {Link} from 'react-scroll';
 import "./Navbar.css"
 function Navbar() {
+  const [click, setClick] = useState(false)
+  const closeMenu =() => setClick(false);
   return (
     <div className='nav'>
     <div className="logo"> 
       <h1 className='navbarName'>ज्ञानकोश</h1>
       </div>
       <div className="space">
-       <a className='options' id="topic"href="/">Topicwise quiz</a>
-       <a className='options'  id="rule"href="/">FAQs</a>
-       <a className='options' id="question_pattern"href="/">Question pattern</a>
-       <a className='options' id="faqs" href="/">Rule</a>
+       <Link className='options' to="home" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Home</Link>
+       <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Topicwise quiz</Link>
+       <Link className='options' to="type" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Question pattern</Link>
+       <Link className='options' to="rule" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Rule</Link>
+       <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>FAQs</Link>
       </div>
       <div className="btn">
         <button className='btn1'>Contact us</button>
