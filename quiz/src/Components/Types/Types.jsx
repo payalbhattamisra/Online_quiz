@@ -27,8 +27,8 @@ function Types() {
         <button className="button1" onClick={() => showImage('./pics/s10.png')}>Open ended</button>
         <button className="button1" onClick={() => showImage('./pics/s11.png')}>Drop down</button>
       </div> */}
-      <div id="imageContainer" style={{ display: 'none' }}>
-        <img src="./Components/pics/s1.png" alt="Displayed Image" id="displayedImage" />
+      <div id="imageContainer"  >
+        <img src="./pics/s1.png" alt="Displayed Image" id="displayedImage" />
       </div>
     </div>
   );
