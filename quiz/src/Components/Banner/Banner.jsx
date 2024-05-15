@@ -1,6 +1,9 @@
 import React from 'react'
 import "./Banner.css";
 function Banner() {
+   const navigateToQuiz=()=>{
+    window.location.href='./quiz';
+   }
   return (
     <>
       <div className='page1'>
@@ -14,7 +17,7 @@ function Banner() {
           <div> 
          
         <div className='createquiz'>
-        <button>
+        <button onClick={navigateToQuiz}>
           
         
         <path fill="none" d="M0 0h24v24H0z"></path>
@@ -25,7 +28,7 @@ function Banner() {
        
     
       <span>Create a quiz</span>
-     </button>
+     </button >
         <p>Make interactive quiz in minutes.</p>
         </div>
         </div>
