@@ -1,7 +1,12 @@
 .nav{
     height:70px;
     background-color: aliceblue;
+    position: static;
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 .navbarName{
     color:rgb(30, 6, 53);
@@ -24,6 +29,7 @@
 .options{
     display: block;
     position: relative;
+    cursor: pointer;
     color:rgb(77, 7, 142);
     font-weight: 600;
     text-decoration: none;
