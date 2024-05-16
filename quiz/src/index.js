@@ -5,26 +5,48 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Createquizz from './Pages/Createquizz';
 import Topicwisequiz from './Topics/Topicwisequiz';
+import Layout from './Layout';
 import {
   createBrowserRouter,
 
   RouterProvider,
 } from "react-router-dom";
 
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App/>,
+//   },
+//   {
+//     path: "quiz",
+//     element: <Createquizz/>,
+//   },
+//   {
+//     path: "Topicwise_quiz",
+//     element: <Topicwisequiz/>,
+//   },
+// ]);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-  },
-  {
-    path: "quiz",
-    element: <Createquizz/>,
-  },
-  {
-    path: "Topicwise_quiz",
-    element: <Topicwisequiz/>,
-  },
+    element: <Layout/>,
+    children:[
+      {
+        path: "/",
+        element: <App/>,
+      },
+      {
+        path: "quiz",
+        element: <Createquizz/>,
+      },
+      {
+        path: "Topicwise_quiz",
+        element: <Topicwisequiz/>,
+      },
+    ]
+  }
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <RouterProvider router={router}/>

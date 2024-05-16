@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../Components/Navbar/Navbar'
+import './Createquizz.css'
 function Createquiz() {
   return (
     <>
-    <div> 
-    <Navbar></Navbar> 
+    <div className='create'> 
+    <h1>LOGIN</h1>
      </div>
     </>
   )
