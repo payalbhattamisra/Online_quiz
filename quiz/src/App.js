@@ -12,14 +12,14 @@ import Banner2 from './Components/Banner2/Banner2';
 function App() {
   return (
     <> 
-    <Navbar/>
+     
     <Banner/>
     <Description/>
     <Types/>
     <Instruction/>
     <FAQs/>
     <Banner2/>
-    <Footer/>
+     
      </>
   );
 }
