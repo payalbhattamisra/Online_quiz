@@ -1,9 +1,13 @@
 import React from 'react'
-import Navbar from '../Components/Navbar/Navbar'
+import './Topicswisequiz.css'
 function Topicwisequiz() {
   return (
     <>
-      <Navbar></Navbar>
+      <div className='topics'> 
+       <div className="headingnav">
+        <h1>WELCOME TO QYANKOSH</h1>
+      </div>
+      </div>
     </>
   )
 }
