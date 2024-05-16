@@ -1,7 +1,7 @@
 .page1{
   margin-top: 70px;
     width:100%;
-    height:430px;
+    height:450px;
     /* background-color: blue; */
     color:aliceblue;
     }
@@ -34,15 +34,17 @@
 height: 150px;
 padding:30px;
 overflow: hidden;
+display: flex;
+margin-left: 220px;
+margin-right: 220px;
 }
 .createquiz>button {
     font-family: inherit;
     font-size: 20px;
     background: royalblue;
     color: white;
-    padding: 0.7em 1em;
+    padding: 0.6em 1em;
     padding-left: 0.9em;
-    display: flex;
     justify-content: center;
     align-items: center;
     border: none;
@@ -78,11 +80,12 @@ overflow: hidden;
   .createquiz>button:active {
     transform: scale(0.95);
   }
-  .createquiz>p{
+  .para>p{
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: 20px;
   }
+
   
   @keyframes fly-1 {
     from {
