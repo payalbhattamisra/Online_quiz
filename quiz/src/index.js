@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Createquiz from './Pages/Createquizz';
+import Createquizz from './Pages/Createquizz';
+import Topicwisequiz from './Topics/Topicwisequiz';
 import {
   createBrowserRouter,
 
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
   },
   {
     path: "quiz",
-    element: <Createquiz/>,
+    element: <Createquizz/>,
+  },
+  {
+    path: "Topicwise_quiz",
+    element: <Topicwisequiz/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,13 +1,11 @@
 import React from 'react'
 import Navbar from '../Components/Navbar/Navbar'
-function Createquiz() {
+function Topicwisequiz() {
   return (
     <>
-    <div> 
-    <Navbar></Navbar> 
-     </div>
+      <Navbar></Navbar>
     </>
   )
 }
 
-export default Createquiz
+export default Topicwisequiz
