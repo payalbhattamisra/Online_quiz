@@ -28,7 +28,7 @@ function Types() {
         <button className="button1" onClick={() => showImage('./pics/s11.png')}>Drop down</button>
       </div> */}
       <div id="imageContainer"  >
-        <img src="./pics/s1.png" alt="Displayed Image" id="displayedImage" />
+        <img src="./pics/s1.png" alt="Displayed Images" id="displayedImage" />
       </div>
     </div>
   );

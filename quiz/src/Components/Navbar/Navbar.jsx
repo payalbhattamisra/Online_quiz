@@ -4,6 +4,13 @@ import "./Navbar.css"
 function Navbar() {
   const [click, setClick] = useState(false)
   const closeMenu =() => setClick(false);
+
+  const Signup=()=>{
+    window.location.href='./Signup'
+   }
+   const Login=()=>{
+    window.location.href='./Login'
+   }
   return (
     <div className='nav'>
     <div className="logo"> 
@@ -16,10 +23,10 @@ function Navbar() {
        <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>FAQs</Link>
       </div>
       <div className="btn">
-        <button className='btn1'>Contact us</button>
+        <button className='btn1' >Contact us</button>
         <button className='btn1'>Enter Code</button>
-        <button className='btn1'>Login</button>
-        <button className='btn1'>Sign up</button>
+        <button className='btn1'onClick={Login}>Login</button>
+        <button className='btn1'onClick={Signup}>Sign up</button>
       </div>
     </div>
     

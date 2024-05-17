@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Createquizz from './Pages/Createquizz';
 import Topicwisequiz from './Topics/Topicwisequiz';
+import Signup from './Components/Signup/Signup';
 import Layout from './Layout';
+import Login from './Components/Login/Login';
 import {
   createBrowserRouter,
 
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "Topicwise_quiz",
         element: <Topicwisequiz/>,
+      },
+      {
+        path: "Signup",
+        element: <Signup/>,
+      },
+      {
+        path: "Login",
+        element: <Login/>,
       },
     ]
   }

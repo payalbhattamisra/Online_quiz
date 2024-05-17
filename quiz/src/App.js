@@ -8,7 +8,6 @@ import Instruction from './Components/Instruction/Instruction';
 import Types from './Components/Types/Types';
 import FAQs from './Components/FAQs/FAQs';
 import Banner2 from './Components/Banner2/Banner2';
-
 function App() {
   return (
     <> 
