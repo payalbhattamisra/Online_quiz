@@ -7,6 +7,9 @@ function Topicwisequiz() {
        <div className="headingnav">
         <h1>WELCOME TO QYANKOSH</h1>
       </div>
+      <div className="parag">
+        <p>Select topic below to start your Quiz.</p>
+      </div>
       </div>
     </>
   )
