@@ -32,7 +32,7 @@ const Signup = () => {
           name: name,
           gender: gender,
           role: role,
-          fieldOfStudy: role === "Learner" ? course : "",
+          course: role === "Learner" ? course : "",
           institute: institute,
           registrationNumber: registrationNumber,
           mobile: mobile,
