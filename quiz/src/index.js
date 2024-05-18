@@ -8,6 +8,7 @@ import Topicwisequiz from './Components/Topics/Topicwisequiz';
 import Signup from './Components/Signup/Signup';
 import Layout from './Layout';
 import Login from './Components/Login/Login';
+import SigninPage from './Components/SigninPage/SigninPage';
 import {
   createBrowserRouter,
 
@@ -47,11 +48,15 @@ const router = createBrowserRouter([
       },
       {
         path: "Signup",
-        element: <Signup/>,
+        element: <SigninPage/>,
       },
       {
         path: "Login",
         element: <Login/>,
+      },
+      {
+        path: "SignupWithEmail",
+        element: <Signup/>,
       },
     ]
   }
