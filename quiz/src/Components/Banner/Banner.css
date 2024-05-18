@@ -32,11 +32,11 @@
 
  .createquiz{
 height: 150px;
-padding:30px;
 overflow: hidden;
 display: flex;
-margin-left: 220px;
-margin-right: 220px;
+justify-content: center;
+align-items: center;
+gap:50px;
 }
 .createquiz>button {
     font-family: inherit;
@@ -50,10 +50,10 @@ margin-right: 220px;
     border: none;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 5px #eee;
     transition: all 0.2s;
     cursor: pointer;
-    margin: auto;
+     
   }
   
   .createquiz>button>span {
