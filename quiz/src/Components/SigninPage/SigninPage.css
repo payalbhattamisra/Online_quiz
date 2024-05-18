@@ -1,3 +1,48 @@
 .signp{
-    margin-top: 90px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    color: black;
+}
+.signpDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 63%;
+}
+.signpDetails>h1{
+    margin-top: 15px;
+    width: 90%;
+}
+.signpDetails>p:nth-child(2){
+    font-size: 20px;
+    width: 90%;
+}
+.signpDetails>button{
+    width: 80%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.signpDetails>button>p{
+    margin-right: auto;
+    width: 130px;
+    text-align: left;
+}
+.signpDetails>button>i:nth-child(1){
+    width: 50px;
+    font-size: 22px;
+}
+.signpDetails>button>i:nth-child(3){
+    width: 50px;
+    color: rgba(0, 0, 0, 0.664);
+    font-size: 16px;
+}
+.signp>img{
+    width: 300px;
 }

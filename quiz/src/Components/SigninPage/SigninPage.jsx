@@ -13,15 +13,20 @@ function SigninPage() {
     <>
       <div className="signp">
         <div className="signpDetails">
-          <h2>Welcome to Gyankosh</h2>
+          <h1>Welcome to Gyankosh</h1>
           <p>Create a free account in 2 steps</p>
           <button >
           <i class="fa-brands fa-google" style={{ color: "#B197FC" }}></i>
-          Continue with Google
+          <p>
+          Continue with Google </p>
+          <i class="fa-solid fa-arrow-right"></i>
             </button>
           <button onClick={navigateToSignup}>
           <i class="fa-regular fa-envelope" style={{ color: "#B197FC" }}></i>
-            Continue with Email
+            <p>
+              Continue with Email
+              </p>
+            <i class="fa-solid fa-arrow-right"></i>
             </button>
           <p>
             By signing up, you agree to our Terms of Service & Privacy Policy
@@ -30,9 +35,8 @@ function SigninPage() {
             Already have an account? <NavLink to="/login">Sign in</NavLink>
           </p>
         </div>
-        <div className="signpPic">
           <img src="./Images/book.jpg" alt="" />
-        </div>
+  
       </div>
     </>
   );
