@@ -22,15 +22,17 @@
     gap: 30px;
 }
 .topicbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
     padding: 16px; 
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    text-align: center;
 }
 .topicbtn>i{
-    font-size: 29px;
-    margin-right: 5px;
+    font-size: 28px;
+    margin-right: 10px;
 }
 
 .btn-conteiner {
@@ -44,11 +46,14 @@
 
 .btn-content {
   display: flex;
-  width:  25%;
+  width:  350px;
   align-items: center;
-   margin-left: 35%;
-   margin-top: 5%;
-  padding: 5px 30px;
+  justify-content: center;
+   /* margin-left: 35%; */
+   margin: auto;
+   margin-top: 40px;
+   margin-bottom: 40px;
+  /* padding: 5px 30px; */
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -81,7 +86,7 @@
 }
 
 .icon-arrow {
-  width: 30px;
+  width: 75px;
   margin-left: 15px;
   position: relative;
   top: 6%;
