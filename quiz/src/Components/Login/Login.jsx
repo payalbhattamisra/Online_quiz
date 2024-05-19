@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import './Login.css'
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,19 +17,17 @@ function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in Successfully");
       navigate("/signup");
-      
     } catch (error) {
-      console.log(error.message); 
+      console.log(error.message);
     }
   };
 
   return (
     <div className="login">
+      <form onSubmit={handleSubmit}>
+        <h3>Login</h3>
 
-    <form onSubmit={handleSubmit}>
-      <h3>Login</h3>
-
-      <div>
+        <div>
           <label htmlFor="email-address">Email address</label>
           <input
             type="email"
@@ -52,16 +50,11 @@ function Login() {
           />
         </div>
 
-      <div>
-        <button type="submit" >
-          Submit
-        </button>
-      </div>
-    </form>
-      <p>
-        New user <NavLink to="./Signup">Signup</NavLink>
-      </p>
-          </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   );
 }
 

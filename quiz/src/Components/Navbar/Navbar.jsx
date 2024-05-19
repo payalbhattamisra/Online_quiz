@@ -8,8 +8,8 @@ function Navbar() {
   const Signup=()=>{
     window.location.href='./Signup'
    }
-   const Login=()=>{
-    window.location.href='./Login'
+   const Loginp=()=>{
+    window.location.href='./Loginp'
    }
   return (
     <div className='nav'>
@@ -25,8 +25,8 @@ function Navbar() {
       <div className="btn">
         <button className='btn1' >Contact us</button>
         <button className='btn1'>Enter Code</button>
-        <button className='btn1'onClick={Login}>Login</button>
-        <button className='btn1'onClick={Signup}>Sign up</button>
+        <button className='btn1'onClick={Loginp}>Login</button>
+        <button className='btn1'onClick={Signup}>Signup</button>
       </div>
     </div>
     
