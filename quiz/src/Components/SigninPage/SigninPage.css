@@ -1,6 +1,6 @@
 .signp{
     margin: auto;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 100px;
     width: 800px;
     display: flex;
@@ -15,19 +15,31 @@
     width: 63%;
 }
 .signpDetails>h1{
-    margin-top: 15px;
+    margin-top: 20px;
     width: 90%;
 }
 .signpDetails>p:nth-child(2){
-    font-size: 20px;
+    /* font-size: 20px; */
     width: 90%;
+    margin-bottom: 10px;
 }
 .signpDetails>button{
+    border: 2px solid rgba(0, 0, 0, 0.11);
+    border-radius: 3px;
     width: 80%;
     height: 45px;
     display: flex;
     align-items: center;
+    margin-top: 20px;
     /* justify-content: center; */
+}
+.glogo{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+.glogo>img{
+    width: 38px;
 }
 .signpDetails>button>p{
     margin-right: auto;
@@ -43,6 +55,28 @@
     color: rgba(0, 0, 0, 0.664);
     font-size: 16px;
 }
+.signpDetails>button:hover{
+    box-shadow: inset;
+    box-shadow: 0 0 10px #b8b6b6;
+}
 .signp>img{
     width: 300px;
+}
+.signpDetails>p:nth-child(4){
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: italic;
+   }
+.signpDetails>p:nth-child(6){
+ margin-top: auto;
+ margin-bottom: 10px;
+}
+.signpDetails>p:nth-child(6)>a{
+    text-decoration: none;
+   }
+.signpDetails>p:nth-child(7){
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+    border-top: 3px solid rgba(0, 0, 0, 0.433) ;
 }
