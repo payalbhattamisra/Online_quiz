@@ -1,14 +1,25 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { auth } from "../../firebase";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 function LoginPage() {
   <link
     rel="stylesheet"
     href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />;
-
-  const navigateToLogin = () => {
-    window.location.href = "./LoginWithEmail";
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in Successfully");
+      navigate("/signup");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <>
@@ -16,15 +27,6 @@ function LoginPage() {
         <div className="loginpDetails">
           <h1>Welcome to Gyankosh</h1>
           <p>Login your account</p>
-          <button onClick={navigateToLogin}>
-            <i
-              class="fa-regular fa-envelope"
-              style={{ color: "rgba(0, 0, 0, 0.433)" }}
-            ></i>
-            <p>Login with Email</p>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <p>or</p>
           <button>
             <div className="glogo">
               <img src="./Images/google.png" alt="" />
@@ -32,6 +34,34 @@ function LoginPage() {
             <p>Login with Google </p>
             <i class="fa-solid fa-arrow-right"></i>
           </button>
+          <p>or</p>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email-address">Email address</label>
+              <input
+                type="email"
+                id="email-address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Email address"
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Password"
+              />
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
           <p>
             Create a new account <NavLink to="/Signup">Signup</NavLink>
           </p>
