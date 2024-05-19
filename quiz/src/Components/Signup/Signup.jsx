@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { setDoc, doc } from "firebase/firestore";
@@ -179,9 +179,7 @@ const Signup = () => {
         </div>
         <button type="submit">Sign up</button>
       </form>
-      <p>
-        Already have an account? <NavLink to="/login">Sign in</NavLink>
-      </p>
+      
     </div>
   );
 };
