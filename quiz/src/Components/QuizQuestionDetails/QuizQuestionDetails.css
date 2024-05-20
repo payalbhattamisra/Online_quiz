@@ -1,0 +1,50 @@
+.quiz_question{
+    color:white;
+    height:400px;
+    width:100%;
+    margin-top: 70px;
+}
+.headi>h1{
+     margin-top:20px;
+     text-align: center;
+     font-size: 40px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+.box{
+    height:300px;
+    width:50%;
+    margin:auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+    border-radius: 10%;
+    font-size: 20px;
+    line-height: 28px;
+}
+.btnstart{
+    display: flex;
+    flex-direction: row-reverse;
+     margin-top: 20px;
+}
+         
+.btnstart>button {
+    background-image: linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%);
+    margin: auto;
+    padding: 16px 40px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 10px;
+    display: block;
+    font-size: 19px;
+  }
+
+  .btnstart>button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }

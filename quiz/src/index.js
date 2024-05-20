@@ -14,6 +14,7 @@ import {
 
   RouterProvider,
 } from "react-router-dom";
+import QuizQuestionDetails from './Components/QuizQuestionDetails/QuizQuestionDetails';
 
 // const router = createBrowserRouter([
 //   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "SignupWithEmail",
         element: <Signup/>,
+      },
+      {
+       path:"QuizQuestionDetails",
+       element:<QuizQuestionDetails/>,
       },
       // {
       //   path: "LoginWithEmail",
