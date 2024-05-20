@@ -36,8 +36,8 @@ function LoginPage() {
           </button>
           <p>or</p>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email-address">Email address</label>
+            <div className="sinInput">
+              {/* <label htmlFor="email-address">Email address</label> */}
               <input
                 type="email"
                 id="email-address"
@@ -47,8 +47,8 @@ function LoginPage() {
                 placeholder="Email address"
               />
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
+            <div className="sinInput">
+              {/* <label htmlFor="password">Password</label> */}
               <input
                 type="password"
                 id="password"
@@ -58,8 +58,11 @@ function LoginPage() {
                 placeholder="Password"
               />
             </div>
-            <div>
-              <button type="submit">Submit</button>
+            <div className="fogp">
+            <NavLink to="/">Forgate Password</NavLink>
+            </div>
+            <div >
+              <button type="submit">Login</button>
             </div>
           </form>
           <p>

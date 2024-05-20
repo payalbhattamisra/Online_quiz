@@ -75,3 +75,42 @@
     padding: 15px 0px;
     border-top: 3px solid rgba(0, 0, 0, 0.433) ;
 }
+.loginpDetails>form{
+    width: 56%;
+}
+.sinInput{
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.564);
+    margin-top: 30px;
+    padding-left: 2px;
+}
+.sinInput>input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.fogp{
+    width: max-content;
+    margin-left: auto;
+}
+.fogp>a{
+    text-decoration: none;
+    font-size: 12px;
+
+}
+.loginpDetails>form>div>button{
+    width: 100%;
+    background-color: rgb(86, 146, 250);
+    color: white;
+    margin-top: 30px;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 255, 0.133);
+    border-radius: 3px;
+    font-size: 15px;
+}
+.loginpDetails>form>div>button:hover{
+    background-color: rgb(43, 118, 249);
+
+}

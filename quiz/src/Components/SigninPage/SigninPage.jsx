@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 import "./SigninPage.css";
 
 function SigninPage() {
-  <link
-    rel="stylesheet"
-    href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />;
+
 
   const navigateToSignup = () => {
     window.location.href = "./SignupWithEmail";
   };
   return (
     <>
+    <link
+    rel="stylesheet"
+    href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />;
       <div className="signp">
         <div className="signpDetails">
           <h1>Welcome to Gyankosh</h1>
