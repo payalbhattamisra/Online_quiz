@@ -1,6 +1,12 @@
 import React from "react";
+import {useNavigate} from 'react-router-dom';
 import "./Topicswisequiz.css";
 function Topicwisequiz() {
+  const navigate=useNavigate();
+  const questionDetails=(topic)=>{
+    // window.location.href='./QuizQuestionDetails';
+    navigate('/QuizQuestionDetails',{state:{selectedQuizTopic:topic}})
+  }
   return (
     <>
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -12,25 +18,25 @@ function Topicwisequiz() {
           <p>Select topic below to start your Quiz.</p>
         </div>
         <div className="fontawesomebtn">
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('React')}>
             <i
               class="fa-brands fa-react"
               style={{ color: " rgb(71, 147, 175)" }}
             ></i>
             React
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails(' Javascript')}>
             <i class="fa-brands fa-js" style={{ color: "#FFBB70" }}></i>
             Javascript
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('Python')}>
             <i class="fa-brands fa-python" style={{ color: "#240750" }}></i>
             Python
           </button>
         </div>
 
         <div className="next">
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('General Knowledge')}>
             {" "}
             <i
               class="fa-sharp fa-solid fa-lightbulb"
@@ -38,29 +44,29 @@ function Topicwisequiz() {
             ></i>
             General Knowledge
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('HTML')}>
             <i
               class="fa-sharp fa-solid fa-code"
               style={{ color: "#ff0000" }}
             ></i>
             HTML
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails(' CSS')}>
             <i class="fa-solid fa-file-code" style={{ color: "#1520A6" }}></i>
             CSS
           </button>
         </div>
         <div className="nextbtn">
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('Django')}>
             {" "}
             <i class=" fa-solid fa-d" style={{ color: "#ECBD00" }}></i>Django
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn" onClick={()=>questionDetails('Kotlin')}>
             {" "}
             <i class="fa-regular fa-file" style={{ color: "#ff0000" }}></i>
             Kotlin
           </button>
-          <button className="topicbtn">
+          <button className="topicbtn"  onClick={()=>questionDetails('Angular')}>
             <i class="fa-solid fa-a" style={{ color: "#004F98" }}></i>Angular
           </button>
         </div>
