@@ -15,6 +15,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import QuizQuestionDetails from './Components/QuizQuestionDetails/QuizQuestionDetails';
+import Deshbord from './Components/Deshbord/Deshbord';
 
 // const router = createBrowserRouter([
 //   {
@@ -63,10 +64,10 @@ const router = createBrowserRouter([
        path:"QuizQuestionDetails",
        element:<QuizQuestionDetails/>,
       },
-      // {
-      //   path: "LoginWithEmail",
-      //   element: <Login/>,
-      // },
+      {
+        path: "Deshbord",
+        element: <Deshbord/>,
+      },
     ]
   }
 ]);

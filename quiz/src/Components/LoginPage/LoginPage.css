@@ -18,12 +18,12 @@
     margin-top: 20px;
     width: 90%;
 }
-.loginpDetails>p:nth-child(2){
+.loginpDetailsPara{
     /* font-size: 20px; */
     width: 90%;
     margin-bottom: 10px;
 }
-.loginpDetails>button{
+.loginDbtn{
     border: 2px solid rgba(0, 0, 0, 0.11);
     border-radius: 3px;
     width: 80%;
@@ -41,21 +41,21 @@
 .glogo>img{
     width: 38px;
 }
-.loginpDetails>button>p{
+.loginDbtn>p{
     margin-right: auto;
     width: 130px;
     text-align: left;
 }
-.loginpDetails>button>i:nth-child(1){
+.loginDbtn>i:nth-child(1){
     width: 50px;
     font-size: 22px;
 }
-.loginpDetails>button>i:nth-child(3){
+.loginDbtn>i:nth-child(3){
     width: 50px;
     color: rgba(0, 0, 0, 0.664);
     font-size: 16px;
 }
-.loginpDetails>button:hover{
+.loginDbtn:hover{
     box-shadow: inset;
     box-shadow: 0 0 10px #b8b6b6;
 }
@@ -98,6 +98,7 @@
 .fogp>a{
     text-decoration: none;
     font-size: 12px;
+    background: none;
 
 }
 .loginpDetails>form>div>button{
@@ -113,4 +114,51 @@
 .loginpDetails>form>div>button:hover{
     background-color: rgb(43, 118, 249);
 
+}
+.resHeading{
+    margin-top: 50px;
+}
+.resPara{
+    margin-top: 15px;
+    width: max-content;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.resinput{
+    width: 60%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.564);
+    margin-top: 30px;
+    padding-left: 2px;
+}
+.resinput>input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.resBtn1{
+    width: 60%;
+    background-color: rgb(86, 146, 250);
+    color: white;
+    margin-top: 30px;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 255, 0.133);
+    border-radius: 3px;
+    font-size: 15px;
+    margin-bottom: auto;
+}
+.resBtn1:hover{
+    background-color: rgb(43, 118, 249);
+
+}
+.btLogin{
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+    border-top: 3px solid rgba(0, 0, 0, 0.433) ;
+}
+.btLogin>a{
+    background: none;
 }
