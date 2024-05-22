@@ -1,8 +1,9 @@
 import React  from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import './QuizQuestionDetails.css'
 function QuizQuestionDetails() {
     const location=useLocation();
+    const navigate=useNavigate();
     const {selectedQuizTopic}=location.state || { selectedQuizTopic: 'N/A' };
     const quizDetails= {
         selectedQuizTopic,
@@ -16,7 +17,8 @@ function QuizQuestionDetails() {
         return `${minutes}m ${remainingSeconds}s`;
     }
     const startQuiz =()=>{
-        console.log("Quiz started!");
+        //console.log("Quiz started!");
+        navigate('/Start_Quiz',{state:{quizDetails}});
     }
   return (
     <>
