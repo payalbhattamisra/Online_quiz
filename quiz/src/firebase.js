@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import {getFirestore} from "firebase/firestore";
 
 
@@ -16,3 +16,25 @@ const app = initializeApp(firebaseConfig);
 export const auth=getAuth();
 export default app;
 export const db=getFirestore(app);
+
+
+
+
+// Initialize Firebase Authentication and get a reference to the service
+const provider = new GoogleAuthProvider();
+
+// Initialize Firestore and get a reference to the service
+
+// Function to handle Google sign-in
+const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    return user;
+  } catch (error) {
+    console.error("Error during Google sign-in: ", error);
+    throw error;
+  }
+};
+
+export { signInWithGoogle };

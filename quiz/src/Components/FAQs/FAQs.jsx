@@ -15,7 +15,7 @@ function FAQs() {
       <div className="headings">
         <h1>FAQs</h1>
       </div>
-      {/* Map through the FAQ items and render them */}
+
       {faqs.map((faq, index) => (
         <div className="faq" key={index}>
           <button
