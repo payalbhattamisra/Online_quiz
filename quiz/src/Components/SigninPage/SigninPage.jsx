@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { db, signInWithGoogle } from '../../firebase'; // Ensure these imports are correct
+import { db, signInWithGoogle } from '../../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import './SigninPage.css';
 
@@ -41,10 +41,10 @@ function SigninPage() {
         email,
         registrationNumber,
         course,
-        uid: email, // Using email as UID
+        uid: email,
       };
       await setDoc(doc(db, 'users', email), userDoc);
-      // Clear form after successful submission
+      
       setName('');
       setGender('');
       setRole('');
@@ -56,7 +56,7 @@ function SigninPage() {
       setCourse('');
       setShowForm(false);
       alert('Sign-up successful!');
-      window.location.href = '/Dashboard'; // Example redirection after sign-up
+      window.location.href = '/Dashboard';
     } catch (error) {
       console.error('Error during form submission: ', error);
     }
