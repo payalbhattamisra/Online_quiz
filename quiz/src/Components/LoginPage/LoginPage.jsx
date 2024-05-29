@@ -17,6 +17,7 @@ function LoginPage() {
   const [user, setUser] = useState(null);
   const [isResetMode, setIsResetMode] = useState(false);
 
+  
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(setUser);
     return unsubscribe;
