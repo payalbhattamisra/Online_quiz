@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Createquizz from './Components/Pages/Createquizz';
 import Topicwisequiz from './Components/Topics/Topicwisequiz';
-import Signup from './Components/Signup/Signup';
 import Layout from './Layout';
 import SigninPage from './Components/SigninPage/SigninPage';
 import LoginPage from './Components/LoginPage/LoginPage';
@@ -55,10 +54,6 @@ const router = createBrowserRouter([
       {
         path: "Loginp",
         element: <LoginPage/>,
-      },
-      {
-        path: "SignupWithEmail",
-        element: <Signup/>,
       },
       {
        path:"QuizQuestionDetails",
