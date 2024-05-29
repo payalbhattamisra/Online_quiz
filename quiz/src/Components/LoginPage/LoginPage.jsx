@@ -30,8 +30,16 @@ function LoginPage() {
       navigate("/Deshbord");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
+      if (error.code === "auth/user-not-found") {
+        alert("Incorrect email. Please try again or sign up if you don't have an account.");
+      } else if (error.code === "auth/wrong-password"){
+        alert("Incorrect password.");
+      } else {
+        alert("An error occurred. Please try again.");
+      }
     }
   };
+  
 
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
@@ -80,7 +88,7 @@ function LoginPage() {
             </button>
             <p>or</p>
             <form onSubmit={handleSubmit}>
-              <div className="sinInput">
+              <div className="logInput">
                 <input
                   type="email"
                   id="email-address"
@@ -90,7 +98,7 @@ function LoginPage() {
                   placeholder="Email address"
                 />
               </div>
-              <div className="sinInput">
+              <div className="logInput">
                 <input
                   type="password"
                   id="password"
