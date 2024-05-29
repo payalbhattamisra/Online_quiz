@@ -1,37 +1,57 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { db, signInWithGoogle } from '../../firebase';
-import { doc, setDoc } from 'firebase/firestore';
-import './SigninPage.css';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { db, signInWithGoogle } from "../../firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import "./SigninPage.css";
 
 function SigninPage() {
+
   const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
-  const [role, setRole] = useState('');
-  const [institute, setInstitute] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [registrationNumber, setRegistrationNumber] = useState('');
-  const [course, setCourse] = useState('');
+  const [name, setName] = useState("");
+  const [gender, setGender] = useState("");
+  const [role, setRole] = useState("");
+  const [institute, setInstitute] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [registrationNumber, setRegistrationNumber] = useState("");
+  const [course, setCourse] = useState("");
   const [isGoogleSignUp, setIsGoogleSignUp] = useState(false);
+
+  const checkIfUserExists = async (email) => {
+    const userDoc = await getDoc(doc(db, "Users", email));
+    return userDoc.exists();
+  };
 
   const handleGoogleSignUp = async () => {
     try {
       const user = await signInWithGoogle();
+      const email = user.email;
+
+      const userExists = await checkIfUserExists(email);
+      if (userExists) {
+        alert("You already have an account with this email.");
+        return;
+      }
+
       setName(user.displayName);
-      setEmail(user.email);
+      setEmail(email);
       setIsGoogleSignUp(true);
       setShowForm(true);
     } catch (error) {
-      console.error('Error during Google sign-up: ', error);
+      console.error("Error during Google sign-up: ", error);
     }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
+      const userExists = await checkIfUserExists(email);
+      if (userExists) {
+        alert("You already have an account with this email.");
+        return;
+      }
+
       const userDoc = {
         name,
         gender,
@@ -43,22 +63,22 @@ function SigninPage() {
         course,
         uid: email,
       };
-      await setDoc(doc(db, 'users', email), userDoc);
-      
-      setName('');
-      setGender('');
-      setRole('');
-      setInstitute('');
-      setMobile('');
-      setEmail('');
-      setPassword('');
-      setRegistrationNumber('');
-      setCourse('');
+      await setDoc(doc(db, "Users", email), userDoc);
+
+      setName("");
+      setGender("");
+      setRole("");
+      setInstitute("");
+      setMobile("");
+      setEmail("");
+      setPassword("");
+      setRegistrationNumber("");
+      setCourse("");
       setShowForm(false);
-      alert('Sign-up successful!');
-      window.location.href = '/Dashboard';
+      alert("Sign-up successful!");
+      window.location.href = "/Dashboard";
     } catch (error) {
-      console.error('Error during form submission: ', error);
+      console.error("Error during form submission: ", error);
     }
   };
 
@@ -74,7 +94,10 @@ function SigninPage() {
             <h1>Welcome to Gyankosh</h1>
             <p>Create a free account in 2 steps</p>
             <button onClick={() => setShowForm(true)}>
-              <i className="fa-regular fa-envelope" style={{ color: 'rgba(0, 0, 0, 0.433)' }}></i>
+              <i
+                className="fa-regular fa-envelope"
+                style={{ color: "rgba(0, 0, 0, 0.433)" }}
+              ></i>
               <p>Continue with Email</p>
               <i className="fa-solid fa-arrow-right"></i>
             </button>
@@ -87,8 +110,8 @@ function SigninPage() {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>
-              By signing up, you agree to our{' '}
-              <NavLink to="/">Terms of Service</NavLink> &{' '}
+              By signing up, you agree to our{" "}
+              <NavLink to="/">Terms of Service</NavLink> &{" "}
               <NavLink to="/">Privacy Policy</NavLink>
             </p>
             <p>
@@ -98,9 +121,9 @@ function SigninPage() {
         )}
         {showForm && (
           <div className="formContainer">
+            <p className="siginPara">Enter the Correct Information</p>
             <form onSubmit={handleFormSubmit}>
-              <div>
-                <label htmlFor="name">Name</label>
+              <div className="signInput">
                 <input
                   type="text"
                   id="name"
@@ -111,8 +134,7 @@ function SigninPage() {
                   readOnly={isGoogleSignUp}
                 />
               </div>
-              <div>
-                <label htmlFor="gender">Gender</label>
+              <div className="signInput">
                 <select
                   id="gender"
                   value={gender}
@@ -127,8 +149,7 @@ function SigninPage() {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div>
-                <label htmlFor="role">Role</label>
+              <div className="signInput">
                 <select
                   id="role"
                   value={role}
@@ -142,9 +163,8 @@ function SigninPage() {
                   <option value="Learner">Learner</option>
                 </select>
               </div>
-              {role === 'Learner' && (
-                <div>
-                  <label htmlFor="course">Course</label>
+              {role === "Learner" && (
+                <div className="signInput">
                   <select
                     id="course"
                     value={course}
@@ -172,8 +192,7 @@ function SigninPage() {
                   </select>
                 </div>
               )}
-              <div>
-                <label htmlFor="institute">Institute Name</label>
+              <div className="signInput">
                 <input
                   type="text"
                   id="institute"
@@ -183,8 +202,7 @@ function SigninPage() {
                   placeholder="Institute Name"
                 />
               </div>
-              <div>
-                <label htmlFor="registration-number">Registration Number</label>
+              <div className="signInput">
                 <input
                   type="text"
                   id="registration-number"
@@ -194,8 +212,7 @@ function SigninPage() {
                   placeholder="Registration Number"
                 />
               </div>
-              <div>
-                <label htmlFor="mobile">Mobile Number</label>
+              <div className="signInput">
                 <input
                   type="text"
                   id="mobile"
@@ -205,8 +222,7 @@ function SigninPage() {
                   placeholder="Mobile Number"
                 />
               </div>
-              <div>
-                <label htmlFor="email-address">Email address</label>
+              <div className="signInput">
                 <input
                   type="email"
                   id="email-address"
@@ -218,8 +234,7 @@ function SigninPage() {
                 />
               </div>
               {!isGoogleSignUp && (
-                <div>
-                  <label htmlFor="password">Password</label>
+                <div className="signInput">
                   <input
                     type="password"
                     id="password"
@@ -232,6 +247,9 @@ function SigninPage() {
               )}
               <button type="submit">Sign up</button>
             </form>
+            <p className="retToSignP">
+            Already have an account? <NavLink to="/Loginp">Login</NavLink>
+            </p>
           </div>
         )}
         <img src="./Images/book.jpg" alt="Books" />

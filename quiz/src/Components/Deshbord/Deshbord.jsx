@@ -7,13 +7,13 @@ import './Deshbord.css';
 function Deshbord() {
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       setUser(user);
       if (user) {
-        const userDoc = await getDoc(doc(db, "Users", user.uid));
+        const userDoc = await getDoc(doc(db, "Users", user.email));
         if (userDoc.exists()) {
           setUserData(userDoc.data());
         }

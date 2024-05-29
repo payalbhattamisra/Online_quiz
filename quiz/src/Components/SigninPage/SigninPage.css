@@ -80,3 +80,71 @@
     padding: 15px 0px;
     border-top: 3px solid rgba(0, 0, 0, 0.433) ;
 }
+
+
+
+
+
+
+
+
+.formContainer{
+    width: 63%;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+}
+.formContainer>form{
+    width: 63%;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+}
+.siginPara{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.formContainer>form>button{
+    width: 100%;
+    background-color: rgb(86, 146, 250);
+    color: white;
+    margin-top: 20px;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 255, 0.133);
+    border-radius: 3px;
+    font-size: 15px;
+}
+.formContainer>form>button:hover{
+    background-color: rgb(43, 118, 249);
+}
+
+
+.retToSignP{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: auto;
+    border-top: 3px solid rgba(0, 0, 0, 0.433) ;
+}
+
+
+.signInput{
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.205);
+    margin-top: 10px;
+    padding-left: 2px;
+}
+.signInput>input,select{
+    width: 100%;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.signInput>input:focus{
+    background-color: none;
+}
