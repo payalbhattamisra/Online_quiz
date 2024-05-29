@@ -31,10 +31,8 @@ function LoginPage() {
       navigate("/Deshbord");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
-      if (error.code === "auth/user-not-found") {
-        alert("Incorrect email. Please try again or sign up if you don't have an account.");
-      } else if (error.code === "auth/wrong-password"){
-        alert("Incorrect password.");
+      if (error.code === "auth/user-not-found"||error.code === "auth/wrong-password") {
+        alert("Incorrect email or password. Please try again or sign up if you don't have an account.");
       } else {
         alert("An error occurred. Please try again.");
       }
