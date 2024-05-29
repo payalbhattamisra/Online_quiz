@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { db, signInWithGoogle } from "../../firebase";
+import { NavLink, useNavigate } from "react-router-dom";
+import { db, signInWithGoogle, auth } from "../../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./SigninPage.css";
 
 function SigninPage() {
-
+  const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -52,6 +53,10 @@ function SigninPage() {
         return;
       }
 
+      if (!isGoogleSignUp) {
+        await createUserWithEmailAndPassword(auth, email, password);
+      }
+
       const userDoc = {
         name,
         gender,
@@ -76,7 +81,7 @@ function SigninPage() {
       setCourse("");
       setShowForm(false);
       alert("Sign-up successful!");
-      window.location.href = "/Dashboard";
+      navigate("/Deshbord");
     } catch (error) {
       console.error("Error during form submission: ", error);
     }
@@ -248,7 +253,7 @@ function SigninPage() {
               <button type="submit">Sign up</button>
             </form>
             <p className="retToSignP">
-            Already have an account? <NavLink to="/Loginp">Login</NavLink>
+              Already have an account? <NavLink to="/Loginp">Login</NavLink>
             </p>
           </div>
         )}

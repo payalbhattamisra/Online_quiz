@@ -1,61 +1,80 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import './Deshbord.css';
 
-function Deshbord() {
-  const [user, setUser] = useState(null);
+function Dashboard() {
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      setUser(user);
+    const fetchUserData = async () => {
+      const user = auth.currentUser;
       if (user) {
-        const userDoc = await getDoc(doc(db, "Users", user.email));
-        if (userDoc.exists()) {
-          setUserData(userDoc.data());
+        try {
+          const userDoc = await getDoc(doc(db, "Users", user.email));
+          if (userDoc.exists()) {
+            setUserData(userDoc.data());
+          } else {
+            console.error("No such user document!");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        } finally {
+          setLoading(false);
         }
+      } else {
+        console.error("No user is currently signed in.");
+        navigate("/Loginp");
+      }
+    };
+
+    fetchUserData();
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        navigate("/Loginp");
       }
     });
-    return unsubscribe;
-  }, []);
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleLogout = async () => {
     await auth.signOut();
     navigate("/Loginp");
   };
 
+  if (loading) {
+    return (
+      <div className="d">
+        <p>Loading...</p>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+    );
+  }
+
   return (
     <div className="d">
-      {user ? (
-        userData ? (
-          <>
-            <h1>Hello, {userData.name}</h1>
-            <p>Email: {userData.email}</p>
-            <p>Gender: {userData.gender}</p>
-            <p>Role: {userData.role}</p>
-            <p>Institute: {userData.institute}</p>
-            <p>Mobile: {userData.mobile}</p>
-            <p>Registration Number: {userData.registrationNumber}</p>
-            <p>Course: {userData.course}</p>
-            <button onClick={handleLogout}>Logout</button>
-          </>
-        ) : (
-          <div>
-            <p>Loading user data...</p>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-        )
-      ) : (
-        <div>
-          <p>Loading...</p>
+      {userData ? (
+        <>
+          <h1>Welcome, {userData.name}</h1>
+          <p>Email: {userData.email}</p>
+          <p>Gender: {userData.gender}</p>
+          <p>Role: {userData.role}</p>
+          <p>Institute: {userData.institute}</p>
+          <p>Mobile: {userData.mobile}</p>
+          <p>Registration Number: {userData.registrationNumber}</p>
+          <p>Course: {userData.course}</p>
           <button onClick={handleLogout}>Logout</button>
-        </div>
+        </>
+      ) : (
+        <div>No user data found.</div>
       )}
     </div>
   );
 }
 
-export default Deshbord;
+export default Dashboard;
