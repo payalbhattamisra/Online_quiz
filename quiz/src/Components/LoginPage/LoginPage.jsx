@@ -4,7 +4,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  // fetchSignInMethodsForEmail,
+  fetchSignInMethodsForEmail,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -72,7 +72,7 @@ function LoginPage() {
 
   const checkIfUserExists = async (email) => {
     try {
-      const userDoc = await getDoc(doc(db, "Users", email));
+      const userDoc = await getDoc(doc(db, "Users", email)); 
       return userDoc.exists();
     } catch (error) {
       console.error("Error checking user existence:", error);
@@ -82,6 +82,12 @@ function LoginPage() {
 
   const handlePasswordReset = async () => {
     try {
+      const userExists = await checkIfUserExists(resetEmail);
+      if (!userExists) {
+        alert("You don't have an account. Please sign up first.");
+        return;
+      }
+
       await sendPasswordResetEmail(auth, resetEmail);
       console.log("Password reset email sent");
       alert("Password reset email sent. Please check your inbox.");
