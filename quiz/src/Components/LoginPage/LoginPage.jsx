@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getFirestore, doc, getDoc } from "firebase/firestore"; // Firestore import
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./LoginPage.css";
 
 const db = getFirestore();

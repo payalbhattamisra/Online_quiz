@@ -16,6 +16,7 @@ import {
 import QuizQuestionDetails from './Components/QuizQuestionDetails/QuizQuestionDetails';
 import Deshbord from './Components/Deshbord/Deshbord';
 import Data from './Components/Data/QuizQuestion';
+import Contact from './Components/Contact/Contact';
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path:"Start_Quiz",
         element:<Data/>,
+      },
+      {
+        path:"Contact",
+        element:<Contact/>,
       }
     ]
   }

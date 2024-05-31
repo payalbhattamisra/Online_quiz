@@ -11,6 +11,10 @@ function Navbar() {
    const Loginp=()=>{
     window.location.href='./Loginp'
    }
+
+   const Contact=()=>{
+    window.location.href='./Contact'
+   }
   return (
     <div className='nav'>
     <div className="logo"> 
@@ -23,7 +27,7 @@ function Navbar() {
        <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>FAQs</Link>
       </div>
       <div className="btn">
-        <button className='btn1' >Contact us</button>
+        <button className='btn1'onClick={Contact}>Contact us</button>
         <button className='btn1'>Enter Code</button>
         <button className='btn1'onClick={Loginp}>Login</button>
         <button className='btn1'onClick={Signup}>Signup</button>
