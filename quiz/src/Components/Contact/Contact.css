@@ -1,28 +1,129 @@
-.contact{
-        height: 100vh;
+.contact {
+    height: 100vh;
     color: aliceblue;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
 }
-.contactUs{
+
+.contactUs {
+    margin-top: 30px;
     display: flex;
-    width: 100%;
     justify-content: center;
+    background-color: aquamarine;
 }
-.contactInfo{
-    width: 30%;
-    height: 60vh;
-    background-color: rgb(10, 35, 27);
 
+.contactInfo {
+    width: 350px;
+    height: 450px;
+    padding-left: 20px;
+    background-color: rgb(32, 33, 86);
 }
-.contactInfo>div{
+
+.contactInfo>h2 {
+    margin-top: 20px;
+}
+
+.contactInfo>p {
+    margin-bottom: 60px;
+}
+
+.contactInfo>div {
     display: flex;
+    align-items: center;
+    height: 30px;
     gap: 15px;
+    margin-bottom: 10px;
 }
-.contacyMsg{
-width: 50%;
-background-color: rgb(0, 61, 42);
 
+.contactInfo>div:nth-child(5) {
+    margin-bottom: 150px;
+}
+
+.contactInfo>div:nth-child(6) {
+    height: 45px;
+}
+
+.socialConnectDiv>div>a {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 90px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    transition: all .2s ease-in-out 0s;
+}
+
+.socialConnectDiv>div:nth-child(3)>a:hover {
+    background-color: #24A3F1;
+    border: none;
+}
+
+.socialConnectDiv>div:nth-child(2)>a:hover {
+    border: none;
+
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+.socialConnectDiv>div:nth-child(1)>a:hover {
+    background-color: #106BFF;
+    border: none;
+
+}
+
+.contactMsg {
+    width: 410px;
+    background-color: bisque;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+
+.textA>textarea {
+    width: 100%;
+    height: 70px;
+    margin-top: 5px;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.205);
+    resize: none;
+    outline: none;
+}
+
+
+.contactInput{
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.205);
+    margin-top: 10px;
+    padding-left: 2px;
+}
+.contactInput>input{
+    width: 100%;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.contactInput,.textA>label{
+    color: black;
+}
+.contactMsg>form>button {
+    margin-left: 230px;
+    margin-top: 47px;
+    background-color: rgb(32, 33, 86);
+    color: white;
+    height: 35px;
+    width: 140px;
+    border: 2px solid rgba(0, 0, 255, 0.133);
+    border-radius: 3px;
+    transition: all .2s ease-in-out 0s;
+
+}
+.contactMsg>form>button:hover{
+    background-color: #104566;
 }
