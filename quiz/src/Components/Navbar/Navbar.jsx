@@ -72,7 +72,7 @@ function Navbar() {
                 <img src={user.photoURL} alt="Profile" className="profile-pic" />
               ) : (
                 <div className="profile-initial">
-                  {getInitial(user.displayName)}
+                  {getInitial(user.name)}
                 </div>
               )}
             </NavLink>
