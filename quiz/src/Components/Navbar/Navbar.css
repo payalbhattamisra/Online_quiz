@@ -41,6 +41,9 @@
     box-shadow: none;
     background: none;
   }
+  .space>a{
+    background: none;
+  } 
  
  .options:before{
     content: '';
@@ -98,8 +101,8 @@
   }
 
   .profile-pic {
-    width: 43px;
-    height: 43px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     object-fit: cover;
     text-decoration: none;
@@ -109,4 +112,8 @@
     border-bottom: 2px solid rgb(0, 0, 0);
     border-right: 2px solid rgb(0, 0, 0);
 
+  }
+  .profilePic:hover{
+    transition: 2s;
+    transform: rotateY(360deg);
   }

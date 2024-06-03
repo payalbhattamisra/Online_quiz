@@ -54,14 +54,18 @@ function Navbar() {
         <Link className='options' to="hero" smooth={true} offset={-70} duration={50} onClick={closeMenu}>FAQs</Link>
       </div>
       <div className="btn">
-        <button className='btn1' onClick={Contact}>Contact us</button>
-        <button className='btn1'>Enter Code</button>
+       
         {!user ? (
           <>
             <button className='btn1' onClick={Loginp}>Login</button>
             <button className='btn1' onClick={Signup}>Signup</button>
+            <button className='btn1' onClick={Contact}>Contact us</button>
+        <button className='btn1'>Enter Code</button>
           </>
         ) : (
+          <>
+          <button className='btn1' onClick={Contact}>Contact us</button>
+          <button className='btn1'>Enter Code</button>
           <div className="profilePic">
             <NavLink to="/Deshbord" className="nav-link">
               {user.photoURL ? (
@@ -73,6 +77,7 @@ function Navbar() {
               )}
             </NavLink>
           </div>
+              </>
         )}
       </div>
     </div>
