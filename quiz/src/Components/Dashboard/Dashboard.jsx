@@ -74,6 +74,7 @@ function Dashboard() {
             {/* admin */}
             <div className="dashL">
               <h1>Welcome {user.name}</h1>
+
               <div>
                 {user.photoURL ? (
                   <img
@@ -85,14 +86,18 @@ function Dashboard() {
                   <div className="profile-initial">{getInitial(user.name)}</div>
                 )}
               </div>
-              <h3>Admin</h3>
-              <NavLink>DashBoard</NavLink>
-              <NavLink>Manage Exam</NavLink>
-              <NavLink>Students</NavLink>
-              <NavLink>Registered Students</NavLink>
 
+              <h3>Admin</h3>
+              <button>Create Quiz</button>
+              <NavLink>Profile</NavLink>
+              <NavLink>Dashboard</NavLink>
+              <NavLink>Manage Exam</NavLink>
+              <NavLink>Registered Students</NavLink>
+              <NavLink>Setting</NavLink>
               <button onClick={handleLogout}>Logout</button>
 
+              </div>
+              <div className="DashR">
 
               </div>
             </>
@@ -114,7 +119,8 @@ function Dashboard() {
                 )}
               </div>
               <h3>Learner</h3>
-              <NavLink>DashBoard</NavLink>
+              <button>Create Quiz</button>
+              <NavLink></NavLink>
               <NavLink>Manage Exam</NavLink>
               <NavLink>Students</NavLink>
               <NavLink>Registered Students</NavLink>
