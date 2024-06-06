@@ -42,8 +42,7 @@
   .accordion i {
     font-size: 1.5rem;
   }
-  
-  .faqActive,
+
   .accordion:hover {
     background-color: rgb(171, 143, 192);
 
