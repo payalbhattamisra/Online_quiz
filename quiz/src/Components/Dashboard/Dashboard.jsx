@@ -71,6 +71,7 @@ function Dashboard() {
         <>
           { user.role ==="Admin" ?(
             <>
+            {/* admin */}
             <div className="dashL">
               <h1>Welcome {user.name}</h1>
               <div>
@@ -97,6 +98,7 @@ function Dashboard() {
             </>
           ):(
             <>
+            {/* learner */}
             <div className="dash">
               <div className="dashL">
               <h1>Welcome {user.name}</h1>
