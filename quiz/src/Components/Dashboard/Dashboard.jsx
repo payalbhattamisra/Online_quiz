@@ -71,22 +71,9 @@ function Dashboard() {
         <>
           { user.role ==="Admin" ?(
             <>
-            <h1>Welcome Admin, {user.name}</h1>
-            <p>Email: {user.email}</p>
-            <p>Gender: {user.gender}</p>
-            <p>Role: {user.role}</p>
-            <p>Institute: {user.institute}</p>
-            <p>Mobile: {user.mobile}</p>
-            <p>Registration Number: {user.registrationNumber}</p>
-            <p>Course: {user.course}</p>
-            <button onClick={handleLogout}>Logout</button>
-            </>
-          ):(
-            <>
-            <div className="dash">
-              <div className="dashL">
+            <div className="dashL">
               <h1>Welcome {user.name}</h1>
-              <NavLink to="/Dashboard" className="profileLink">
+              <div>
                 {user.photoURL ? (
                   <img
                     src={user.photoURL}
@@ -96,8 +83,40 @@ function Dashboard() {
                 ) : (
                   <div className="profile-initial">{getInitial(user.name)}</div>
                 )}
-              </NavLink>
+              </div>
+              <h3>Admin</h3>
+              <NavLink>DashBoard</NavLink>
+              <NavLink>Manage Exam</NavLink>
+              <NavLink>Students</NavLink>
+              <NavLink>Registered Students</NavLink>
+
+              <button onClick={handleLogout}>Logout</button>
+
+
+              </div>
+            </>
+          ):(
+            <>
+            <div className="dash">
+              <div className="dashL">
+              <h1>Welcome {user.name}</h1>
+              <div>
+                {user.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt="Profile"
+                    className="profile-pic"
+                  />
+                ) : (
+                  <div className="profile-initial">{getInitial(user.name)}</div>
+                )}
+              </div>
               <h3>Learner</h3>
+              <NavLink>DashBoard</NavLink>
+              <NavLink>Manage Exam</NavLink>
+              <NavLink>Students</NavLink>
+              <NavLink>Registered Students</NavLink>
+
               <button onClick={handleLogout}>Logout</button>
 
 
@@ -121,7 +140,7 @@ export default Dashboard;
 
 
 
-{/* <>
+/* <>
 <h1>Welcome, {userData.name}</h1>
 <p>Email: {userData.email}</p>
 <p>Gender: {userData.gender}</p>
@@ -131,7 +150,7 @@ export default Dashboard;
 <p>Registration Number: {userData.registrationNumber}</p>
 <p>Course: {userData.course}</p>
 <button onClick={handleLogout}>Logout</button>
-</> */}
+</> */
 
 
 
