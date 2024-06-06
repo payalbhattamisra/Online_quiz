@@ -15,3 +15,5 @@ const Profile = ({ user, handleLogout }) => (
 );
 
 export default Profile;
+
+
