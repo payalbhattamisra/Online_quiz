@@ -4,7 +4,6 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  fetchSignInMethodsForEmail,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -20,6 +19,7 @@ function LoginPage() {
   const [resetEmail, setResetEmail] = useState("");
   const [user, setUser] = useState(null);
   const [isResetMode, setIsResetMode] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -33,7 +33,7 @@ function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in successfully");
-      navigate("/Deshbord");
+      navigate("/Dashboard");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
@@ -60,7 +60,7 @@ function LoginPage() {
         }
 
         console.log("Signed in with Google:", user);
-        navigate("/Deshbord");
+        navigate("/Dashboard");
       } else {
         console.error("No user object found in the result of signInWithPopup.");
       }
@@ -126,13 +126,19 @@ function LoginPage() {
               </div>
               <div className="logInput">
                 <input
-                  type="password"
+                   type={showPassword ? "text" : "password"} 
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Password"
                 />
+                     <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)} // Toggle visibility
+                >
+                  {showPassword ? "Hide" : "Show"} Password
+                </button>
               </div>
               <div className="fogp">
                 <NavLink
