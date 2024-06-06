@@ -4,7 +4,7 @@ import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { NavLink } from "react-router-dom";
 
-import './Dashboard.css';
+import "./Dashboard.css";
 
 function Dashboard() {
   const [user, setUser] = useState(null);
@@ -58,7 +58,6 @@ function Dashboard() {
     );
   }
 
-
   const getInitial = (name) => {
     if (name) {
       return name.charAt(0).toUpperCase();
@@ -66,87 +65,71 @@ function Dashboard() {
     return "";
   };
   return (
-    <div className="d">
-      {user ? (
-        <>
-          { user.role ==="Admin" ?(
-            <>
-            {/* admin */}
-            <div className="dashL">
-              <h1>Welcome {user.name}</h1>
+    <>
+      <div className="dashboard">
+        {user ? (
+          <>
+            {user.role === "Admin" ? (
+              <>
+                {/* admin */}
+                <div className="dash">
+                  <div className="dashL">
+                    <h3>Welcome {user.name}</h3>
+                    <button>Create Quiz</button>
+                    <NavLink>Profile</NavLink>
+                    <NavLink>Dashboard</NavLink>
+                    <NavLink>Manage Exam</NavLink>
+                    <NavLink>Registered Students</NavLink>
+                    <NavLink>Setting</NavLink>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                  <div className="dashR">
+                    ilopiokpkokolkoiokoploloiioplikpoloiopl
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* learner */}
+                <div className="dash">
+                  <div className="dashL">
+                    <h1>Welcome {user.name}</h1>
+                    <div>
+                      {user.photoURL ? (
+                        <img
+                          src={user.photoURL}
+                          alt="Profile"
+                          className="profile-pic"
+                        />
+                      ) : (
+                        <div className="profile-initial">
+                          {getInitial(user.name)}
+                        </div>
+                      )}
+                    </div>
+                    <h3>Learner</h3>
+                    <button>Create Quiz</button>
+                    <NavLink></NavLink>
+                    <NavLink>Manage Exam</NavLink>
+                    <NavLink>Students</NavLink>
+                    <NavLink>Registered Students</NavLink>
 
-              <div>
-                {user.photoURL ? (
-                  <img
-                    src={user.photoURL}
-                    alt="Profile"
-                    className="profile-pic"
-                  />
-                ) : (
-                  <div className="profile-initial">{getInitial(user.name)}</div>
-                )}
-              </div>
-
-              <h3>Admin</h3>
-              <button>Create Quiz</button>
-              <NavLink>Profile</NavLink>
-              <NavLink>Dashboard</NavLink>
-              <NavLink>Manage Exam</NavLink>
-              <NavLink>Registered Students</NavLink>
-              <NavLink>Setting</NavLink>
-              <button onClick={handleLogout}>Logout</button>
-
-              </div>
-              <div className="DashR">
-
-              </div>
-            </>
-          ):(
-            <>
-            {/* learner */}
-            <div className="dash">
-              <div className="dashL">
-              <h1>Welcome {user.name}</h1>
-              <div>
-                {user.photoURL ? (
-                  <img
-                    src={user.photoURL}
-                    alt="Profile"
-                    className="profile-pic"
-                  />
-                ) : (
-                  <div className="profile-initial">{getInitial(user.name)}</div>
-                )}
-              </div>
-              <h3>Learner</h3>
-              <button>Create Quiz</button>
-              <NavLink></NavLink>
-              <NavLink>Manage Exam</NavLink>
-              <NavLink>Students</NavLink>
-              <NavLink>Registered Students</NavLink>
-
-              <button onClick={handleLogout}>Logout</button>
-
-
-              </div>
-              <div className="DashR">
-
-              </div>
-            </div>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                  <div className="DashR"></div>
+                </div>
+              </>
+            )}
           </>
-          )}
-        </>
-      ) : (
-        <div>No user data found.</div>
-      )}
-    </div>
+        ) : (
+          <div>No user data found.</div>
+        )}
+      </div>
+    </>
   );
 }
 
 export default Dashboard;
-
-
-
 
 /* <>
 <h1>Welcome, {userData.name}</h1>
@@ -159,9 +142,6 @@ export default Dashboard;
 <p>Course: {userData.course}</p>
 <button onClick={handleLogout}>Logout</button>
 </> */
-
-
-
 
 // {userData ? (
 //   <>
