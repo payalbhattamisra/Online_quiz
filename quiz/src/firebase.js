@@ -18,14 +18,8 @@ export default app;
 export const db=getFirestore(app);
 
 
-
-
-// Initialize Firebase Authentication and get a reference to the service
 const provider = new GoogleAuthProvider();
 
-// Initialize Firestore and get a reference to the service
-
-// Function to handle Google sign-in
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);

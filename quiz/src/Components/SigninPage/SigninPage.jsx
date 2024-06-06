@@ -81,7 +81,7 @@ function SigninPage() {
       setCourse("");
       setShowForm(false);
       alert("Sign-up successful!");
-      navigate("/Deshbord");
+      navigate("/Dashboard");
     } catch (error) {
       console.error("Error during form submission: ", error);
     }
