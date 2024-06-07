@@ -8,7 +8,7 @@
     height: 100%;
 }
 .dashL {
-    width: 300px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     background-color: rgb(37, 37, 37);
@@ -39,7 +39,7 @@
 
 .dashR{
     display: flex;
-    width: calc(100% - 300px);
+    width: calc(100% - 250px);
     height: 100%;
     background-color: rgb(111, 129, 129);
 }
