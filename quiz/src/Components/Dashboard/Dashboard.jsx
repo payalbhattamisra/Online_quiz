@@ -15,7 +15,7 @@ import "./Dashboard.css";
 function Dashboard() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [currentSection, setCurrentSection] = useState("profile");
+  const [currentSection, setCurrentSection] = useState("DeshBoard");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function Dashboard() {
       case "dashboard":
         return <DeshBoard />;
       case "profile":
-        return <Profile user={user} handleLogout={handleLogout} />;
+        return <Profile user={user} />;
       case "createQuiz":
         return <CreateQuiz />;
       case "manageExam":
