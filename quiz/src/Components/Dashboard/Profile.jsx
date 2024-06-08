@@ -10,7 +10,6 @@ const Profile = ({ user, handleLogout }) => (
     <p>Mobile: {user.mobile}</p>
     <p>Registration Number: {user.registrationNumber}</p>
     <p>Course: {user.course}</p>
-    <button onClick={handleLogout}>Logout</button>
   </>
 );
 
