@@ -5,6 +5,7 @@ const CreateQuiz = () => {
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
   const [text, setText] = useState("Untitled Quiz");
+  const [inputFocused, setInputFocused] = useState(false);
 
   const toggleBold = () => {
     setBold(!bold);
@@ -17,6 +18,10 @@ const CreateQuiz = () => {
   const inputStyle = {
     fontWeight: bold ? "bold" : "normal",
     fontStyle: italic ? "italic" : "normal"
+  };
+
+  const handleInputFocus = () => {
+    setInputFocused(true);
   };
 
   return (
@@ -50,11 +55,15 @@ const CreateQuiz = () => {
                 value={text}
                 style={inputStyle}
                 onChange={(e) => setText(e.target.value)}
+                onFocus={handleInputFocus}
+                onBlur={() => setInputFocused(false)}
               />
-              <div className="toolbar">
-                <button onClick={toggleBold}><b>B</b></button>
-                <button onClick={toggleItalic}><i>I</i></button>
-              </div>
+              {inputFocused && (
+                <div className="toolbar">
+                  <button onClick={toggleBold}><b>B</b></button>
+                  <button onClick={toggleItalic}><i>I</i></button>
+                </div>
+              )}
             </div>
             <div className="in">
               <input type="text" placeholder="Form description" />
