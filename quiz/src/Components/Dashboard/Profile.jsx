@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { db } from '../../firebase'; // Ensure this path is correct
 import { doc, updateDoc } from "firebase/firestore";
 
+const Profile = ({ user }) => {
+  const [userData, setUserData] = useState(user);
+  const [isEditing, setIsEditing] = useState(false);
 
   const updateUserData = async (updatedData) => {
     console.log('Attempting to update user data:', updatedData);
