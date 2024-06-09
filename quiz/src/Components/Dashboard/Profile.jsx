@@ -76,6 +76,6 @@ import { doc, updateDoc } from "firebase/firestore";
       )}
     </>
   );
-};
+
 
 export default Profile;
