@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.icon {
+    height: 60px;
+    width: 840px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.icon > .first {
+    height: 80%;
+    width: 30%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: brown; */
+}
+
+.icon > .last {
+    height: 80%;
+    width: 40%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: cornflowerblue; */
+}
+
+.first > .heading {
+    font-size: 20px;
+}
+
+.btnswitch > button {
+    padding: 10px;
+    font-size: 17px;
+    background-color: midnightblue;
+    color: aliceblue;
+    border: none;
+    border-radius: 20%;
+}
+
+.que > .box1 {
+    background-color: brown;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.box1 > .iner {
+    font-size: 10px;
+}
+
+.box1 > .in > input {
+    width: 700px;
+}
+
+.iner > input {
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+.iner {
+    position: relative;
+}
+
+.toolbar {
+    display: flex;
+    margin-top: 10px;
+}
+
+.toolbar > button {
+    font-size: 16px;
+    margin-right: 5px;
+}
