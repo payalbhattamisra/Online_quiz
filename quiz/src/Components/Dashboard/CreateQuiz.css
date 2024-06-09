@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .icon {
@@ -11,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: aqua; */
 }
 
 .icon > .first {
@@ -21,7 +19,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: brown; */
 }
 
 .icon > .last {
@@ -31,7 +28,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: cornflowerblue; */
 }
 
 .first > .heading {
@@ -77,9 +73,14 @@
 .toolbar {
     display: flex;
     margin-top: 10px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
 }
 
 .toolbar > button {
     font-size: 16px;
     margin-right: 5px;
+    cursor: pointer;
 }
