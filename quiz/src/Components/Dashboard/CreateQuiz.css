@@ -44,7 +44,7 @@
 }
 
 .que > .box1 {
-    background-color: brown;
+    background-color: white;
     margin-top: 10px;
     margin-left: 40px;
     margin-right: 40px;
@@ -54,12 +54,20 @@
     font-size: 10px;
 }
 
+
 .box1 > .in > input {
-    width: 700px;
+    width: 900px;
 }
 
-.iner > input ,.in.input{
+.iner > input {
     font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+.in>input{
+    font-size: 14px;
     font-weight: 400;
     width: 100%;
     padding: 10px;
@@ -74,7 +82,7 @@
     display: flex;
     margin-top: 10px;
     background-color: white;
-    position: absolute;
+    /* position: absolute; */
     top: 100%;
     left: 0;
 }
