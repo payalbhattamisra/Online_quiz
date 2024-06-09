@@ -2,40 +2,75 @@ import React, { useState } from "react";
 import './CreateQuiz.css';
 
 const CreateQuiz = () => {
-  const [bold, setBold] = useState(false);
-  const [italic, setItalic] = useState(false);
-  const [text, setText] = useState("Untitled Quiz");
-  const [inputFocused, setInputFocused] = useState(false);
-  const [isUpperCase, setIsUpperCase] = useState(false);
+  const [titleBold, setTitleBold] = useState(false);
+  const [titleItalic, setTitleItalic] = useState(false);
+  const [titleText, setTitleText] = useState("Untitled Quiz");
+  const [titleFocused, setTitleFocused] = useState(false);
+  const [titleUpperCase, setTitleUpperCase] = useState(false);
 
-  const toggleBold = () => {
-    setBold(!bold);
+  const [descBold, setDescBold] = useState(false);
+  const [descItalic, setDescItalic] = useState(false);
+  const [descText, setDescText] = useState("");
+  const [descFocused, setDescFocused] = useState(false);
+  const [descUpperCase, setDescUpperCase] = useState(false);
+
+  const toggleTitleBold = () => {
+    setTitleBold(!titleBold);
   };
 
-  const toggleItalic = () => {
-    setItalic(!italic);
+  const toggleTitleItalic = () => {
+    setTitleItalic(!titleItalic);
   };
 
-  const toggleUpperCase = () => {
-    const newText = isUpperCase ? text.toLowerCase() : text.toUpperCase();
-    setIsUpperCase(!isUpperCase);
-    setText(newText);
+  const toggleTitleUpperCase = () => {
+    const newText = titleUpperCase ? titleText.toLowerCase() : titleText.toUpperCase();
+    setTitleUpperCase(!titleUpperCase);
+    setTitleText(newText);
   };
 
-  const inputStyle = {
-    fontWeight: bold ? "bold" : "normal",
-    fontStyle: italic ? "italic" : "normal",
-    textTransform: isUpperCase ? "uppercase" : "none"
+  const toggleDescBold = () => {
+    setDescBold(!descBold);
   };
 
-  const handleInputFocus = () => {
-    setInputFocused(true);
+  const toggleDescItalic = () => {
+    setDescItalic(!descItalic);
   };
 
-  const handleInputBlur = () => {
-    // Prevent toolbar from disappearing too quickly
+  const toggleDescUpperCase = () => {
+    const newText = descUpperCase ? descText.toLowerCase() : descText.toUpperCase();
+    setDescUpperCase(!descUpperCase);
+    setDescText(newText);
+  };
+
+  const titleInputStyle = {
+    fontWeight: titleBold ? "bold" : "normal",
+    fontStyle: titleItalic ? "italic" : "normal",
+    textTransform: titleUpperCase ? "uppercase" : "none"
+  };
+
+  const descInputStyle = {
+    fontWeight: descBold ? "bold" : "normal",
+    fontStyle: descItalic ? "italic" : "normal",
+    textTransform: descUpperCase ? "uppercase" : "none"
+  };
+
+  const handleTitleFocus = () => {
+    setTitleFocused(true);
+  };
+
+  const handleTitleBlur = () => {
     setTimeout(() => {
-      setInputFocused(false);
+      setTitleFocused(false);
+    }, 200);
+  };
+
+  const handleDescFocus = () => {
+    setDescFocused(true);
+  };
+
+  const handleDescBlur = () => {
+    setTimeout(() => {
+      setDescFocused(false);
     }, 200);
   };
 
@@ -46,7 +81,7 @@ const CreateQuiz = () => {
         <div className="icon">
           <div className="first">
             <i className="fa-solid fa-file-lines fa-2x" style={{ color: "#023E8A" }}></i>
-            <div className="heading" style={inputStyle}>{text}</div>
+            <div className="heading" style={titleInputStyle}>{titleText}</div>
             <i className="fa-regular fa-star" style={{ color: "#222222" }}></i>
           </div>
           <div className="last">
@@ -67,22 +102,37 @@ const CreateQuiz = () => {
               <input
                 type="text"
                 id="quizTitle"
-                value={text}
-                style={inputStyle}
-                onChange={(e) => setText(e.target.value)}
-                onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
+                value={titleText}
+                style={titleInputStyle}
+                onChange={(e) => setTitleText(e.target.value)}
+                onFocus={handleTitleFocus}
+                onBlur={handleTitleBlur}
               />
-              {inputFocused && (
+              {titleFocused && (
                 <div className="toolbar">
-                  <button onClick={toggleBold}><b>B</b></button>
-                  <button onClick={toggleItalic}><i>I</i></button>
-                  <button onClick={toggleUpperCase}>Upper/Lower</button>
+                  <button onClick={toggleTitleBold}><b>B</b></button>
+                  <button onClick={toggleTitleItalic}><i>I</i></button>
+                  <button onClick={toggleTitleUpperCase}>Upper/Lower</button>
                 </div>
               )}
             </div>
             <div className="in">
-              <input type="text" placeholder="Form description" />
+              <input
+                type="text"
+                placeholder="Form description"
+                value={descText}
+                style={descInputStyle}
+                onChange={(e) => setDescText(e.target.value)}
+                onFocus={handleDescFocus}
+                onBlur={handleDescBlur}
+              />
+              {descFocused && (
+                <div className="toolbar">
+                  <button onClick={toggleDescBold}><b>B</b></button>
+                  <button onClick={toggleDescItalic}><i>I</i></button>
+                  <button onClick={toggleDescUpperCase}>Upper/Lower</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
