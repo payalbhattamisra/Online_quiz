@@ -6,6 +6,7 @@ const CreateQuiz = () => {
   const [italic, setItalic] = useState(false);
   const [text, setText] = useState("Untitled Quiz");
   const [inputFocused, setInputFocused] = useState(false);
+  const [isUpperCase, setIsUpperCase] = useState(false);
 
   const toggleBold = () => {
     setBold(!bold);
@@ -15,13 +16,27 @@ const CreateQuiz = () => {
     setItalic(!italic);
   };
 
+  const toggleUpperCase = () => {
+    const newText = isUpperCase ? text.toLowerCase() : text.toUpperCase();
+    setIsUpperCase(!isUpperCase);
+    setText(newText);
+  };
+
   const inputStyle = {
     fontWeight: bold ? "bold" : "normal",
-    fontStyle: italic ? "italic" : "normal"
+    fontStyle: italic ? "italic" : "normal",
+    textTransform: isUpperCase ? "uppercase" : "none"
   };
 
   const handleInputFocus = () => {
     setInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    // Prevent toolbar from disappearing too quickly
+    setTimeout(() => {
+      setInputFocused(false);
+    }, 200);
   };
 
   return (
@@ -31,7 +46,7 @@ const CreateQuiz = () => {
         <div className="icon">
           <div className="first">
             <i className="fa-solid fa-file-lines fa-2x" style={{ color: "#023E8A" }}></i>
-            <div className="heading">{text}</div>
+            <div className="heading" style={inputStyle}>{text}</div>
             <i className="fa-regular fa-star" style={{ color: "#222222" }}></i>
           </div>
           <div className="last">
@@ -56,12 +71,13 @@ const CreateQuiz = () => {
                 style={inputStyle}
                 onChange={(e) => setText(e.target.value)}
                 onFocus={handleInputFocus}
-                onBlur={() => setInputFocused(false)}
+                onBlur={handleInputBlur}
               />
               {inputFocused && (
                 <div className="toolbar">
                   <button onClick={toggleBold}><b>B</b></button>
                   <button onClick={toggleItalic}><i>I</i></button>
+                  <button onClick={toggleUpperCase}>Upper/Lower</button>
                 </div>
               )}
             </div>
