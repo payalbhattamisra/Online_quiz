@@ -92,3 +92,29 @@
     margin-right: 5px;
     cursor: pointer;
 }
+.box2{
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.que>input{
+    font-size: 14px;
+    font-weight: 400;
+    width: 50%;
+    padding: 10px;
+    border: none;
+}
+.box2>.que{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.que i{
+    padding:10px;
+    padding-right: 30px;
+}
+#quiztypes{
+    border:10cm;
+    width:30%;
+}
