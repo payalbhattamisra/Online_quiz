@@ -43,11 +43,11 @@
     border-radius: 20%;
 }
 
-.que > .box1 {
+ .box1 {
     background-color: white;
     margin-top: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .box1 > .iner {
@@ -95,8 +95,8 @@
 .box2{
     background-color: white;
     margin-top: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left:10px;
+    margin-right: 10px;
 }
 .que>input{
     font-size: 14px;
@@ -118,3 +118,18 @@
     border:10cm;
     width:30%;
 }
+.que{
+    display: flex;
+}
+.vl {
+    border-left: 26px solid  white;
+    height: 50px;
+    width:26%;
+    margin-left: 20px;
+  }
+  .left{
+    width:93%;
+  }
+  .right{
+    width:7%;
+  }
