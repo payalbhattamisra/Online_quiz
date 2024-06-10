@@ -16,7 +16,7 @@ const CreateQuiz = () => {
 
   const [questionBold, setQuestionBold] = useState(false);
   const [questionItalic, setQuestionItalic] = useState(false);
-  const [questionText, setQuestionText] = useState("Untitled question");
+  const [questionText, setQuestionText] = useState("Enter a question");
   const [questionFocused, setQuestionFocused] = useState(false);
   const [questionUpperCase, setQuestionUpperCase] = useState(false);
 
@@ -156,31 +156,10 @@ const CreateQuiz = () => {
             <button onClick={addOption}>Add option</button>
           </div>
         );
-      case "checkbox":
-        return (
-          <div className="checkbox-choice">
-            {options.map((option, index) => (
-              <div key={index} className="option">
-                <input
-                  type="checkbox"
-                  name="checkbox-choice"
-                  value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
-                />
-                <input
-                  type="text"
-                  value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
-                  placeholder="Option"
-                />
-              </div>
-            ))}
-            <button onClick={addOption}>Add option</button>
-          </div>
-        );
       default:
         return null;
     }
+        
   };
 
   return (
@@ -261,7 +240,10 @@ const CreateQuiz = () => {
                   <button onClick={toggleQuestionUpperCase}>Upper/Lower</button>
                 </div>
               )}
-              <select name="quiztype" id="quiztypes" onChange={handleQuestionTypeChange}>
+              
+            </div>
+            <div className="optionss">
+            <select name="quiztype" id="quiztypes" onChange={handleQuestionTypeChange}>
                 <option value="shortans">➖ Short answer</option>
                 <option value="para">✍️ Paragraph</option>
                 <option value="multiple">🔘 Multiple choice</option>
