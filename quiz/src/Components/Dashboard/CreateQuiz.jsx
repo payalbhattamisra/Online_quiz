@@ -14,14 +14,17 @@ const CreateQuiz = () => {
   const [descFocused, setDescFocused] = useState(false);
   const [descUpperCase, setDescUpperCase] = useState(false);
 
-  const [questionBold, setQuestionBold] = useState(false);
-  const [questionItalic, setQuestionItalic] = useState(false);
-  const [questionText, setQuestionText] = useState("Enter a question");
-  const [questionFocused, setQuestionFocused] = useState(false);
-  const [questionUpperCase, setQuestionUpperCase] = useState(false);
-
-  const [questionType, setQuestionType] = useState("shortans");
-  const [options, setOptions] = useState([""]);
+  const [questions, setQuestions] = useState([
+    {
+      bold: false,
+      italic: false,
+      text: "Enter a question",
+      focused: false,
+      upperCase: false,
+      type: "shortans",
+      options: [""],
+    },
+  ]);
 
   const toggleTitleBold = () => {
     setTitleBold(!titleBold);
@@ -51,36 +54,29 @@ const CreateQuiz = () => {
     setDescText(newText);
   };
 
-  const toggleQuestionBold = () => {
-    setQuestionBold(!questionBold);
+  const toggleQuestionBold = (index) => {
+    const updatedQuestions = questions.map((q, i) => (
+      i === index ? { ...q, bold: !q.bold } : q
+    ));
+    setQuestions(updatedQuestions);
   };
 
-  const toggleQuestionItalic = () => {
-    setQuestionItalic(!questionItalic);
+  const toggleQuestionItalic = (index) => {
+    const updatedQuestions = questions.map((q, i) => (
+      i === index ? { ...q, italic: !q.italic } : q
+    ));
+    setQuestions(updatedQuestions);
   };
 
-  const toggleQuestionUpperCase = () => {
-    const newText = questionUpperCase ? questionText.toLowerCase() : questionText.toUpperCase();
-    setQuestionUpperCase(!questionUpperCase);
-    setQuestionText(newText);
-  };
-
-  const titleInputStyle = {
-    fontWeight: titleBold ? "bold" : "normal",
-    fontStyle: titleItalic ? "italic" : "normal",
-    textTransform: titleUpperCase ? "uppercase" : "none"
-  };
-
-  const descInputStyle = {
-    fontWeight: descBold ? "bold" : "normal",
-    fontStyle: descItalic ? "italic" : "normal",
-    textTransform: descUpperCase ? "uppercase" : "none"
-  };
-
-  const questionInputStyle = {
-    fontWeight: questionBold ? "bold" : "normal",
-    fontStyle: questionItalic ? "italic" : "normal",
-    textTransform: questionUpperCase ? "uppercase" : "none"
+  const toggleQuestionUpperCase = (index) => {
+    const updatedQuestions = questions.map((q, i) => {
+      if (i === index) {
+        const newText = q.upperCase ? q.text.toLowerCase() : q.text.toUpperCase();
+        return { ...q, upperCase: !q.upperCase, text: newText };
+      }
+      return q;
+    });
+    setQuestions(updatedQuestions);
   };
 
   const handleTitleFocus = () => {
@@ -103,33 +99,62 @@ const CreateQuiz = () => {
     }, 200);
   };
 
-  const handleQuestionFocus = () => {
-    setQuestionFocused(true);
+  const handleQuestionFocus = (index) => {
+    const updatedQuestions = questions.map((q, i) => (
+      i === index ? { ...q, focused: true } : q
+    ));
+    setQuestions(updatedQuestions);
   };
 
-  const handleQuestionBlur = () => {
+  const handleQuestionBlur = (index) => {
     setTimeout(() => {
-      setQuestionFocused(false);
+      const updatedQuestions = questions.map((q, i) => (
+        i === index ? { ...q, focused: false } : q
+      ));
+      setQuestions(updatedQuestions);
     }, 200);
   };
 
-  const handleQuestionTypeChange = (event) => {
-    setQuestionType(event.target.value);
-    setOptions([""]);
+  const handleQuestionTypeChange = (index, event) => {
+    const updatedQuestions = questions.map((q, i) => (
+      i === index ? { ...q, type: event.target.value, options: [""] } : q
+    ));
+    setQuestions(updatedQuestions);
   };
 
-  const handleOptionChange = (index, value) => {
-    const newOptions = [...options];
-    newOptions[index] = value;
-    setOptions(newOptions);
+  const handleOptionChange = (questionIndex, optionIndex, value) => {
+    const updatedQuestions = questions.map((q, i) => {
+      if (i === questionIndex) {
+        const newOptions = [...q.options];
+        newOptions[optionIndex] = value;
+        return { ...q, options: newOptions };
+      }
+      return q;
+    });
+    setQuestions(updatedQuestions);
   };
 
-  const addOption = () => {
-    setOptions([...options, ""]);
+  const addOption = (index) => {
+    const updatedQuestions = questions.map((q, i) => (
+      i === index ? { ...q, options: [...q.options, ""] } : q
+    ));
+    setQuestions(updatedQuestions);
   };
 
-  const renderQuestionInput = () => {
-    switch (questionType) {
+  const addQuestion = () => {
+    setQuestions([...questions, {
+      bold: false,
+      italic: false,
+      text: "Enter a question",
+      focused: false,
+      upperCase: false,
+      type: "shortans",
+      options: [""],
+    }]);
+  };
+
+  const renderQuestionInput = (question, index) => {
+    switch (question.type) {
       case "shortans":
         return <div className="answer-input">Short answer text</div>;
       case "para":
@@ -137,29 +162,28 @@ const CreateQuiz = () => {
       case "multiple":
         return (
           <div className="multiple-choice">
-            {options.map((option, index) => (
-              <div key={index} className="option">
+            {question.options.map((option, optionIndex) => (
+              <div key={optionIndex} className="option">
                 <input
                   type="radio"
-                  name="multiple-choice"
+                  name={`multiple-choice-${index}`}
                   value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                  onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
                 />
                 <input
                   type="text"
                   value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                  onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
                   placeholder="Option"
                 />
               </div>
             ))}
-            <button onClick={addOption}>Add option</button>
+            <button onClick={() => addOption(index)}>Add option</button>
           </div>
         );
       default:
         return null;
     }
-        
   };
 
   return (
@@ -169,7 +193,11 @@ const CreateQuiz = () => {
         <div className="icon">
           <div className="first">
             <i className="fa-solid fa-file-lines fa-2x" style={{ color: "#023E8A" }}></i>
-            <div className="heading" style={titleInputStyle}>{titleText}</div>
+            <div className="heading" style={{
+              fontWeight: titleBold ? "bold" : "normal",
+              fontStyle: titleItalic ? "italic" : "normal",
+              textTransform: titleUpperCase ? "uppercase" : "none"
+            }}>{titleText}</div>
             <i className="fa-regular fa-star" style={{ color: "#222222" }}></i>
           </div>
           <div className="last">
@@ -185,75 +213,105 @@ const CreateQuiz = () => {
         </div>
 
         <div className="que">
-          <div className="box1">
-            <div className="iner">
-              <input
-                type="text"
-                id="quizTitle"
-                value={titleText}
-                style={titleInputStyle}
-                onChange={(e) => setTitleText(e.target.value)}
-                onFocus={handleTitleFocus}
-                onBlur={handleTitleBlur}
-              />
-              {titleFocused && (
-                <div className="toolbar">
-                  <button onClick={toggleTitleBold}><b>B</b></button>
-                  <button onClick={toggleTitleItalic}><i>I</i></button>
-                  <button onClick={toggleTitleUpperCase}>Upper/Lower</button>
-                </div>
-              )}
-            </div>
-            <div className="in">
-              <input
-                type="text"
-                placeholder="Form description"
-                value={descText}
-                style={descInputStyle}
-                onChange={(e) => setDescText(e.target.value)}
-                onFocus={handleDescFocus}
-                onBlur={handleDescBlur}
-              />
-              {descFocused && (
-                <div className="toolbar">
-                  <button onClick={toggleDescBold}><b>B</b></button>
-                  <button onClick={toggleDescItalic}><i>I</i></button>
-                  <button onClick={toggleDescUpperCase}>Upper/Lower</button>
-                </div>
-              )}
+          <div className="left">
+            <div className="box1">
+              <div className="iner">
+                <input
+                  type="text"
+                  id="quizTitle"
+                  value={titleText}
+                  style={{
+                    fontWeight: titleBold ? "bold" : "normal",
+                    fontStyle: titleItalic ? "italic" : "normal",
+                    textTransform: titleUpperCase ? "uppercase" : "none"
+                  }}
+                  onChange={(e) => setTitleText(e.target.value)}
+                  onFocus={handleTitleFocus}
+                  onBlur={handleTitleBlur}
+                />
+                {titleFocused && (
+                  <div className="toolbar">
+                    <button onClick={toggleTitleBold}><b>B</b></button>
+                    <button onClick={toggleTitleItalic}><i>I</i></button>
+                    <button onClick={toggleTitleUpperCase}>Upper/Lower</button>
+                  </div>
+                )}
+              </div>
+              <div className="in">
+                <input
+                  type="text"
+                  placeholder="Form description"
+                  value={descText}
+                  style={{
+                    fontWeight: descBold ? "bold" : "normal",
+                    fontStyle: descItalic ? "italic" : "normal",
+                    textTransform: descUpperCase ? "uppercase" : "none"
+                  }}
+                  onChange={(e) => setDescText(e.target.value)}
+                  onFocus={handleDescFocus}
+                  onBlur={handleDescBlur}
+                />
+                {descFocused && (
+                  <div className="toolbar">
+                    <button onClick={toggleDescBold}><b>B</b></button>
+                    <button onClick={toggleDescItalic}><i>I</i></button>
+                    <button onClick={toggleDescUpperCase}>Upper/Lower</button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-          <div className="box2">
-            <div className="que"> 
+          <div className="right">
+            <div className="vl" onClick={addQuestion}>
+            <i class="fa-solid fa-circle-plus"></i>
+            </div>
+          </div>
+        </div>
+
+        {questions.map((question, index) => (
+          <div className="box2" key={index}>
+            <div className="que">
               <input
                 type="text"
-                value={questionText}
-                style={questionInputStyle}
-                onChange={(e) => setQuestionText(e.target.value)}
-                onFocus={handleQuestionFocus}
-                onBlur={handleQuestionBlur}
+                value={question.text}
+                style={{
+                  fontWeight: question.bold ? "bold" : "normal",
+                  fontStyle: question.italic ? "italic" : "normal",
+                  textTransform: question.upperCase ? "uppercase" : "none"
+                }}
+                onChange={(e) => {
+                  const newQuestions = [...questions];
+                  newQuestions[index].text = e.target.value;
+                  setQuestions(newQuestions);
+                }}
+                onFocus={() => handleQuestionFocus(index)}
+                onBlur={() => handleQuestionBlur(index)}
               />
-              {questionFocused && (
+              {question.focused && (
                 <div className="toolbar">
-                  <button onClick={toggleQuestionBold}><b>B</b></button>
-                  <button onClick={toggleQuestionItalic}><i>I</i></button>
-                  <button onClick={toggleQuestionUpperCase}>Upper/Lower</button>
+                  <button onClick={() => toggleQuestionBold(index)}><b>B</b></button>
+                  <button onClick={() => toggleQuestionItalic(index)}><i>I</i></button>
+                  <button onClick={() => toggleQuestionUpperCase(index)}>Upper/Lower</button>
                 </div>
               )}
-              
             </div>
             <div className="optionss">
-            <select name="quiztype" id="quiztypes" onChange={handleQuestionTypeChange}>
+              <select
+                name="quiztype"
+                id="quiztypes"
+                value={question.type}
+                onChange={(e) => handleQuestionTypeChange(index, e)}
+              >
                 <option value="shortans">➖ Short answer</option>
                 <option value="para">✍️ Paragraph</option>
                 <option value="multiple">🔘 Multiple choice</option>
                 <option value="checkbox">☑️ Checkboxes</option>
                 <option value="dropdown">🔽 Dropdown</option>
               </select>
-              {renderQuestionInput()}
+              {renderQuestionInput(question, index)}
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </>
   );
