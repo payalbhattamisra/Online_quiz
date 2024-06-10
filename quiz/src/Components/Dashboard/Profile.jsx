@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db } from '../../firebase'; // Ensure this path is correct
+import { db } from '../../firebase';
 import { doc, updateDoc } from "firebase/firestore";
 
 const Profile = ({ user }) => {
@@ -9,9 +9,10 @@ const Profile = ({ user }) => {
   const updateUserData = async (updatedData) => {
     console.log('Attempting to update user data:', updatedData);
     try {
-      const userDoc = doc(db, 'users', user.id); // Ensure user.id is correct
+      const userDoc = doc(db, 'Users', user.uid);
       await updateDoc(userDoc, updatedData);
       setUserData({ ...userData, ...updatedData });
+      console.log('User data updated successfully');
       alert('User data updated successfully');
     } catch (error) {
       console.error("Error updating user data: ", error);
@@ -22,10 +23,12 @@ const Profile = ({ user }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+    console.log(`Updated ${name} to ${value}`);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Form submitted with data:', userData);
     updateUserData(userData);
     setIsEditing(false);
   };
@@ -39,30 +42,30 @@ const Profile = ({ user }) => {
       <h1>Welcome, {userData.name}</h1>
       {isEditing ? (
         <form onSubmit={handleSubmit}>
-          <p>
+          <div className="pI">
             Name: <input name="name" value={userData.name} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Email: <input name="email" value={userData.email} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Gender: <input name="gender" value={userData.gender} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Role: <input name="role" value={userData.role} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Institute: <input name="institute" value={userData.institute} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Mobile: <input name="mobile" value={userData.mobile} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Registration Number: <input name="registrationNumber" value={userData.registrationNumber} onChange={handleChange} />
-          </p>
-          <p>
+          </div>
+          <div className="pI">
             Course: <input name="course" value={userData.course} onChange={handleChange} />
-          </p>
+          </div>
           <button type="submit">Update</button>
         </form>
       ) : (
