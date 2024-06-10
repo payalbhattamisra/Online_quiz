@@ -261,12 +261,12 @@ const CreateQuiz = () => {
               </div>
             </div>
           </div>
-          <div className="right">
+           
             <div className="vl" onClick={addQuestion}>
             <i class="fa-solid fa-circle-plus"></i>
             </div>
           </div>
-        </div>
+         
 
         {questions.map((question, index) => (
           <div className="box2" key={index}>

@@ -121,15 +121,7 @@
 .que{
     display: flex;
 }
-.vl {
-    border-left: 26px solid  white;
-    height: 50px;
-    width:26%;
-    margin-left: 20px;
-  }
-  .left{
+ .left{
     width:93%;
   }
-  .right{
-    width:7%;
-  }
+   
