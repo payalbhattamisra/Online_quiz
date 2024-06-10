@@ -14,6 +14,15 @@ const CreateQuiz = () => {
   const [descFocused, setDescFocused] = useState(false);
   const [descUpperCase, setDescUpperCase] = useState(false);
 
+  const [questionBold, setQuestionBold] = useState(false);
+  const [questionItalic, setQuestionItalic] = useState(false);
+  const [questionText, setQuestionText] = useState("Untitled question");
+  const [questionFocused, setQuestionFocused] = useState(false);
+  const [questionUpperCase, setQuestionUpperCase] = useState(false);
+
+  const [questionType, setQuestionType] = useState("shortans");
+  const [options, setOptions] = useState([""]);
+
   const toggleTitleBold = () => {
     setTitleBold(!titleBold);
   };
@@ -42,6 +51,20 @@ const CreateQuiz = () => {
     setDescText(newText);
   };
 
+  const toggleQuestionBold = () => {
+    setQuestionBold(!questionBold);
+  };
+
+  const toggleQuestionItalic = () => {
+    setQuestionItalic(!questionItalic);
+  };
+
+  const toggleQuestionUpperCase = () => {
+    const newText = questionUpperCase ? questionText.toLowerCase() : questionText.toUpperCase();
+    setQuestionUpperCase(!questionUpperCase);
+    setQuestionText(newText);
+  };
+
   const titleInputStyle = {
     fontWeight: titleBold ? "bold" : "normal",
     fontStyle: titleItalic ? "italic" : "normal",
@@ -52,6 +75,12 @@ const CreateQuiz = () => {
     fontWeight: descBold ? "bold" : "normal",
     fontStyle: descItalic ? "italic" : "normal",
     textTransform: descUpperCase ? "uppercase" : "none"
+  };
+
+  const questionInputStyle = {
+    fontWeight: questionBold ? "bold" : "normal",
+    fontStyle: questionItalic ? "italic" : "normal",
+    textTransform: questionUpperCase ? "uppercase" : "none"
   };
 
   const handleTitleFocus = () => {
@@ -72,6 +101,86 @@ const CreateQuiz = () => {
     setTimeout(() => {
       setDescFocused(false);
     }, 200);
+  };
+
+  const handleQuestionFocus = () => {
+    setQuestionFocused(true);
+  };
+
+  const handleQuestionBlur = () => {
+    setTimeout(() => {
+      setQuestionFocused(false);
+    }, 200);
+  };
+
+  const handleQuestionTypeChange = (event) => {
+    setQuestionType(event.target.value);
+    setOptions([""]);
+  };
+
+  const handleOptionChange = (index, value) => {
+    const newOptions = [...options];
+    newOptions[index] = value;
+    setOptions(newOptions);
+  };
+
+  const addOption = () => {
+    setOptions([...options, ""]);
+  };
+
+  const renderQuestionInput = () => {
+    switch (questionType) {
+      case "shortans":
+        return <div className="answer-input">Short answer text</div>;
+      case "para":
+        return <div className="answer-input">Long answer text</div>;
+      case "multiple":
+        return (
+          <div className="multiple-choice">
+            {options.map((option, index) => (
+              <div key={index} className="option">
+                <input
+                  type="radio"
+                  name="multiple-choice"
+                  value={option}
+                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={option}
+                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                  placeholder="Option"
+                />
+              </div>
+            ))}
+            <button onClick={addOption}>Add option</button>
+          </div>
+        );
+      case "checkbox":
+        return (
+          <div className="checkbox-choice">
+            {options.map((option, index) => (
+              <div key={index} className="option">
+                <input
+                  type="checkbox"
+                  name="checkbox-choice"
+                  value={option}
+                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={option}
+                  onChange={(e) => handleOptionChange(index, e.target.value)}
+                  placeholder="Option"
+                />
+              </div>
+            ))}
+            <button onClick={addOption}>Add option</button>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -133,6 +242,33 @@ const CreateQuiz = () => {
                   <button onClick={toggleDescUpperCase}>Upper/Lower</button>
                 </div>
               )}
+            </div>
+          </div>
+          <div className="box2">
+            <div className="que"> 
+              <input
+                type="text"
+                value={questionText}
+                style={questionInputStyle}
+                onChange={(e) => setQuestionText(e.target.value)}
+                onFocus={handleQuestionFocus}
+                onBlur={handleQuestionBlur}
+              />
+              {questionFocused && (
+                <div className="toolbar">
+                  <button onClick={toggleQuestionBold}><b>B</b></button>
+                  <button onClick={toggleQuestionItalic}><i>I</i></button>
+                  <button onClick={toggleQuestionUpperCase}>Upper/Lower</button>
+                </div>
+              )}
+              <select name="quiztype" id="quiztypes" onChange={handleQuestionTypeChange}>
+                <option value="shortans">➖ Short answer</option>
+                <option value="para">✍️ Paragraph</option>
+                <option value="multiple">🔘 Multiple choice</option>
+                <option value="checkbox">☑️ Checkboxes</option>
+                <option value="dropdown">🔽 Dropdown</option>
+              </select>
+              {renderQuestionInput()}
             </div>
           </div>
         </div>
