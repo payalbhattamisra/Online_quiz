@@ -1,8 +1,9 @@
-.pProfile{
+.pProfile {
     background-color: bisque;
     width: 100%;
 }
-.proDetails{
+
+.proDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,39 +11,45 @@
     width: 100%;
     background-color: bisque;
 }
-.proPic{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+
+.proPic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
-.profile-initial{
+
+.profile-initial {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    }
-    .pProfilePic{
-        margin-top: 40px;
-        margin-bottom: 20px;
-        background-color: #808080;
-    
+}
+
+.pProfilePic {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: #808080;
+
     border: 1px solid blue;
     border-radius: 200px;
     height: 150px;
     width: 150px;
 }
-.pPinfo>p{
+
+.pPinfo>p {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 20px;
 }
-.proDetails>button{
+
+.proDetails>button {
     margin-top: 10px;
     padding: 10px 50px;
     border-radius: 20px;
 }
+
 .formContainer {
     font-size: 30px;
     display: flex;
@@ -52,25 +59,26 @@ align-items: center;
     max-width: 400px;
     padding: 20px;
     border-radius: 10px;
-  }
-  .formContainer>button{
+}
+
+.formContainer>button {
     margin-top: 40px;
     padding: 10px 50px;
     border-radius: 20px;
-  }
+}
 
-  .upInput{
+.upInput {
     width: 100%;
     border-bottom: 2px solid rgba(0, 0, 0, 0.205);
     margin-top: 10px;
     padding-left: 2px;
 }
-.upInput>input,select{
+
+.upInput>input,
+select {
     width: 100%;
     height: 25px;
     border: none;
     background: none;
     outline: none;
 }
-
-  
