@@ -41,7 +41,6 @@ const Profile = ({ user }) => {
   return (
     <>
     <div className="pProfile">
-
       {isEditing ? (
         <form onSubmit={handleSubmit} className="formContainer">
           <p className="pPara">Update Your Information</p>
