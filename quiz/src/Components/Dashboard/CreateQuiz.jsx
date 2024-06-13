@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import './CreateQuiz.css';
+import { db, auth } from "../../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 const CreateQuiz = () => {
   const [titleBold, setTitleBold] = useState(false);
@@ -186,6 +188,26 @@ const CreateQuiz = () => {
     }
   };
 
+  const handleSaveQuiz = async () => {
+    const user = auth.currentUser;
+    if (user) {
+      try {
+        const docRef = doc(db, "Quizzes", user.uid);
+        await setDoc(docRef, {
+          title: titleText,
+          description: descText,
+          questions: questions,
+        });
+        alert("Quiz saved successfully!");
+      } catch (error) {
+        console.error("Error saving quiz: ", error);
+        alert("Error saving quiz.");
+      }
+    } else {
+      alert("You need to be signed in to save a quiz.");
+    }
+  };
+
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -206,7 +228,7 @@ const CreateQuiz = () => {
             <i className="fa-solid fa-arrow-left" style={{ color: " #222222" }}></i>
             <i className="fa-solid fa-arrow-right" style={{ color: " #222222" }}></i>
             <div className="btnswitch">
-              <button className="btn3">send</button>
+              <button className="btn3" onClick={handleSaveQuiz}>send</button>
             </div>
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
@@ -263,7 +285,7 @@ const CreateQuiz = () => {
           </div>
            
             <div className="vl" onClick={addQuestion}>
-            <i class="fa-solid fa-circle-plus"></i>
+            <i className="fa-solid fa-circle-plus"></i>
             </div>
           </div>
          
