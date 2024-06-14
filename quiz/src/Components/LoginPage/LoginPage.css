@@ -100,7 +100,7 @@
     background: none;
 
 }
-.loginpDetails>form>div>button{
+.lgnBtn>button{
     width: 100%;
     background-color: rgb(86, 146, 250);
     color: white;
@@ -110,7 +110,7 @@
     border-radius: 3px;
     font-size: 15px;
 }
-.loginpDetails>form>div>button:hover{
+.lgnBtn>button:hover{
     background-color: rgb(43, 118, 249);
 
 }
@@ -160,4 +160,14 @@
 }
 .btLogin>a{
     background: none;
+}
+.logInPass{
+    display: flex;
+}
+.hideBtn{
+    border: none;
+    background: none;
+    width: 20px;
+    padding-top: 5px;
+    margin-right: 5px;
 }
