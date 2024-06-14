@@ -36,8 +36,13 @@ function LoginPage() {
       navigate("/Dashboard");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
-      if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-        alert("Incorrect email or password. Please try again or sign up if you don't have an account.");
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password"
+      ) {
+        alert(
+          "Incorrect email or password. Please try again or sign up if you don't have an account."
+        );
       } else {
         alert("An error occurred. Please try again.");
       }
@@ -72,7 +77,7 @@ function LoginPage() {
 
   const checkIfUserExists = async (email) => {
     try {
-      const userDoc = await getDoc(doc(db, "Users", email)); 
+      const userDoc = await getDoc(doc(db, "Users", email));
       return userDoc.exists();
     } catch (error) {
       console.error("Error checking user existence:", error);
@@ -91,7 +96,7 @@ function LoginPage() {
       await sendPasswordResetEmail(auth, resetEmail);
       console.log("Password reset email sent");
       alert("Password reset email sent. Please check your inbox.");
-      setIsResetMode(false); 
+      setIsResetMode(false);
     } catch (error) {
       console.error("Error sending password reset email:", error);
       alert("Error sending password reset email. Please try again.");
@@ -99,7 +104,10 @@ function LoginPage() {
   };
 
   return (
+    
     <div className="loginp">
+           <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
       <div className="loginpDetails">
         {!isResetMode ? (
           <>
@@ -124,20 +132,25 @@ function LoginPage() {
                   placeholder="Email address"
                 />
               </div>
-              <div className="logInput">
+              <div className="logInput logInPass">
                 <input
-                   type={showPassword ? "text" : "password"} 
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Password"
                 />
-                     <button
+                <button
+                className="hideBtn"
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)} // Toggle visibility
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? "Hide" : "Show"} Password
+                  {showPassword ? (
+                    <i class="fa-solid fa-eye-slash"></i>
+                  ) : (
+                    <i class="fa-solid fa-eye"></i>
+                  )}
                 </button>
               </div>
               <div className="fogp">
@@ -150,7 +163,7 @@ function LoginPage() {
                   Forgot Password
                 </NavLink>
               </div>
-              <div>
+              <div className="lgnBtn">
                 <button type="submit">Login</button>
               </div>
             </form>
