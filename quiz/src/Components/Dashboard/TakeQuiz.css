@@ -1,0 +1,47 @@
+.take-quiz {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .take-quiz h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .take-quiz p {
+    margin: 10px 0;
+  }
+  
+  .take-quiz .question {
+    margin-bottom: 20px;
+  }
+  
+  .take-quiz .option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .take-quiz .option input {
+    margin-right: 10px;
+  }
+  
+  .take-quiz .results {
+    margin-top: 20px;
+  }
+  
+  .take-quiz .result {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .take-quiz .result.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  .take-quiz .result.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
