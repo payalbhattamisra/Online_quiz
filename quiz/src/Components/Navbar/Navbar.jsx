@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
-import { auth } from "../../firebase";
-import "./Navbar.css";
+// src/components/Navbar.js
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase';
+import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -21,23 +23,16 @@ function Navbar() {
 
   const closeMenu = () => setClick(false);
 
-  const Signup = () => {
-    window.location.href = "./Signup";
-  };
-
-  const Loginp = () => {
-    window.location.href = "./Loginp";
-  };
-
-  const Contact = () => {
-    window.location.href = "./Contact";
-  };
+  const Signup = () => navigate('/Signup');
+  const Loginp = () => navigate('/Loginp');
+  const Contact = () => navigate('/Contact');
+  const EnterCode = () => navigate('/EnterCode');
 
   const getInitial = (name) => {
     if (name) {
       return name.charAt(0).toUpperCase();
     }
-    return "";
+    return '';
   };
 
   return (
@@ -49,7 +44,6 @@ function Navbar() {
         <NavLink className="options" to="/">
           Home
         </NavLink>
-        {/* <Link className='options' to="home" smooth={true} offset={-70} duration={50} onClick={closeMenu}>Home</Link> */}
         <Link
           className="options"
           to="type"
@@ -93,14 +87,18 @@ function Navbar() {
             <button className="btn1" onClick={Contact}>
               Contact us
             </button>
-            <button className="btn1">Enter Code</button>
+            <button className="btn1" onClick={EnterCode}>
+              Enter Code
+            </button>
           </>
         ) : (
           <>
             <button className="btn1" onClick={Contact}>
               Contact us
             </button>
-            <button className="btn1">Enter Code</button>
+            <button className="btn1" onClick={EnterCode}>
+              Enter Code
+            </button>
             <div className="profilePic">
               <NavLink to="/Dashboard" className="profileLink">
                 {user.photoURL ? (
