@@ -26,7 +26,6 @@ function Navbar() {
   const Signup = () => navigate('/Signup');
   const Loginp = () => navigate('/Loginp');
   const Contact = () => navigate('/Contact');
-  const EnterCode = () => navigate('/EnterCode');
 
   const getInitial = (name) => {
     if (name) {
@@ -87,7 +86,7 @@ function Navbar() {
             <button className="btn1" onClick={Contact}>
               Contact us
             </button>
-            <button className="btn1" onClick={EnterCode}>
+            <button className="btn1">
               Enter Code
             </button>
           </>
@@ -96,7 +95,7 @@ function Navbar() {
             <button className="btn1" onClick={Contact}>
               Contact us
             </button>
-            <button className="btn1" onClick={EnterCode}>
+            <button className="btn1">
               Enter Code
             </button>
             <div className="profilePic">
