@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './CreateQuiz.css';
 import { db, auth } from "../../firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 const CreateQuiz = () => {
   const [titleBold, setTitleBold] = useState(false);
@@ -24,14 +25,18 @@ const CreateQuiz = () => {
       focused: false,
       upperCase: false,
       type: "shortans",
-      options: [""],
+      options: [{ text: "", correct: false }],
+      answer: "",
     },
   ]);
+
+  const [examDate, setExamDate] = useState("");
+  const [teacherInfo, setTeacherInfo] = useState("");
 
   const toggleTitleBold = () => {
     setTitleBold(!titleBold);
   };
-
+  const navigate = useNavigate();
   const toggleTitleItalic = () => {
     setTitleItalic(!titleItalic);
   };
@@ -128,7 +133,24 @@ const CreateQuiz = () => {
     const updatedQuestions = questions.map((q, i) => {
       if (i === questionIndex) {
         const newOptions = [...q.options];
-        newOptions[optionIndex] = value;
+        newOptions[optionIndex] = { ...newOptions[optionIndex], text: value };
+        return { ...q, options: newOptions };
+      }
+      return q;
+    });
+    setQuestions(updatedQuestions);
+  };
+
+  
+  const toggleCorrectAnswer = (questionIndex, optionIndex) => {
+    const updatedQuestions = questions.map((q, i) => {
+      if (i === questionIndex) {
+        const newOptions = q.options.map((option, oi) => {
+          if (oi === optionIndex) {
+            return { ...option, correct: !option.correct };
+          }
+          return option;
+        });
         return { ...q, options: newOptions };
       }
       return q;
@@ -138,7 +160,7 @@ const CreateQuiz = () => {
 
   const addOption = (index) => {
     const updatedQuestions = questions.map((q, i) => (
-      i === index ? { ...q, options: [...q.options, ""] } : q
+      i === index ? { ...q, options: [...q.options, { text: "", correct: false }] } : q
     ));
     setQuestions(updatedQuestions);
   };
@@ -151,16 +173,42 @@ const CreateQuiz = () => {
       focused: false,
       upperCase: false,
       type: "shortans",
-      options: [""],
+      options: [{ text: "", correct: false }],
+      answer: "",
     }]);
   };
 
   const renderQuestionInput = (question, index) => {
     switch (question.type) {
       case "shortans":
-        return <div className="answer-input">Short answer text</div>;
+        return (
+          <div className="answer-input">
+            <input
+              type="text"
+              value={question.answer}
+              onChange={(e) => {
+                const newQuestions = [...questions];
+                newQuestions[index].answer = e.target.value;
+                setQuestions(newQuestions);
+              }}
+              placeholder="Correct answer"
+            />
+          </div>
+        );
       case "para":
-        return <div className="answer-input">Long answer text</div>;
+        return (
+          <div className="answer-input">
+            <textarea
+              value={question.answer}
+              onChange={(e) => {
+                const newQuestions = [...questions];
+                newQuestions[index].answer = e.target.value;
+                setQuestions(newQuestions);
+              }}
+              placeholder="Correct answer"
+            />
+          </div>
+        );
       case "multiple":
         return (
           <div className="multiple-choice">
@@ -169,12 +217,34 @@ const CreateQuiz = () => {
                 <input
                   type="radio"
                   name={`multiple-choice-${index}`}
-                  value={option}
-                  onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
+                  checked={option.correct}
+                  onChange={() => toggleCorrectAnswer(index, optionIndex)}
                 />
                 <input
                   type="text"
-                  value={option}
+                  value={option.text}
+                  onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
+                  placeholder="Option"
+                />
+              </div>
+            ))}
+            <button onClick={() => addOption(index)}>Add option</button>
+          </div>
+        );
+      case "checkbox":
+        return (
+          <div className="multiple-choice">
+            {question.options.map((option, optionIndex) => (
+              <div key={optionIndex} className="option">
+                <input
+                  type="checkbox"
+                  name={`checkbox-choice-${index}`}
+                  checked={option.correct}
+                  onChange={() => toggleCorrectAnswer(index, optionIndex)}
+                />
+                <input
+                  type="text"
+                  value={option.text}
                   onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
                   placeholder="Option"
                 />
@@ -196,6 +266,8 @@ const CreateQuiz = () => {
         await setDoc(docRef, {
           title: titleText,
           description: descText,
+          examDate: examDate,
+          teacherInfo: teacherInfo,
           questions: questions,
         });
         alert("Quiz saved successfully!");
@@ -207,6 +279,28 @@ const CreateQuiz = () => {
       alert("You need to be signed in to save a quiz.");
     }
   };
+  const handleSubmit = async () => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const quizData = {
+          title: titleText,
+          description: descText,
+          questions,
+          examDate,
+          teacherInfo,
+        };
+        await setDoc(doc(db, 'Quizzes', user.uid), quizData);
+        console.log('Quiz created successfully!');
+
+        // Navigate to the TakeQuiz component
+        navigate('/TakeQuiz');
+      }
+    } catch (error) {
+      console.error('Error creating quiz: ', error);
+    }
+  };
+
 
   return (
     <>
@@ -281,14 +375,28 @@ const CreateQuiz = () => {
                   </div>
                 )}
               </div>
+              <div className="in">
+                <input
+                  type="date"
+                  placeholder="Exam Date"
+                  value={examDate}
+                  onChange={(e) => setExamDate(e.target.value)}
+                />
+              </div>
+              <div className="in">
+                <textarea
+                  placeholder="Additional information from the teacher"
+                  value={teacherInfo}
+                  onChange={(e) => setTeacherInfo(e.target.value)}
+                />
+              </div>
             </div>
           </div>
-           
-            <div className="vl" onClick={addQuestion}>
+
+          <div className="vl" onClick={addQuestion}>
             <i className="fa-solid fa-circle-plus"></i>
-            </div>
           </div>
-         
+        </div>
 
         {questions.map((question, index) => (
           <div className="box2" key={index}>
@@ -334,6 +442,7 @@ const CreateQuiz = () => {
             </div>
           </div>
         ))}
+        <button onClick={handleSubmit}>Submit Quiz</button>
       </div>
     </>
   );

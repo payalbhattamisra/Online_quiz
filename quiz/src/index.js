@@ -17,6 +17,9 @@ import QuizQuestionDetails from './Components/QuizQuestionDetails/QuizQuestionDe
 import Dashboard from './Components/Dashboard/Dashboard';
 import Data from './Components/Data/QuizQuestion';
 import Contact from './Components/Contact/Contact';
+
+import TakeQuiz from './Components/Dashboard/TakeQuiz';
+
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -71,7 +74,14 @@ const router = createBrowserRouter([
       {
         path:"Contact",
         element:<Contact/>,
-      }
+      },
+
+      {
+        path:"TakeQuiz",
+        element:<TakeQuiz/>
+      },
+
+
     ]
   }
 ]);
