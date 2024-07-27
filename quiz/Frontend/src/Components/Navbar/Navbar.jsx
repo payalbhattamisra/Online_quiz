@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase';
 import './Navbar.css';
 
 function Navbar() {
@@ -10,16 +9,7 @@ function Navbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+
 
   const closeMenu = () => setClick(false);
 

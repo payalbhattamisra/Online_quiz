@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase";
 import "./Contact.css";
 
 function Contact() {
@@ -24,14 +22,6 @@ function Contact() {
           publicKey: "Tcn_jcNNDTjZW8-zH",
         }
       );
-      await addDoc(collection(db, "Messages"), {
-        name,
-        email,
-        number,
-        subject,
-        message,
-        timestamp: new Date(),
-      });
       setName("");
       setEmail("");
       setNumber("");
