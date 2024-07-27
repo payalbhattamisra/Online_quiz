@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { db, signInWithGoogle, auth } from "../../firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./SigninPage.css";
 
 function SigninPage() {
@@ -17,75 +14,8 @@ function SigninPage() {
   const [password, setPassword] = useState("");
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [course, setCourse] = useState("");
-  const [isGoogleSignUp, setIsGoogleSignUp] = useState(false);
 
-  const checkIfUserExists = async (email) => {
-    const userDoc = await getDoc(doc(db, "Users", email));
-    return userDoc.exists();
-  };
-
-  const handleGoogleSignUp = async () => {
-    try {
-      const user = await signInWithGoogle();
-      const email = user.email;
-
-      const userExists = await checkIfUserExists(email);
-      if (userExists) {
-        alert("You already have an account with this email.");
-        return;
-      }
-
-      setName(user.displayName);
-      setEmail(email);
-      setIsGoogleSignUp(true);
-      setShowForm(true);
-    } catch (error) {
-      console.error("Error during Google sign-up: ", error);
-    }
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const userExists = await checkIfUserExists(email);
-      if (userExists) {
-        alert("You already have an account with this email.");
-        return;
-      }
-
-      if (!isGoogleSignUp) {
-        await createUserWithEmailAndPassword(auth, email, password);
-      }
-
-      const userDoc = {
-        name,
-        gender,
-        role,
-        institute,
-        mobile,
-        email,
-        registrationNumber,
-        course,
-        uid: email,
-      };
-      await setDoc(doc(db, "Users", email), userDoc);
-
-      setName("");
-      setGender("");
-      setRole("");
-      setInstitute("");
-      setMobile("");
-      setEmail("");
-      setPassword("");
-      setRegistrationNumber("");
-      setCourse("");
-      setShowForm(false);
-      alert("Sign-up successful!");
-      navigate("/Dashboard");
-    } catch (error) {
-      console.error("Error during form submission: ", error);
-    }
-  };
+  
 
   return (
     <>
@@ -107,7 +37,8 @@ function SigninPage() {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>or</p>
-            <button onClick={handleGoogleSignUp}>
+            {/* ..............*/}
+            <button onClick="/">
               <div className="glogo">
                 <img src="./Images/google.png" alt="Google logo" />
               </div>
@@ -127,7 +58,8 @@ function SigninPage() {
         {showForm && (
           <div className="formContainer">
             <p className="siginPara">Enter the Correct Information</p>
-            <form onSubmit={handleFormSubmit}>
+            {/* .......... */}
+            <form onSubmit="/">
               <div className="signInput">
                 <input
                   type="text"
@@ -136,7 +68,8 @@ function SigninPage() {
                   onChange={(e) => setName(e.target.value)}
                   required
                   placeholder="Name"
-                  readOnly={isGoogleSignUp}
+                  // ............
+                  readOnly=""
                 />
               </div>
               <div className="signInput">
@@ -235,10 +168,10 @@ function SigninPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="Email address"
-                  readOnly={isGoogleSignUp}
+                  readOnly="............"
                 />
               </div>
-              {!isGoogleSignUp && (
+              {/* {!isGoogleSignUp && ( */}
                 <div className="signInput">
                   <input
                     type="password"
@@ -249,7 +182,7 @@ function SigninPage() {
                     placeholder="Password"
                   />
                 </div>
-              )}
+              {/* )} */}
               <button type="submit">Sign up</button>
             </form>
             <p className="retToSignP">

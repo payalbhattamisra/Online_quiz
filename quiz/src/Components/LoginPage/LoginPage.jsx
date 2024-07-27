@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from "firebase/auth";
-import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./LoginPage.css";
 
-const db = getFirestore();
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -20,88 +11,6 @@ function LoginPage() {
   const [user, setUser] = useState(null);
   const [isResetMode, setIsResetMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-    return unsubscribe;
-  }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in successfully");
-      navigate("/Dashboard");
-    } catch (error) {
-      console.error("Error logging in with email and password:", error);
-      if (
-        error.code === "auth/user-not-found" ||
-        error.code === "auth/wrong-password"
-      ) {
-        alert(
-          "Incorrect email or password. Please try again or sign up if you don't have an account."
-        );
-      } else {
-        alert("An error occurred. Please try again.");
-      }
-    }
-  };
-
-  const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      if (result.user) {
-        const user = result.user;
-        const userEmail = user.email;
-
-        const userExists = await checkIfUserExists(userEmail);
-        if (!userExists) {
-          await auth.signOut();
-          alert("You don't have an account. Please sign up first.");
-          return;
-        }
-
-        console.log("Signed in with Google:", user);
-        navigate("/Dashboard");
-      } else {
-        console.error("No user object found in the result of signInWithPopup.");
-      }
-    } catch (error) {
-      console.error("Error during sign in with Google", error);
-      alert("An error occurred during Google sign-in. Please try again.");
-    }
-  };
-
-  const checkIfUserExists = async (email) => {
-    try {
-      const userDoc = await getDoc(doc(db, "Users", email));
-      return userDoc.exists();
-    } catch (error) {
-      console.error("Error checking user existence:", error);
-      return false;
-    }
-  };
-
-  const handlePasswordReset = async () => {
-    try {
-      const userExists = await checkIfUserExists(resetEmail);
-      if (!userExists) {
-        alert("You don't have an account. Please sign up first.");
-        return;
-      }
-
-      await sendPasswordResetEmail(auth, resetEmail);
-      console.log("Password reset email sent");
-      alert("Password reset email sent. Please check your inbox.");
-      setIsResetMode(false);
-    } catch (error) {
-      console.error("Error sending password reset email:", error);
-      alert("Error sending password reset email. Please try again.");
-    }
-  };
 
   return (
     
@@ -113,7 +22,8 @@ function LoginPage() {
           <>
             <h1>Welcome to Gyankosh</h1>
             <p className="loginpDetailsPara">Login to your account</p>
-            <button className="loginDbtn" onClick={signInWithGoogle}>
+            {/* ................ */}
+            <button className="loginDbtn" onClick="/">
               <div className="glogo">
                 <img src="./Images/google.png" alt="Google logo" />
               </div>
@@ -121,7 +31,8 @@ function LoginPage() {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>or</p>
-            <form onSubmit={handleSubmit}>
+            {/* .................. */}
+            <form onSubmit="/">
               <div className="logInput">
                 <input
                   type="email"
@@ -187,7 +98,8 @@ function LoginPage() {
                 required
               />
             </div>
-            <button className="resBtn1" onClick={handlePasswordReset}>
+            {/* ....................... */}
+            <button className="resBtn1" onClick="/">
               Send Reset Link
             </button>
             <div className="btLogin">

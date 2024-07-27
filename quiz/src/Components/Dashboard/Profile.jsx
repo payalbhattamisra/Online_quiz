@@ -7,48 +7,20 @@ const Profile = ({ user }) => {
   const [userData, setUserData] = useState(user);
   const [isEditing, setIsEditing] = useState(false);
 
-  const updateUserData = async (updatedData) => {
-    console.log("Attempting to update user data:", updatedData);
-    try {
-      const userDoc = doc(db, "Users", user.uid);
-      await updateDoc(userDoc, updatedData);
-      setUserData({ ...userData, ...updatedData });
-      console.log("User data updated successfully");
-      alert("User data updated successfully");
-    } catch (error) {
-      console.error("Error updating user data: ", error);
-      alert("Failed to update user data");
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-    console.log(`Updated ${name} to ${value}`);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted with data:", userData);
-    updateUserData(userData);
-    setIsEditing(false);
-  };
-
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
 
   return (
     <>
     <div className="pProfile">
       {isEditing ? (
-        <form onSubmit={handleSubmit} className="formContainer">
+        // .......................
+        <form onSubmit="/" className="formContainer">
           <p className="pPara">Update Your Information</p>
           <div className="upInput">
             <input
               name="name"
               value={userData.name}
-              onChange={handleChange}
+              // ...........
+              onChange=""
               placeholder="Name"
               required
             />
@@ -57,7 +29,8 @@ const Profile = ({ user }) => {
             <input
               name="email"
               value={userData.email}
-              onChange={handleChange}
+              // ..................
+              onChange=""
               placeholder="Email"
               required
             />
@@ -66,7 +39,8 @@ const Profile = ({ user }) => {
             <select
               name="gender"
               value={userData.gender}
-              onChange={handleChange}
+              // ....................
+              onChange=""
               required
             >
               <option value="" disabled>
@@ -81,7 +55,8 @@ const Profile = ({ user }) => {
             <select
               name="role"
               value={userData.role}
-              onChange={handleChange}
+              // ....................
+              onChange=""
               required
             >
               <option value="" disabled>
@@ -95,7 +70,8 @@ const Profile = ({ user }) => {
             <input
               name="institute"
               value={userData.institute}
-              onChange={handleChange}
+              // ....................
+              onChange=''
               placeholder="Institute"
               required
             />
@@ -104,7 +80,8 @@ const Profile = ({ user }) => {
             <input
               name="mobile"
               value={userData.mobile}
-              onChange={handleChange}
+              // ....................
+              onChange=""
               placeholder="Mobile"
               required
             />
@@ -113,7 +90,8 @@ const Profile = ({ user }) => {
             <input
               name="registrationNumber"
               value={userData.registrationNumber}
-              onChange={handleChange}
+              // ......................
+              onChange=""
               placeholder="Registration Number"
               required
             />
@@ -122,7 +100,8 @@ const Profile = ({ user }) => {
             <select
               name="course"
               value={userData.course}
-              onChange={handleChange}
+              // ...................
+              onChange="/"
               required
             >
               <option value="" disabled>
@@ -188,7 +167,8 @@ const Profile = ({ user }) => {
               <p>Registration Number: {userData.registrationNumber}</p>
               <p>Course: {userData.course}</p>
             </div>
-            <button onClick={handleEditClick}>Change Information</button>
+            {/* ..................... */}
+            <button onClick="/">Change Information</button>
           </div>
         </>
       )}

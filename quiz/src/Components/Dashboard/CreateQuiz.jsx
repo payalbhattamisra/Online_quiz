@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import './CreateQuiz.css';
-import { db, auth } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 
 const CreateQuiz = () => {
@@ -258,49 +256,7 @@ const CreateQuiz = () => {
     }
   };
 
-  const handleSaveQuiz = async () => {
-    const user = auth.currentUser;
-    if (user) {
-      try {
-        const docRef = doc(db, "Quizzes", user.uid);
-        await setDoc(docRef, {
-          title: titleText,
-          description: descText,
-          examDate: examDate,
-          teacherInfo: teacherInfo,
-          questions: questions,
-        });
-        alert("Quiz saved successfully!");
-      } catch (error) {
-        console.error("Error saving quiz: ", error);
-        alert("Error saving quiz.");
-      }
-    } else {
-      alert("You need to be signed in to save a quiz.");
-    }
-  };
-  const handleSubmit = async () => {
-    try {
-      const user = auth.currentUser;
-      if (user) {
-        const quizData = {
-          title: titleText,
-          description: descText,
-          questions,
-          examDate,
-          teacherInfo,
-        };
-        await setDoc(doc(db, 'Quizzes', user.uid), quizData);
-        console.log('Quiz created successfully!');
-
-        // Navigate to the TakeQuiz component
-        navigate('/TakeQuiz');
-      }
-    } catch (error) {
-      console.error('Error creating quiz: ', error);
-    }
-  };
-
+  
 
   return (
     <>
@@ -322,7 +278,8 @@ const CreateQuiz = () => {
             <i className="fa-solid fa-arrow-left" style={{ color: " #222222" }}></i>
             <i className="fa-solid fa-arrow-right" style={{ color: " #222222" }}></i>
             <div className="btnswitch">
-              <button className="btn3" onClick={handleSaveQuiz}>send</button>
+              {/* ........................ */}
+              <button className="btn3" onClick="/">send</button>
             </div>
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
@@ -442,7 +399,8 @@ const CreateQuiz = () => {
             </div>
           </div>
         ))}
-        <button onClick={handleSubmit}>Submit Quiz</button>
+        {/* ............................ */}
+        <button onClick="/">Submit Quiz</button>
       </div>
     </>
   );
