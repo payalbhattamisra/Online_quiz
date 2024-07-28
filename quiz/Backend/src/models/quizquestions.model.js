@@ -1,24 +1,25 @@
 import mongoose,{Schema} from 'mongoose'
 const quizquestionSchema=new Schema({
-   quizQuestionChoiceId:{
+   quiz_Id:{
     type:Schema.Types.ObjectId,
-    ref:"quizquestionChoice"
+    ref:"Quiz",
+    required: true
    },
-   typeQuestion:{
-     type:Schema.Types.ObjectId,
-     ref:"Typequestion"
+   correct_ans:{
+     type:Number,
+     required:true
    },
-   active:{
-     type:Boolean,
-     default:true
-   },
-   image:{
+   text:{
      type:String,
-     required:false
-   },
-   video:{
-    type:String,
-    required:false
-   }
+     required:true
+   }, 
+   options: [{ 
+    option_id: { type: Number, required: true },
+    text: { type: String, required: true }
+  }],
+  created_at: { 
+    type: Date, 
+    default: Date.now
+  }
 },{timestamps:true})
 export const quizquestion=mongoose.model("quizquestion",quizquestionSchema)

@@ -1,9 +1,5 @@
 import mongoose,{Schema} from 'mongoose'
 const userSchema=new Schema({
-    user_id:{
-        type:Schema.Types.ObjectId,
-        ref:"Leaderboard"
-    },
     username:{
         type:String,
         required:true,
@@ -29,14 +25,6 @@ const userSchema=new Schema({
         type:String,//encrypted
         required:[true,'password is required']
     },
-    quizid:{
-        type:Schema.Types.ObjectId,
-        ref:"Quiz"
-    },
-    numberofquizsdone:{
-        type:Schema.Types.ObjectId,
-        ref:"quizquestion"
-    },
     profilepic:{
         type:String,
         required:true
@@ -51,8 +39,9 @@ const userSchema=new Schema({
         enum:['active','inactive'],
         default:'active'
     },
-    lastlogin:{
-        type:Date
+    created_at: { 
+        type: Date,
+        default: Date.now 
     },
     refreshToken:{
         type:String
