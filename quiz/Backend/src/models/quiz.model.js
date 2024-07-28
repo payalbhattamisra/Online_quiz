@@ -1,24 +1,24 @@
 import mongoose,{Schema} from 'mongoose'
 const quizSchema=new Schema({
-    quizquestion_id:{
-        type:Schema.Types.ObjectId,
-        ref:"quizquestion"
-    },
-    TypeQuizid:{
+    CreatedBy:{
        type:Schema.Types.ObjectId,
-       ref:"Typequiz"
+       ref:"User",
+       required: true
     },
-    active:{
-      type:Boolean,
-      default:true
-    },
-    manyTimesDone:{
-     type:Number,
+    category:{
+     type:String,
      required:true
     },
     title:{
         type:String,
         required:true
+    },
+    description:{
+        type:String,
+    },
+    created_at: { 
+        type: Date,
+        default: Date.now 
     }
 },{timestamps:true})
 export const Quiz=mongoose.model("Quiz",quizSchema)
