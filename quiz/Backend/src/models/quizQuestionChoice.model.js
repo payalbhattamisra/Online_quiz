@@ -1,8 +1,8 @@
 import mongoose,{Schema} from 'mongoose'
 const quizquestionChoiceSchema=new Schema({
    correct:{
-     type:Number,
-     required:true
+    type:Number,
+    required:true
    },
    choice1:{
     type: String,

@@ -8,7 +8,7 @@ class ApiError extends Error{
         this.success=false;
 
 
-        if(stact){
+        if(stack){
             this.stack=stack;
         }
         else{
