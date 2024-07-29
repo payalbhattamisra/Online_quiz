@@ -11,19 +11,17 @@ import DeshBoard from "./DeshBoard";
 import "./Dashboard.css";
 
 function Dashboard() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentSection, setCurrentSection] = useState("DeshBoard");
-  const navigate = useNavigate();
-
-  
+  // const navigate = useNavigate();
 
   const renderSection = () => {
     switch (currentSection) {
       case "dashboard":
         return <DeshBoard />;
       case "profile":
-        return <Profile user={user} />;
+        return <Profile />;
       case "createQuiz":
         return <CreateQuiz />;
       case "manageExam":
@@ -45,79 +43,42 @@ function Dashboard() {
         <button onClick="/">Logout</button>
       </div>
     );
-
-    
   }
-  const getInitial = (name) => {
-    if (name) {
-      return name.charAt(0).toUpperCase();
-    }
-    return "";
-  };
+  // const getInitial = (name) => {
+  //   if (name) {
+  //     return name.charAt(0).toUpperCase();
+  //   }
+  //   return "";
+  // };
 
   return (
     <>
-      <div className="dashboard">
-        {user ? (
-          <>
-            {user.role === "Admin" ? (
-              <>
-                {/* admin */}
-                <div className="dash">
-              <div className="dashL">
-                <h3>Welcome, {user.name}</h3>
-                <button onClick={() => setCurrentSection("createQuiz")}>
-                  Create Quiz
-                </button>
-                <NavLink onClick={() => setCurrentSection("profile")}>Profile</NavLink>
-                <NavLink onClick={() => setCurrentSection("dashboard")}>Dashboard</NavLink>
-                <NavLink onClick={() => setCurrentSection("manageExam")}>Manage Exam</NavLink>
-                <NavLink onClick={() => setCurrentSection("registeredStudents")}>Registered Students</NavLink>
-                <NavLink onClick={() => setCurrentSection("setting")}>Setting</NavLink>
-                {/* .................... */}
-                <button onClick="/">Logout</button>
-              </div>
-              <div className="dashR">
-                {renderSection()}
-              </div>
-            </div>
-              </>
-            ) : (
-              <>
-                {/* learner */}
-                <div className="dash">
-                  <div className="dashL">
-                    <h1>Welcome {user.name}</h1>
-                    <div>
-                      {user.photoURL ? (
-                        <img
-                          src={user.photoURL}
-                          alt="Profile"
-                          className="profile-pic"
-                        />
-                      ) : (
-                        <div className="profile-initial">
-                          {getInitial(user.name)}
-                        </div>
-                      )}
-                    </div>
-                    <h3>Learner</h3>
-                    <button>Create Quiz</button>
-                    <NavLink></NavLink>
-                    <NavLink>Manage Exam</NavLink>
-                    <NavLink>Students</NavLink>
-                    <NavLink>Registered Students</NavLink>
-                      {/* ..................... */}
-                    <button onClick="/">Logout</button>
-                  </div>
-                  <div className="DashR"></div>
-                </div>
-              </>
-            )}
-          </>
-        ) : (
-          <div>No user data found.</div>
-        )}
+      {/* admin */}
+      <div className="dash">
+        <div className="dashL">
+          <h3>Welcome, Govinda </h3>
+          <button onClick={() => setCurrentSection("createQuiz")}>
+            Create Quiz
+          </button>
+          <NavLink onClick={() => setCurrentSection("profile")}>
+            Profile
+          </NavLink>
+          <NavLink onClick={() => setCurrentSection("dashboard")}>
+            Dashboard
+          </NavLink>
+          <NavLink onClick={() => setCurrentSection("manageExam")}>
+            Manage Exam
+          </NavLink>
+          <NavLink onClick={() => setCurrentSection("registeredStudents")}>
+            Registered Students
+          </NavLink>
+          <NavLink onClick={() => setCurrentSection("setting")}>
+            Setting
+          </NavLink>
+          {/* .................... */}
+          <button onClick="/">Logout</button>
+        </div>
+        <div className="dashR">{renderSection()}</div>
       </div>
     </>
   );
@@ -154,3 +115,67 @@ export default Dashboard;
 // ) : (
 //   <div>No user data found.</div>
 // )}
+
+// return (
+//   <>
+//     <div className="dashboard">
+//       {user ? (
+//         <>
+//           {user.role === "Admin" ? (
+//             <>
+//               {/* admin */}
+//               <div className="dash">
+//             <div className="dashL">
+//               <h3>Welcome, {user.name}</h3>
+//               <button onClick={() => setCurrentSection("createQuiz")}>
+//                 Create Quiz
+//               </button>
+//               <NavLink onClick={() => setCurrentSection("profile")}>Profile</NavLink>
+//               <NavLink onClick={() => setCurrentSection("dashboard")}>Dashboard</NavLink>
+//               <NavLink onClick={() => setCurrentSection("manageExam")}>Manage Exam</NavLink>
+//               <NavLink onClick={() => setCurrentSection("registeredStudents")}>Registered Students</NavLink>
+//               <NavLink onClick={() => setCurrentSection("setting")}>Setting</NavLink>
+//               {/* .................... */}
+//               <button onClick="/">Logout</button>
+//             </div>
+//             <div className="dashR">
+//               {renderSection()}
+//             </div>
+//           </div>
+//             </>
+//           ) : (
+//             <>
+//               {/* learner */}
+//               <div className="dash">
+//                 <div className="dashL">
+//                   <h1>Welcome {user.name}</h1>
+//                   <div>
+//                     {user.photoURL ? (
+//                       <img
+//                         src={user.photoURL}
+//                         alt="Profile"
+//                         className="profile-pic"
+//                       />
+//                     ) : (
+//                       <div className="profile-initial">
+//                         {getInitial(user.name)}
+//                       </div>
+//                     )}
+//                   </div>
+//                   <h3>Learner</h3>
+//                   <button>Create Quiz</button>
+//                   <NavLink></NavLink>
+//                   <NavLink>Manage Exam</NavLink>
+//                   <NavLink>Students</NavLink>
+//                   <NavLink>Registered Students</NavLink>
+//                     {/* ..................... */}
+//                   <button onClick="/">Logout</button>
+//                 </div>
+//                 <div className="DashR"></div>
+//               </div>
+//             </>
+//           )}
+//         </>
+//       ) : (
+//         <div>No user data found.</div>
+//       )}

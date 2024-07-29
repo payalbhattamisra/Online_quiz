@@ -41,13 +41,14 @@ function SigninPage() {
     formData.append('password', password);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/g1/users/signup', formData, {
+      const response = await axios.post('http://localhost:8000/api/g1/users/signup', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       console.log('Signup successful:', response.data);
-      navigate('/success'); // Navigate to a success page or handle success as needed
+      alert("Sign-up successful!");
+      navigate("/Dashboard");
     } catch (error) {
       console.error('Error during signup:', error);
     }
