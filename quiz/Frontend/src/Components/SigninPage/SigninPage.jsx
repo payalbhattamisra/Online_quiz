@@ -1,21 +1,58 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./SigninPage.css";
+import axios from "axios";
 
 function SigninPage() {
   const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [role, setRole] = useState("");
-  const [institute, setInstitute] = useState("");
-  const [mobile, setMobile] = useState("");
+  const [profilepic, setProfilepic] = useState(null);
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
-  const [registrationNumber, setRegistrationNumber] = useState("");
-  const [course, setCourse] = useState("");
+  const [preview, setPreview] = useState(null);
 
-  
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setProfilepic(file);
+
+    // Show a preview of the image
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('profilepic', profilepic);
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append('fullname', fullname);
+    formData.append('role', role);
+    formData.append('password', password);
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/g1/users/signup', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Signup successful:', response.data);
+      alert("Sign-up successful!");
+      navigate("/Dashboard");
+    } catch (error) {
+      console.error('Error during signup:', error);
+    }
+  };
 
   return (
     <>
@@ -37,7 +74,6 @@ function SigninPage() {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>or</p>
-            {/* ..............*/}
             <button onClick="/">
               <div className="glogo">
                 <img src="./Images/google.png" alt="Google logo" />
@@ -58,34 +94,48 @@ function SigninPage() {
         {showForm && (
           <div className="formContainer">
             <p className="siginPara">Enter the Correct Information</p>
-            {/* .......... */}
-            <form onSubmit="/">
+            <form onSubmit={handleSubmit}>
+              <div className="fileInput">
+                <input
+                  type="file"
+                  id="profilepic"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  required
+                />
+                {preview && (
+                  <img src={preview} alt="Preview" style={{ width: "200px" }} />
+                )}
+              </div>
               <div className="signInput">
                 <input
                   type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
-                  placeholder="Name"
-                  // ............
-                  readOnly=""
+                  placeholder="Username"
                 />
               </div>
               <div className="signInput">
-                <select
-                  id="gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
+                <input
+                  type="email"
+                  id="email-address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
-                >
-                  <option value="" disabled>
-                    Select Gender
-                  </option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
+                  placeholder="Email address"
+                />
+              </div>
+              <div className="signInput">
+                <input
+                  type="text"
+                  id="fullname"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                  required
+                  placeholder="Full Name"
+                />
               </div>
               <div className="signInput">
                 <select
@@ -101,88 +151,16 @@ function SigninPage() {
                   <option value="Learner">Learner</option>
                 </select>
               </div>
-              {role === "Learner" && (
-                <div className="signInput">
-                  <select
-                    id="course"
-                    value={course}
-                    onChange={(e) => setCourse(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>
-                      Select Course
-                    </option>
-                    <option value="B.Tech">B.Tech</option>
-                    <option value="B.E">B.E</option>
-                    <option value="B.Arch">B.Arch</option>
-                    <option value="B.Com">B.Com</option>
-                    <option value="B.Sc">B.Sc</option>
-                    <option value="BBA">BBA</option>
-                    <option value="BCA">BCA</option>
-                    <option value="LLB">LLB</option>
-                    <option value="MBBS">MBBS</option>
-                    <option value="B.Pharm">B.Pharm</option>
-                    <option value="BDS">BDS</option>
-                    <option value="BHM">BHM</option>
-                    <option value="Diploma">Diploma</option>
-                    <option value="ITI">ITI</option>
-                    <option value="D.Pharma">D.Pharma</option>
-                  </select>
-                </div>
-              )}
               <div className="signInput">
                 <input
-                  type="text"
-                  id="institute"
-                  value={institute}
-                  onChange={(e) => setInstitute(e.target.value)}
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder="Institute Name"
+                  placeholder="Password"
                 />
               </div>
-              <div className="signInput">
-                <input
-                  type="text"
-                  id="registration-number"
-                  value={registrationNumber}
-                  onChange={(e) => setRegistrationNumber(e.target.value)}
-                  required
-                  placeholder="Registration Number"
-                />
-              </div>
-              <div className="signInput">
-                <input
-                  type="text"
-                  id="mobile"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  required
-                  placeholder="Mobile Number"
-                />
-              </div>
-              <div className="signInput">
-                <input
-                  type="email"
-                  id="email-address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email address"
-                  readOnly="............"
-                />
-              </div>
-              {/* {!isGoogleSignUp && ( */}
-                <div className="signInput">
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    placeholder="Password"
-                  />
-                </div>
-              {/* )} */}
               <button type="submit">Sign up</button>
             </form>
             <p className="retToSignP">

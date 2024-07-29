@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <Topicwisequiz/>,
       },
       {
-        path: "Signup",
+        path: "signup",
         element: <SigninPage/>,
       },
       {
