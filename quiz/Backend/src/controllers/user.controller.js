@@ -5,6 +5,7 @@ import { User } from "../models/user.model.js";
 import { ApiResponce } from "../utils/ApiResponce.js";
 
 
+
 const signupUser = asyncHandler(async (req, res) => {
   const { username, email, fullname, password, role} = req.body;
   if (
