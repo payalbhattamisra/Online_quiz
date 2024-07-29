@@ -3,8 +3,8 @@ import { signupUser } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 
 
-const router= Router();
-router.route("/signup").post(
+const userRouter= Router();
+userRouter.route("/signup").post(
     upload.fields([
         {
             name: "profilepic",
@@ -12,4 +12,4 @@ router.route("/signup").post(
         }
     ]),
     signupUser)
-export default router
+export default userRouter
