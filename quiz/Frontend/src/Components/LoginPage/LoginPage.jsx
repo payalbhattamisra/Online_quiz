@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import "./LoginPage.css";
 
 
@@ -8,9 +10,32 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [resetEmail, setResetEmail] = useState("");
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [isResetMode, setIsResetMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+
+    try {
+      const response = await axios.post('/login', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Signin successful:', response.data);
+      alert("Sign-in successful!");
+      navigate("/Dashboard");
+    } catch (error) {
+      console.error('Error during signin:', error);
+    }
+  };
+
 
   return (
     
@@ -32,7 +57,7 @@ function LoginPage() {
             </button>
             <p>or</p>
             {/* .................. */}
-            <form onSubmit="/">
+            <form onSubmit={handleSubmit}>
               <div className="logInput">
                 <input
                   type="email"
@@ -40,7 +65,7 @@ function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="Email address"
+                  placeholder="email/username"
                 />
               </div>
               <div className="logInput logInPass">
