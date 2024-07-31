@@ -17,15 +17,16 @@ function LoginPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-
+  
+    const formData = {
+      email,
+      password
+    };
+  
     try {
-      const response = await axios.post('/login', formData, {
+      const response = await axios.post('http://localhost:8000/api/g1/users/Login', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
       console.log('Signin successful:', response.data);
@@ -35,6 +36,7 @@ function LoginPage() {
       console.error('Error during signin:', error);
     }
   };
+  
 
 
   return (
