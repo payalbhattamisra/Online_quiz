@@ -5,7 +5,7 @@ import CreateQuiz from "./CreateQuiz";
 import Setting from "./Setting";
 import RegStudent from "./RegStudent";
 import ManageExam from "./ManageExam";
-import DeshBoard from "./DeshBoard";
+import DeshBoard from "./Dashboard";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
