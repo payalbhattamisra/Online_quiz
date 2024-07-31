@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-
 import Profile from "./Profile";
 import CreateQuiz from "./CreateQuiz";
 import Setting from "./Setting";
@@ -9,12 +7,18 @@ import RegStudent from "./RegStudent";
 import ManageExam from "./ManageExam";
 import DeshBoard from "./DeshBoard";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 
 function Dashboard() {
-  // const [user, setUser] = useState(null);
+  const navigate = useNavigate(); // Initialize navigate
+
   const [loading, setLoading] = useState(true);
-  const [currentSection, setCurrentSection] = useState("DeshBoard");
-  // const navigate = useNavigate();
+  const [currentSection, setCurrentSection] = useState("profile");
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const renderSection = () => {
     switch (currentSection) {
@@ -39,48 +43,28 @@ function Dashboard() {
     return (
       <div className="d">
         <p>Loading...</p>
-        {/* .................. */}
-        <button onClick="/">Logout</button>
+        <button onClick={() => navigate("/")}>Logout</button>
       </div>
     );
   }
-  // const getInitial = (name) => {
-  //   if (name) {
-  //     return name.charAt(0).toUpperCase();
-  //   }
-  //   return "";
-  // };
 
   return (
-    <>
-      {/* admin */}
-      <div className="dash">
-        <div className="dashL">
-          <h3>Welcome, Govinda </h3>
-          <button onClick={() => setCurrentSection("createQuiz")}>
-            Create Quiz
-          </button>
-          <NavLink onClick={() => setCurrentSection("profile")}>
-            Profile
-          </NavLink>
-          <NavLink onClick={() => setCurrentSection("dashboard")}>
-            Dashboard
-          </NavLink>
-          <NavLink onClick={() => setCurrentSection("manageExam")}>
-            Manage Exam
-          </NavLink>
-          <NavLink onClick={() => setCurrentSection("registeredStudents")}>
-            Registered Students
-          </NavLink>
-          <NavLink onClick={() => setCurrentSection("setting")}>
-            Setting
-          </NavLink>
-          {/* .................... */}
-          <button onClick="/">Logout</button>
-        </div>
-        <div className="dashR">{renderSection()}</div>
+       <div className="dashboard">
+
+    <div className="dash">
+      <div className="dashL">
+        <h3>Welcome, Govinda </h3>
+        <button onClick={() => setCurrentSection("createQuiz")}>Create Quiz</button>
+        <NavLink onClick={() => setCurrentSection("profile")}>Profile</NavLink>
+        <NavLink onClick={() => setCurrentSection("dashboard")}>Dashboard</NavLink>
+        <NavLink onClick={() => setCurrentSection("manageExam")}>Manage Exam</NavLink>
+        <NavLink onClick={() => setCurrentSection("registeredStudents")}>Registered Students</NavLink>
+        <NavLink onClick={() => setCurrentSection("setting")}>Setting</NavLink>
+        <button onClick={() => navigate("/")}>Logout</button>
       </div>
-    </>
+      <div className="dashR">{renderSection()}</div>
+    </div>
+    </div>
   );
 }
 

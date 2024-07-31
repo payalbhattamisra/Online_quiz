@@ -8,7 +8,7 @@ const Profile = ({ user }) => {
 
   return (
     <>
-    <div className="pProfile">
+    {/* <div className="pProfile">
       {isEditing ? (
         // .......................
         <form onSubmit="/" className="formContainer">
@@ -165,12 +165,13 @@ const Profile = ({ user }) => {
               <p>Registration Number: {userData.registrationNumber}</p>
               <p>Course: {userData.course}</p>
             </div>
-            {/* ..................... */}
             <button onClick="/">Change Information</button>
           </div>
         </>
       )}
-    </div>
+    </div> 
+    
+    */}
     </>
   );
 };
