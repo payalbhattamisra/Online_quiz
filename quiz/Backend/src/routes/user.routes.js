@@ -11,8 +11,9 @@ userRouter.route("/signup").post(
             maxCount: 1
         }
     ]),
-    signupUser)
+    signupUser
+);
 
-userRouter.route("/login").post(loginUser) 
+userRouter.route("/Login").post(loginUser);
 
 export default userRouter
