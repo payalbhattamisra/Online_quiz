@@ -3,6 +3,8 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
 import { ApiResponce } from "../utils/ApiResponce.js";
+import { Quiz } from "../models/quiz.model.js";
+import { quizquestion } from "../models/quizquestions.model.js";
 
 const generateAccessTokenRefereshToken = async (userId) => {
   try {
@@ -115,6 +117,32 @@ const loginUser = asyncHandler(async (req, res) => {
       )
     );
 });
+const createQuiz=asyncHandler(async(req,res)=>{
+  const { title, category, description } = req.body;
+  const createdBy = req.user._id;
+  const newQuiz = new Quiz({
+    createdBy,
+    category,
+    title,
+    description,
+  });
+  await newQuiz.save();
+  return res.status(201).json(new ApiResponce(201, newQuiz, "Quiz created successfully"));
+});
+const addQuestionToQuiz = asyncHandler(async (req, res) => {
+  const { quizId, correct_ans, text, options } = req.body;
+
+  const newQuestion = new quizquestion({
+    quiz_Id: quizId,
+    correct_ans,
+    text,
+    options,
+  });
+  await newQuestion.save();
+
+  return res.status(201).json(new ApiResponce(201, newQuestion, "Question added to quiz successfully"));
+});
 
 
-export {signupUser, loginUser};
+
+export {signupUser, loginUser,createQuiz,addQuestionToQuiz };

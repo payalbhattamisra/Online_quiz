@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { signupUser,loginUser } from "../controllers/user.controller.js";
+import { signupUser,loginUser ,createQuiz,addQuestionToQuiz } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 
 
@@ -15,5 +15,7 @@ userRouter.route("/signup").post(
 );
 
 userRouter.route("/Login").post(loginUser);
+userRouter.route("/create").post(createQuiz);
+userRouter.route("/add-question").post(addQuestionToQuiz);
 
 export default userRouter
