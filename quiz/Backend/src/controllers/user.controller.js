@@ -143,6 +143,7 @@ const addQuestionToQuiz = asyncHandler(async (req, res) => {
   return res.status(201).json(new ApiResponce(201, newQuestion, "Question added to quiz successfully"));
 });
 
+
 const logoutUser = asyncHandler(async (req, res) => {
   res.clearCookie("refreshToken",
      { httpOnly: true, secure: true }
@@ -150,7 +151,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.clearCookie("accessToken", 
     { httpOnly: true, secure: true })
     ;
-
+  
   return res
   .status(200)
   .json(
