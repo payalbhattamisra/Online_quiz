@@ -17,6 +17,5 @@ userRouter.route("/create").post(createQuiz);
 userRouter.route("/add-question").post(addQuestionToQuiz);
 userRouter.route("/Login").post(loginUser);
 userRouter.route("/logout").post(logoutUser)
-
-
+ 
 export default userRouter
