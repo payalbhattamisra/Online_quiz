@@ -1,127 +1,180 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ /* CreateQuiz.css */
 
-.icon {
-    height: 60px;
-    width: 840px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icon > .first {
-    height: 80%;
-    width: 30%;
-    margin-left: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icon > .last {
-    height: 80%;
-    width: 40%;
-    margin-right: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.first > .heading {
-    font-size: 20px;
-}
-
-.btnswitch > button {
-    padding: 10px;
-    font-size: 17px;
-    background-color: midnightblue;
-    color: aliceblue;
-    border: none;
-    border-radius: 20%;
-}
-
- .box1 {
-    background-color: white;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.box1 > .iner {
-    font-size: 10px;
-}
-
-
-.box1 > .in > input {
-    width: 900px;
-}
-
-.iner > input {
-    font-size: 24px;
-    font-weight: 400;
+.form {
     width: 100%;
-    padding: 10px;
-    border: none;
-}
-.in>input{
-    font-size: 14px;
-    font-weight: 400;
-    width: 100%;
-    padding: 10px;
-    border: none;
-}
-
-.iner,.in {
-    position: relative;
-}
-
-.toolbar {
-    display: flex;
-    margin-top: 10px;
-    background-color: white;
-    /* position: absolute; */
-    top: 100%;
-    left: 0;
-}
-
-.toolbar > button {
-    font-size: 16px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-.box2{
-    background-color: white;
-    margin-top: 10px;
-    margin-left:10px;
-    margin-right: 10px;
-}
-.que>input{
-    font-size: 14px;
-    font-weight: 400;
-    width: 80%;
-    padding: 10px;
-    border: none;
-}
-.box2>.que{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.que i{
-    padding:10px;
-    padding-right: 30px;
-}
-#quiztypes{
-    border:10cm;
-    width:30%;
-}
-.que{
-    display: flex;
-}
- .left{
-    width:93%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
   }
-   
+  
+  .icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .first {
+    display: flex;
+    align-items: center;
+  }
+  
+  .first .heading {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #023E8A;
+  }
+  
+  .last {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btnswitch {
+    margin-left: 10px;
+  }
+  
+  .btn3 {
+    padding: 8px 16px;
+    background-color: #023E8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn3:hover {
+    background-color: #0353A4;
+  }
+  
+  .que {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .left {
+    width: 75%;
+  }
+  
+  .box1, .box2 {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .box2 .que > input {
+    width: 100%;
+  }
+  
+  .iner, .in {
+    margin-bottom: 15px;
+  }
+  
+  .toolbar {
+    margin-top: 5px;
+    display: flex;
+  }
+  
+  .toolbar button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #023E8A ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .toolbar button:hover {
+    background-color: #ddd;
+  }
+  
+  .toolbar button b, .toolbar button i {
+    font-size: 16px;
+  }
+  
+  .answer-input input,
+  .answer-input textarea,
+  .option input[type="text"],
+  .in input,
+  .in textarea,
+  .iner input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .answer-input input,
+  .option input[type="text"],
+  .iner input {
+    height: 40px;
+  }
+  
+  .answer-input textarea,
+  .in textarea {
+    height: 80px;
+  }
+  
+  .multiple-choice .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .multiple-choice .option input[type="radio"],
+  .multiple-choice .option input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .multiple-choice .option input[type="text"] {
+    height: 40px; /* Increased height for better visibility */
+  }
+  
+  .vl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .vl i {
+    font-size: 24px;
+    color: #023E8A;
+  }
+  
+  .optionss {
+    margin-top: 10px;
+  }
+  
+  .optionss select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 35px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #023E8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0353A4;
+  }
+  
