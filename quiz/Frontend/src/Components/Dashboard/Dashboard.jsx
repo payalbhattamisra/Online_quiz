@@ -7,11 +7,11 @@ import RegStudent from "./RegStudent";
 import ManageExam from "./ManageExam";
 import DeshBoard from "./Dashboard";
 import "./Dashboard.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Dashboard() {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [currentSection, setCurrentSection] = useState("profile");
@@ -19,6 +19,15 @@ function Dashboard() {
   useEffect(() => {
     setLoading(false);
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:8000/api/g1/users/logout");
+      navigate("/Loginp");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   const renderSection = () => {
     switch (currentSection) {
@@ -60,8 +69,8 @@ function Dashboard() {
         <NavLink onClick={() => setCurrentSection("manageExam")}>Manage Exam</NavLink>
         <NavLink onClick={() => setCurrentSection("registeredStudents")}>Registered Students</NavLink>
         <NavLink onClick={() => setCurrentSection("setting")}>Setting</NavLink>
-        <button onClick={() => navigate("/")}>Logout</button>
-      </div>
+        <button onClick={handleLogout}>Logout</button>
+        </div>
       <div className="dashR">{renderSection()}</div>
     </div>
     </div>

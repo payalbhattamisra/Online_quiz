@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { signupUser,loginUser ,createQuiz,addQuestionToQuiz } from "../controllers/user.controller.js";
+import {  createQuiz,addQuestionToQuiz } from "../controllers/user.controller.js";
+import { signupUser,loginUser, logoutUser } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middlewares.js";
-
-
+ 
 const userRouter= Router();
 userRouter.route("/signup").post(
     upload.fields([
@@ -13,9 +13,10 @@ userRouter.route("/signup").post(
     ]),
     signupUser
 );
-
-userRouter.route("/Login").post(loginUser);
 userRouter.route("/create").post(createQuiz);
 userRouter.route("/add-question").post(addQuestionToQuiz);
+userRouter.route("/Login").post(loginUser);
+userRouter.route("/logout").post(logoutUser)
+
 
 export default userRouter
