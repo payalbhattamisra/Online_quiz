@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './CreateQuiz.css';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const CreateQuiz = () => {
   const [titleBold, setTitleBold] = useState(false);
@@ -14,6 +15,36 @@ const CreateQuiz = () => {
   const [descText, setDescText] = useState("");
   const [descFocused, setDescFocused] = useState(false);
   const [descUpperCase, setDescUpperCase] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Prepare quiz data
+    const quizData = {
+      title: titleText,
+      category: "default",  
+      description: descText,
+      questions: questions.map((question) => ({
+        text: question.text,
+        type: question.type,
+        options: question.options,
+        answer: question.answer,
+      })),
+      examDate: examDate,
+      teacherInfo: teacherInfo,
+    };
+    try {
+      const response = await axios.post('http://localhost:8000/api/quiz/create', quizData, {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN_SECRET}`,
+        },
+      });
+      console.log('Quiz created successfully:', response.data);
+      navigate('/');
+    } catch (error) {
+      console.error('Error creating quiz:', error.response?.data || error.message);
+    }
+  };
 
   const [questions, setQuestions] = useState([
     {
@@ -400,7 +431,7 @@ const CreateQuiz = () => {
           </div>
         ))}
         {/* ............................ */}
-        <button onClick="/">Submit Quiz</button>
+        <button onClick ={handleSubmit}>Submit Quiz</button>
       </div>
     </>
   );
