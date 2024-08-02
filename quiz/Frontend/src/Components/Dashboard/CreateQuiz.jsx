@@ -16,35 +16,7 @@ const CreateQuiz = () => {
   const [descFocused, setDescFocused] = useState(false);
   const [descUpperCase, setDescUpperCase] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    // Prepare quiz data
-    const quizData = {
-      title: titleText,
-      category: "default",  
-      description: descText,
-      questions: questions.map((question) => ({
-        text: question.text,
-        type: question.type,
-        options: question.options,
-        answer: question.answer,
-      })),
-      examDate: examDate,
-      teacherInfo: teacherInfo,
-    };
-    try {
-      const response = await axios.post('http://localhost:8000/api/quiz/create', quizData, {
-        headers: {
-          Authorization: `Bearer ${process.env.ACCESS_TOKEN_SECRET}`,
-        },
-      });
-      console.log('Quiz created successfully:', response.data);
-      navigate('/');
-    } catch (error) {
-      console.error('Error creating quiz:', error.response?.data || error.message);
-    }
-  };
+   
 
   const [questions, setQuestions] = useState([
     {
@@ -61,6 +33,7 @@ const CreateQuiz = () => {
 
   const [examDate, setExamDate] = useState("");
   const [teacherInfo, setTeacherInfo] = useState("");
+   
 
   const toggleTitleBold = () => {
     setTitleBold(!titleBold);
@@ -286,7 +259,30 @@ const CreateQuiz = () => {
         return null;
     }
   };
-
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/api/g1/users/create", {
+        titleText,
+        titleBold,
+        titleItalic,
+        titleUpperCase,
+        descText,
+        descBold,
+        descItalic,
+        descUpperCase,
+        examDate,
+        teacherInfo,
+        questions
+      });
+      console.log("Quiz created successfully:", response.data);
+      navigate("/success"); // Adjust the route as needed
+    } catch (error) {
+      console.error("Error creating quiz:", error);
+      alert("There was an error creating the quiz. Please try again.");
+    }
+  };
   
 
   return (
