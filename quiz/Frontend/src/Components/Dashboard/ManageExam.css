@@ -1,0 +1,96 @@
+ .managexam{
+    margin-top: 70px;
+    background-color: rgb(111, 129, 129);
+    height:670px;
+    padding-left: 10px;
+ }
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .meTitle {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .meTitle>h3 {
+    margin: 0;
+  }
+  
+  .meDetails {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 20px;
+  }
+  
+  .meDetails>p {
+    margin: 0 10px;
+  }
+  
+  .meDetails input[type="number"],
+  .meDetails input[type="search"] {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .meDetails button {
+    padding: 5px 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  tbody button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #124a86;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  tbody button:hover {
+    background-color: #0056b3;
+  }
+  
+  tbody button.delete {
+    background-color: #dc3545;
+  }
+  
+  tbody button.delete:hover {
+    background-color: #c82333;
+  }
+  
+  tbody button.add {
+    background-color: #28a745;
+  }
+  
+  tbody button.add:hover {
+    background-color: #218838;
+  }
+  

@@ -19,6 +19,7 @@ import Data from './Components/Data/QuizQuestion';
 import Contact from './Components/Contact/Contact';
 
 import TakeQuiz from './Components/Dashboard/TakeQuiz';
+import ManageExam from './Components/Dashboard/ManageExam';
 
 // const router = createBrowserRouter([
 //   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
         path:"TakeQuiz",
         element:<TakeQuiz/>
       },
+      {
+        path:"manage-exam",
+        element:<ManageExam/>
+      }
 
 
     ]
