@@ -11,13 +11,8 @@ const quizSchema=new Schema({
     examDate: Date,
     teacherInfo: String,
     questions: [{
-      text: { type: String, required: true },
-      bold: { type: Boolean, default: false },
-      italic: { type: Boolean, default: false },
-      upperCase: { type: Boolean, default: false },
-      type: { type: String, required: true },
-      options: [{ text: String, correct: Boolean }],
-      answer: String
+          type: Schema.Types.ObjectId,
+          ref: 'quizquestion'
     }]
 },{timestamps:true})
 export const Quiz=mongoose.model("Quiz",quizSchema)

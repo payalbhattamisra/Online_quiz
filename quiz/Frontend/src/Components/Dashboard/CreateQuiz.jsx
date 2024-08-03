@@ -377,14 +377,13 @@ const CreateQuiz = () => {
             </div>
           </div>
 
-          <div className="vl" onClick={addQuestion}>
-            <i className="fa-solid fa-circle-plus"></i>
-          </div>
+           
         </div>
 
         {questions.map((question, index) => (
           <div className="box2" key={index}>
             <div className="que">
+            <span>{index + 1}. </span>
               <input
                 type="text"
                 value={question.text}
@@ -427,6 +426,9 @@ const CreateQuiz = () => {
           </div>
         ))}
         {/* ............................ */}
+        <div className="vl" onClick={addQuestion}>
+            <i className="fa-solid fa-circle-plus"></i>
+          </div>
         <button onClick ={handleSubmit}>Submit Quiz</button>
       </div>
     </>

@@ -20,7 +20,12 @@ export const createQuiz = asyncHandler(async (req, res) => {
           teacherInfo,
           questions
         } = req.body;
-    
+
+        const quizquestionset = await Promise.all(questions.map(async (q) => {
+          const question = new quizquestion(q);
+          await question.save();
+          return question._id;
+        }));
         const newQuiz = new Quiz({
           titleText,
           titleBold,
@@ -32,7 +37,7 @@ export const createQuiz = asyncHandler(async (req, res) => {
           descUpperCase,
           examDate,
           teacherInfo,
-          questions
+          questions: quizquestionset
         });
     
         await newQuiz.save();
