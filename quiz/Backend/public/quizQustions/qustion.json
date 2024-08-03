@@ -1,0 +1,129 @@
+{
+    "questions": [
+      {
+        "question_no": 1,
+        "question": "Which hook is used to perform side effects in function components?",
+        "options": [
+          "useEffect",
+          "useState",
+          "useContext",
+          "useReducer"
+        ],
+        "answer": "useEffect",
+        "category": "react"
+      },
+      {
+        "question_no": 2,
+        "question": "What is the purpose of the 'key' prop in React lists?",
+        "options": [
+          "To uniquely identify each element in a list for efficient updates",
+          "To define the CSS class of the list items",
+          "To specify the component type for each list item",
+          "To control the rendering order of list items"
+        ],
+        "answer": "To uniquely identify each element in a list for efficient updates",
+        "category": "react"
+      },
+      {
+        "question_no": 3,
+        "question": "How can you optimize performance in a React application?",
+        "options": [
+          "Use React.memo for functional components",
+          "Use context API excessively",
+          "Avoid using keys in lists",
+          "Always use inline functions in render methods"
+        ],
+        "answer": "Use React.memo for functional components",
+        "category": "react"
+      },
+      {
+        "question_no": 4,
+        "question": "What does the 'useReducer' hook return?",
+        "options": [
+          "A state variable and a dispatch function",
+          "A component and a state",
+          "A state updater function and a context",
+          "A component lifecycle method"
+        ],
+        "answer": "A state variable and a dispatch function",
+        "category": "react"
+      },
+      {
+        "question_no": 5,
+        "question": "In React, what is 'lifting state up'?",
+        "options": [
+          "Moving state to a common ancestor component",
+          "Using the useState hook to manage state",
+          "Passing state as props to child components",
+          "Using Redux for state management"
+        ],
+        "answer": "Moving state to a common ancestor component",
+        "category": "react"
+      },
+      {
+        "question_no": 6,
+        "question": "What will be the output of the following code?",
+        "code": "const MyComponent = () => { return <div>Hello, {undefined}</div>; };",
+        "options": [
+          "Hello, undefined",
+          "Hello, {undefined}",
+          "Hello, ",
+          "The component will not render"
+        ],
+        "answer": "Hello, undefined",
+        "category": "react"
+      },
+      {
+        "question_no": 7,
+        "question": "What does the following code snippet achieve?",
+        "code": "const MyComponent = () => { const [count, setCount] = useState(0); return <button onClick={() => setCount(count + 1)}>{count}</button>; };",
+        "options": [
+          "A button that increments the count on click",
+          "A button that decrements the count on click",
+          "A button that displays a static count of 0",
+          "A button that does nothing"
+        ],
+        "answer": "A button that increments the count on click",
+        "category": "react"
+      },
+      {
+        "question_no": 8,
+        "question": "What will be the output of this code if 'isLoading' is true?",
+        "code": "const MyComponent = () => { return <>{isLoading ? <p>Loading...</p> : <p>Data loaded</p>}</>; };",
+        "options": [
+          "Loading...",
+          "Data loaded",
+          "An empty string",
+          "An error"
+        ],
+        "answer": "Loading...",
+        "category": "react"
+      },
+      {
+        "question_no": 9,
+        "question": "What does the following code do?",
+        "code": "const App = () => { const handleClick = () => { console.log('Button clicked'); }; return <button onClick={handleClick}>Click me</button>; };",
+        "options": [
+          "Logs 'Button clicked' to the console when the button is clicked",
+          "Logs 'Button clicked' to the console immediately upon rendering",
+          "Does nothing",
+          "Throws an error when the button is clicked"
+        ],
+        "answer": "Logs 'Button clicked' to the console when the button is clicked",
+        "category": "react"
+      },
+      {
+        "question_no": 10,
+        "question": "What is the default behavior of the 'strict mode' in React?",
+        "options": [
+          "It helps find potential problems in an application by double-invoking certain lifecycle methods",
+          "It disables all warnings and errors in development mode",
+          "It optimizes the performance of React components",
+          "It automatically applies CSS styles to components"
+        ],
+        "answer": "It helps find potential problems in an application by double-invoking certain lifecycle methods",
+        "category": "react"
+      }
+    ]
+  }
+  
