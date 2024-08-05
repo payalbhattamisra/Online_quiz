@@ -1,0 +1,129 @@
+{
+    "questions": [
+      {
+        "question_no": 1,
+        "question": "What is the output of the following code?",
+        "code": "console.log(typeof NaN);",
+        "options": [
+          "number",
+          "NaN",
+          "undefined",
+          "object"
+        ],
+        "answer": "number",
+        "category": "javascript"
+      },
+      {
+        "question_no": 2,
+        "question": "Which method is used to convert a string to a number in JavaScript?",
+        "options": [
+          "parseInt()",
+          "toNumber()",
+          "convert()",
+          "number()"
+        ],
+        "answer": "parseInt()",
+        "category": "javascript"
+      },
+      {
+        "question_no": 3,
+        "question": "What will be the output of the following code?",
+        "code": "console.log(0.1 + 0.2 === 0.3);",
+        "options": [
+          "true",
+          "false",
+          "undefined",
+          "TypeError"
+        ],
+        "answer": "false",
+        "category": "javascript"
+      },
+      {
+        "question_no": 4,
+        "question": "How can you create a new array with elements from another array in JavaScript?",
+        "options": [
+          "Using the slice() method",
+          "Using the push() method",
+          "Using the concat() method",
+          "Using the map() method"
+        ],
+        "answer": "Using the slice() method",
+        "category": "javascript"
+      },
+      {
+        "question_no": 5,
+        "question": "What does the 'this' keyword refer to in a JavaScript function?",
+        "options": [
+          "The object that is currently executing the code",
+          "The global object",
+          "The function itself",
+          "The prototype of the function"
+        ],
+        "answer": "The object that is currently executing the code",
+        "category": "javascript"
+      },
+      {
+        "question_no": 6,
+        "question": "What is the output of the following code?",
+        "code": "const a = [1, 2, 3]; const b = [4, 5, 6]; console.log(a.concat(b));",
+        "options": [
+          "A new array with elements [1, 2, 3, 4, 5, 6]",
+          "Array [4, 5, 6, 1, 2, 3]",
+          "Concatenation of arrays [1, 2, 3] + [4, 5, 6]",
+          "Array [4, 5, 6]"
+        ],
+        "answer": "A new array with elements [1, 2, 3, 4, 5, 6]",
+        "category": "javascript"
+      },
+      {
+        "question_no": 7,
+        "question": "How can you prevent a function from being called more than once every X milliseconds?",
+        "options": [
+          "Using a throttle function",
+          "Using a debounce function",
+          "Using a memoization function",
+          "Using an async function"
+        ],
+        "answer": "Using a throttle function",
+        "category": "javascript"
+      },
+      {
+        "question_no": 8,
+        "question": "What will be the output of the following code?",
+        "code": "console.log([1] == [1]);",
+        "options": [
+          "true",
+          "false",
+          "undefined",
+          "TypeError"
+        ],
+        "answer": "false",
+        "category": "javascript"
+      },
+      {
+        "question_no": 9,
+        "question": "What is the purpose of the 'bind()' method in JavaScript?",
+        "options": [
+          "To create a new function with a specific 'this' context",
+          "To merge two objects",
+          "To clone an object",
+          "To sort an array"
+        ],
+        "answer": "To create a new function with a specific 'this' context",
+        "category": "javascript"
+      },
+      {
+        "question_no": 10,
+        "question": "How can you define a function that accepts a variable number of arguments in JavaScript?",
+        "options": [
+          "Using the rest parameter syntax",
+          "Using the arguments object",
+          "Using the spread operator",
+          "Using the function.length property"
+        ],
+        "answer": "Using the rest parameter syntax",
+        "category": "javascript"
+      }
+    ]
+  }
+  

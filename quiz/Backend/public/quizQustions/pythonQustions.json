@@ -1,0 +1,130 @@
+{
+    "questions": [
+      {
+        "question_no": 1,
+        "question": "What will be the output of the following code?",
+        "code": "print(type(5 / 2))",
+        "options": [
+          "int",
+          "float",
+          "str",
+          "NoneType"
+        ],
+        "answer": "float",
+        "category": "python"
+      },
+      {
+        "question_no": 2,
+        "question": "Which method is used to add an item to the end of a list in Python?",
+        "options": [
+          "append()",
+          "add()",
+          "insert()",
+          "extend()"
+        ],
+        "answer": "append()",
+        "category": "python"
+      },
+      {
+        "question_no": 3,
+        "question": "What will be the output of the following code?",
+        "code": "print([1, 2] + [3, 4])",
+        "options": [
+          "[1, 2, 3, 4]",
+          "[1, 2][3, 4]",
+          "[1, 2] [3, 4]",
+          "[1, 2] + [3, 4]"
+        ],
+        "answer": "[1, 2, 3, 4]",
+        "category": "python"
+      },
+      {
+        "question_no": 4,
+        "question": "What does the 'len()' function do in Python?",
+        "options": [
+          "Returns the length of an object",
+          "Converts an object to a list",
+          "Finds the length of a file",
+          "Returns the last element of an object"
+        ],
+        "answer": "Returns the length of an object",
+        "category": "python"
+      },
+      {
+        "question_no": 5,
+        "question": "What will be the result of the following code?",
+        "code": "print('Hello'.replace('e', 'a'))",
+        "options": [
+          "Hallo",
+          "Halla",
+          "Hello",
+          "Helo"
+        ],
+        "answer": "Hallo",
+        "category": "python"
+      },
+      {
+        "question_no": 6,
+        "question": "How can you create a dictionary in Python?",
+        "options": [
+          "Using curly braces {}",
+          "Using square brackets []",
+          "Using parentheses ()",
+          "Using the dict() function"
+        ],
+        "answer": "Using curly braces {}",
+        "category": "python"
+      },
+      {
+        "question_no": 7,
+        "question": "What will be the output of the following code?",
+        "code": "print([x**2 for x in range(3)])",
+        "options": [
+          "[0, 1, 4]",
+          "[1, 4, 9]",
+          "[0, 1, 2]",
+          "[1, 2, 3]"
+        ],
+        "answer": "[0, 1, 4]",
+        "category": "python"
+      },
+      {
+        "question_no": 8,
+        "question": "What does the 'self' keyword represent in a Python class?",
+        "options": [
+          "The instance of the class",
+          "The class itself",
+          "A global variable",
+          "A method within the class"
+        ],
+        "answer": "The instance of the class",
+        "category": "python"
+      },
+      {
+        "question_no": 9,
+        "question": "How do you handle exceptions in Python?",
+        "options": [
+          "Using try-except blocks",
+          "Using if-else statements",
+          "Using the catch keyword",
+          "Using error handling functions"
+        ],
+        "answer": "Using try-except blocks",
+        "category": "python"
+      },
+      {
+        "question_no": 10,
+        "question": "What is the result of the following code?",
+        "code": "print({1, 2, 3} & {2, 3, 4})",
+        "options": [
+          "{2, 3}",
+          "{1, 2, 3, 4}",
+          "{1, 4}",
+          "{}"
+        ],
+        "answer": "{2, 3}",
+        "category": "python"
+      }
+    ]
+  }
+  

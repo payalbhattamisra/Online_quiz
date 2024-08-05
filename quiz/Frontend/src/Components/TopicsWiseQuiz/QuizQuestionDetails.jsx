@@ -18,7 +18,7 @@ function QuizQuestionDetails() {
     }
     const startQuiz =()=>{
         //console.log("Quiz started!");
-        navigate('/Start_Quiz',{state:{quizDetails}});
+        navigate('/Startquiz',{state:{quizDetails}});
     }
   return (
     <>

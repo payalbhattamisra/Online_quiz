@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Createquizz from './Components/Pages/Createquizz';
-import Topicwisequiz from './Components/Topics/Topicwisequiz';
+import Topicwisequiz from './Components/TopicsWiseQuiz/Topicwisequiz';
 import Layout from './Layout';
 import SigninPage from './Components/SigninPage/SigninPage';
 import LoginPage from './Components/LoginPage/LoginPage';
@@ -13,13 +13,11 @@ import {
 
   RouterProvider,
 } from "react-router-dom";
-import QuizQuestionDetails from './Components/QuizQuestionDetails/QuizQuestionDetails';
+import QuizQuestionDetails from './Components/TopicsWiseQuiz/QuizQuestionDetails';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Data from './Components/Data/QuizQuestion';
 import Contact from './Components/Contact/Contact';
 
 import TakeQuiz from './Components/Dashboard/TakeQuiz';
-import ManageExam from './Components/Dashboard/ManageExam';
 
 // const router = createBrowserRouter([
 //   {
@@ -69,10 +67,6 @@ const router = createBrowserRouter([
         element: <Dashboard/>,
       },
       {
-        path:"Start_Quiz",
-        element:<Data/>,
-      },
-      {
         path:"Contact",
         element:<Contact/>,
       },
@@ -81,10 +75,6 @@ const router = createBrowserRouter([
         path:"TakeQuiz",
         element:<TakeQuiz/>
       },
-      {
-        path:"manage-exam",
-        element:<ManageExam/>
-      }
 
 
     ]
