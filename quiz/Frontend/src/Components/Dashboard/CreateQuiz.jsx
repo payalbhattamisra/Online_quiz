@@ -277,7 +277,7 @@ const CreateQuiz = () => {
         questions
       });
       console.log("Quiz created successfully:", response.data);
-      navigate("/success"); // Adjust the route as needed
+      navigate("/manage-exam"); // Adjust the route as needed
     } catch (error) {
       console.error("Error creating quiz:", error);
       alert("There was an error creating the quiz. Please try again.");
