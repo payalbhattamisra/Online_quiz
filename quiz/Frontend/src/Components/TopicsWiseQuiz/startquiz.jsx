@@ -1,12 +1,25 @@
-import React from 'react'
 
-const startquiz = () => {
+import React, { useEffect } from 'react';
+
+const StartQuiz = () => {
+
+  useEffect(() => {
+    //  http://localhost:8000/api/g1/users/questions
+fetch('http://localhost:8000/api/g1/users/questions')
+.then(response => response.json())
+.then(questions => {
+  console.log(questions);
+})
+.catch(error => {
+  console.error('Error fetching quiz questions:', error);
+});
+  }, []);
+
   return (
     <>
-    <h2>Topic:</h2>
-    <h3>Time remain:</h3>
+    
     </>
-  )
-}
+  );
+};
 
-export default startquiz
+export default StartQuiz;
