@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import './ManageExam.css';
 import axios from 'axios';
 
 function ManageExam() {
@@ -19,7 +18,7 @@ function ManageExam() {
   }, []);
 
   return (
-    <div className="managexam">
+    <div className="manage-exam">
       <div className="heading">
         <h1>Manage Exam</h1>
       </div>
