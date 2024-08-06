@@ -262,25 +262,13 @@ const CreateQuiz = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newQuiz = { titleText, descText, examDate, teacherInfo, questions };
+
     try {
-      const response = await axios.post("http://localhost:8000/api/g1/users/create", {
-        titleText,
-        titleBold,
-        titleItalic,
-        titleUpperCase,
-        descText,
-        descBold,
-        descItalic,
-        descUpperCase,
-        examDate,
-        teacherInfo,
-        questions
-      });
-      console.log("Quiz created successfully:", response.data);
-      navigate("/manage-exam"); // Adjust the route as needed
+      await axios.post('http://localhost:8000/api/g1/users/create', newQuiz);
+      navigate('/manage-exam');
     } catch (error) {
       console.error("Error creating quiz:", error);
-      alert("There was an error creating the quiz. Please try again.");
     }
   };
   
@@ -306,7 +294,7 @@ const CreateQuiz = () => {
             <i className="fa-solid fa-arrow-right" style={{ color: " #222222" }}></i>
             <div className="btnswitch">
               {/* ........................ */}
-              <button className="btn3" onClick="/">send</button>
+              <button className="btn3" >send</button>
             </div>
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>

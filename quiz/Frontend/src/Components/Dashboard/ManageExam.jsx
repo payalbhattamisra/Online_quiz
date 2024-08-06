@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import './ManageExam.css';
 
 function ManageExam() {
   const [exams, setExams] = useState([]);
 
   useEffect(() => {
-    const fetchExams = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/exams');
-        setExams(response.data);
-      } catch (error) {
-        console.error("Error fetching exam data:", error);
-      }
-    };
-
-    fetchExams();
+    axios.get('http://localhost:8000/api/exams')
+      .then(responsse => {
+        console.log('API response data:', responsse.data);
+        if (Array.isArray(responsse.data)) {
+          setExams(responsse.data);
+        } else if (responsse.data.exams && Array.isArray(responsse.data.exams)) {
+          setExams(responsse.data.exams);
+        } else if (Array.isArray(responsse.data.data)) {
+          setExams(responsse.data.data);
+        } else if (responsse.data.questions && Array.isArray(responsse.data.questions)) { // Handle questions key
+          setExams(responsse.data.questions);
+        } else {
+          console.error('Unexpected response data format:', responsse.data);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching exam data:', error);
+      });
   }, []);
 
   return (
