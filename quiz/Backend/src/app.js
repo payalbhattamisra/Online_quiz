@@ -24,16 +24,9 @@ app.use("/api/g1/users",userRouter)
 import quizRouter from "./routes/quiz.routes.js";
 app.use("/api/quiz", quizRouter);
 
-import { manageExam } from "./models/manageexam.model.js";
-
-app.get('/api/exams', async (req, res) => {
-  try {
-    const exams = await manageExam.find();
-    res.json(exams);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching exams' });
-  }
-});
+import manageexamrouter from "./routes/manageexam.routes.js";
+app.use('/api/exams', manageexamrouter);
+ 
 
 
 
