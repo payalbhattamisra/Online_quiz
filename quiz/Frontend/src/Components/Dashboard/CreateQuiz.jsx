@@ -273,6 +273,7 @@ const CreateQuiz = () => {
   };
   
 
+  
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -417,8 +418,7 @@ const CreateQuiz = () => {
         <div className="vl" onClick={addQuestion}>
             <i className="fa-solid fa-circle-plus"></i>
           </div>
-        <button onClick ={handleSubmit}>Submit Quiz</button>
-      </div>
+          <button className="cqbtn" onClick ={handleSubmit}>Submit Quiz</button>      </div>
     </>
   );
 };
