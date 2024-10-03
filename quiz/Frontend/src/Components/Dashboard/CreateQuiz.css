@@ -164,7 +164,7 @@
     height: 35px;
   }
   
-  button {
+  .cqbtn {
     padding: 10px 20px;
     background-color: #023E8A;
     color: #fff;
@@ -173,7 +173,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+  .cqbtn:hover {
     background-color: #0353A4;
   }
   

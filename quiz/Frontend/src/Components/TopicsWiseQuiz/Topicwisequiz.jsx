@@ -29,7 +29,7 @@ function Topicwisequiz() {
             <i class="fa-brands fa-js" style={{ color: "#FFBB70" }}></i>
             Javascript
           </button>
-          <button className="topicbtn" onClick={()=>questionDetails('Python')}>
+          <button className="topicbtn" onClick={()=>questionDetails('python')}>
             <i class="fa-brands fa-python" style={{ color: "#240750" }}></i>
             Python
           </button>
